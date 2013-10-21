@@ -36,5 +36,11 @@ namespace ShootingGame
             frmHighScores formHighScores = new frmHighScores();
             formHighScores.Show();
         }
+
+        private void btnStartNew_Click(object sender, EventArgs e)
+        {
+            frmWeapon formWeapon = new frmWeapon();
+            formWeapon.Show();
+        }
     }
 }

@@ -1,0 +1,10 @@
+This git repository hosts the source code for the Shooting Game (Target Practice). This game is being developed by Robin Notte & Viraj Chitnis as a project for CIS 3309 class in Temple University.
+The directory structure of this project is as such:
+	.
+	|-- Documentation
+	|   `-- Contains the documentation for this project.
+	|-- Game Files
+	|   `-- Contains auxiliary files for the project. Eg. Sound files & picture files.
+	|-- WindowsFormsApplication1
+	|   `-- Contains the source code for the project.
+	`-- ShootingGame.sln

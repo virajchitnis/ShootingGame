@@ -4,7 +4,7 @@ The directory structure of this project is as such:
 	|-- Documentation
 	|   `-- Contains the documentation for this project.
 	|-- Game Files
-	|   `-- Contains auxiliary files for the project. Eg. Sound files & picture files.
+	|   `-- Contains auxiliary files such as sounds and pictures.
 	|-- WindowsFormsApplication1
 	|   `-- Contains the source code for the project.
 	`-- ShootingGame.sln

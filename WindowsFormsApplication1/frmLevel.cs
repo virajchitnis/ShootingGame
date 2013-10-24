@@ -19,7 +19,7 @@ namespace ShootingGame
         private void btnLevel1_Click(object sender, EventArgs e)
         {
             frmMain.userLevel = new Level(1, 1, 1, 1);
-            frmPlay newLevel = new frmPlay();
+            frmGame newLevel = new frmGame();
             newLevel.Show();
             this.Close();
         }

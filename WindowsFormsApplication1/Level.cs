@@ -20,6 +20,8 @@ namespace ShootingGame
             numTargetsSmall = small;
             numTargetsMedium = medium;
             numTargetsBig = big;
+            currScore = 0;
+            // initialize maxScore by multiplying the number of each type of target with its score and adding.
         }
 
         public Boolean updateScore(int add)
@@ -33,6 +35,31 @@ namespace ShootingGame
             {
                 return false;
             }
+        }
+
+        public int getLevel()
+        {
+            return levelNumber;
+        }
+
+        public int getScore()
+        {
+            return currScore;
+        }
+
+        public int getSmallTargets()
+        {
+            return numTargetsSmall;
+        }
+
+        public int getMediumTargets()
+        {
+            return numTargetsMedium;
+        }
+
+        public int getBigTargets()
+        {
+            return numTargetsBig;
         }
     }
 }

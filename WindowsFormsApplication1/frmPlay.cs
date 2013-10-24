@@ -11,20 +11,20 @@ namespace ShootingGame
 {
     public partial class frmPlay : Form
     {
-        public frmPlay()
-        {
-            InitializeComponent();
-        }
-
         int score = 0;
         int timeCount;
         int soundTimer = 2;
         Random rand = new Random();
 
-// These import sound FX
+        // These import sound FX
         System.Media.SoundPlayer noise = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshot = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
-     
+
+        public frmPlay()
+        {
+            InitializeComponent();
+        }
+
    ///////////////////////////////////////////////////////////////////////////////////////
       /// when START GAME is clicked
    //////////////////////////////////////////////////////////////////////////////////////////
@@ -166,10 +166,13 @@ namespace ShootingGame
           }
 
         }
-      
-       
-      
-       
+
+        private void frmPlay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            noise.Stop();
+            gunshot.Stop();
+            frmSplash.mainForm.Show();
+        }
     }
 
 }

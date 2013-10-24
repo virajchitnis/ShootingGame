@@ -11,6 +11,9 @@ namespace ShootingGame
 {
     public partial class frmMain : Form
     {
+        public static Weapon userWeapon;
+        public static Level userLevel;
+
         public frmMain()
         {
             InitializeComponent();
@@ -35,12 +38,19 @@ namespace ShootingGame
         {
             frmHighScores formHighScores = new frmHighScores();
             formHighScores.Show();
+            this.Hide();
         }
 
         private void btnStartNew_Click(object sender, EventArgs e)
         {
             frmWeapon formWeapon = new frmWeapon();
             formWeapon.Show();
+            this.Hide();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

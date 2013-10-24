@@ -46,8 +46,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 399);
             this.Controls.Add(this.lblName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmHighScores";
             this.Text = "High Scores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHighScores_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

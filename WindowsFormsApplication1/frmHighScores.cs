@@ -15,5 +15,10 @@ namespace ShootingGame
         {
             InitializeComponent();
         }
+
+        private void frmHighScores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmSplash.mainForm.Show();
+        }
     }
 }

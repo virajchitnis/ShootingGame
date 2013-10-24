@@ -30,9 +30,9 @@
         {
             this.lblFormName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnHandGun = new System.Windows.Forms.Button();
-            this.btnRifle = new System.Windows.Forms.Button();
             this.btnShotGun = new System.Windows.Forms.Button();
+            this.btnRifle = new System.Windows.Forms.Button();
+            this.btnHandGun = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,14 +56,15 @@
             this.panel1.Size = new System.Drawing.Size(536, 138);
             this.panel1.TabIndex = 1;
             // 
-            // btnHandGun
+            // btnShotGun
             // 
-            this.btnHandGun.Location = new System.Drawing.Point(4, 4);
-            this.btnHandGun.Name = "btnHandGun";
-            this.btnHandGun.Size = new System.Drawing.Size(172, 131);
-            this.btnHandGun.TabIndex = 0;
-            this.btnHandGun.Text = "Hand Gun";
-            this.btnHandGun.UseVisualStyleBackColor = true;
+            this.btnShotGun.Location = new System.Drawing.Point(360, 3);
+            this.btnShotGun.Name = "btnShotGun";
+            this.btnShotGun.Size = new System.Drawing.Size(172, 131);
+            this.btnShotGun.TabIndex = 2;
+            this.btnShotGun.Text = "Shot Gun";
+            this.btnShotGun.UseVisualStyleBackColor = true;
+            this.btnShotGun.Click += new System.EventHandler(this.btnShotGun_Click);
             // 
             // btnRifle
             // 
@@ -73,23 +74,27 @@
             this.btnRifle.TabIndex = 1;
             this.btnRifle.Text = "Rifle";
             this.btnRifle.UseVisualStyleBackColor = true;
+            this.btnRifle.Click += new System.EventHandler(this.btnRifle_Click);
             // 
-            // btnShotGun
+            // btnHandGun
             // 
-            this.btnShotGun.Location = new System.Drawing.Point(360, 3);
-            this.btnShotGun.Name = "btnShotGun";
-            this.btnShotGun.Size = new System.Drawing.Size(172, 131);
-            this.btnShotGun.TabIndex = 2;
-            this.btnShotGun.Text = "Shot Gun";
-            this.btnShotGun.UseVisualStyleBackColor = true;
+            this.btnHandGun.Location = new System.Drawing.Point(4, 4);
+            this.btnHandGun.Name = "btnHandGun";
+            this.btnHandGun.Size = new System.Drawing.Size(172, 131);
+            this.btnHandGun.TabIndex = 0;
+            this.btnHandGun.Text = "Hand Gun";
+            this.btnHandGun.UseVisualStyleBackColor = true;
+            this.btnHandGun.Click += new System.EventHandler(this.btnHandGun_Click);
             // 
             // frmWeapon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 200);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblFormName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmWeapon";
             this.Text = "Choose A Weapon";
             this.panel1.ResumeLayout(false);

@@ -70,6 +70,8 @@
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWelcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "frmSplash";
             this.Text = "Shooting Game";
             this.ResumeLayout(false);

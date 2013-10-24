@@ -112,9 +112,11 @@
             this.Controls.Add(this.btnHighScores);
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.btnStartNew);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Shooting Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResumeLayout(false);
 
         }

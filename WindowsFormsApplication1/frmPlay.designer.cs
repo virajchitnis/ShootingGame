@@ -49,7 +49,7 @@
             // btnBig
             // 
             this.btnBig.BackColor = System.Drawing.Color.Transparent;
-            this.btnBig.Location = new System.Drawing.Point(386, 313);
+            this.btnBig.Location = new System.Drawing.Point(386, 238);
             this.btnBig.Name = "btnBig";
             this.btnBig.Size = new System.Drawing.Size(140, 78);
             this.btnBig.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             // btnMedium
             // 
-            this.btnMedium.Location = new System.Drawing.Point(417, 236);
+            this.btnMedium.Location = new System.Drawing.Point(406, 176);
             this.btnMedium.Name = "btnMedium";
             this.btnMedium.Size = new System.Drawing.Size(89, 30);
             this.btnMedium.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(225, 8);
+            this.label1.Location = new System.Drawing.Point(59, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.lblScore.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.lblScore.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.Location = new System.Drawing.Point(305, 7);
+            this.lblScore.Location = new System.Drawing.Point(139, 7);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(152, 26);
             this.lblScore.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(507, 8);
+            this.label2.Location = new System.Drawing.Point(347, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 25);
             this.label2.TabIndex = 5;
@@ -105,7 +105,7 @@
             this.lblTimeCount.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblTimeCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTimeCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeCount.Location = new System.Drawing.Point(604, 7);
+            this.lblTimeCount.Location = new System.Drawing.Point(418, 6);
             this.lblTimeCount.Name = "lblTimeCount";
             this.lblTimeCount.Size = new System.Drawing.Size(97, 26);
             this.lblTimeCount.TabIndex = 6;
@@ -119,7 +119,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(386, 446);
+            this.btnStart.Location = new System.Drawing.Point(383, 333);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(143, 77);
             this.btnStart.TabIndex = 7;
@@ -135,8 +135,8 @@
             this.label3.Size = new System.Drawing.Size(866, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Viraj,  i would like these 3 text boxes to move (smallest should be the fastest, " +
-                "largest, the slowest). Then i would like to change them into a picture. (a targe" +
-                "t, beer can, or animal maybe)";
+    "largest, the slowest). Then i would like to change them into a picture. (a targe" +
+    "t, beer can, or animal maybe)";
             // 
             // panel1
             // 
@@ -144,9 +144,9 @@
             this.panel1.Controls.Add(this.lblScore);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblTimeCount);
-            this.panel1.Location = new System.Drawing.Point(0, 566);
+            this.panel1.Location = new System.Drawing.Point(12, 462);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 49);
+            this.panel1.Size = new System.Drawing.Size(644, 49);
             this.panel1.TabIndex = 9;
             // 
             // btnSmall
@@ -154,7 +154,7 @@
             this.btnSmall.BackColor = System.Drawing.Color.Transparent;
             this.btnSmall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSmall.ForeColor = System.Drawing.Color.Black;
-            this.btnSmall.Location = new System.Drawing.Point(573, 172);
+            this.btnSmall.Location = new System.Drawing.Point(550, 119);
             this.btnSmall.Name = "btnSmall";
             this.btnSmall.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnSmall.Size = new System.Drawing.Size(40, 33);
@@ -166,7 +166,7 @@
             // picBird
             // 
             this.picBird.Image = global::ShootingGame.Properties.Resources.bird6;
-            this.picBird.Location = new System.Drawing.Point(350, 95);
+            this.picBird.Location = new System.Drawing.Point(350, 49);
             this.picBird.Name = "picBird";
             this.picBird.Size = new System.Drawing.Size(58, 44);
             this.picBird.TabIndex = 10;
@@ -178,13 +178,13 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // frmLevel
+            // frmPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ShootingGame.Properties.Resources.Prairie_en_Meurthe_et_Moselle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(677, 750);
+            this.ClientSize = new System.Drawing.Size(677, 548);
             this.Controls.Add(this.picBird);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -192,9 +192,12 @@
             this.Controls.Add(this.btnSmall);
             this.Controls.Add(this.btnMedium);
             this.Controls.Add(this.btnBig);
-            this.Name = "frmLevel";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.Name = "frmPlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Level";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlay_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.panel1.ResumeLayout(false);

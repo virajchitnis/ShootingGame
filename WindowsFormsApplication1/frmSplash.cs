@@ -11,6 +11,7 @@ namespace ShootingGame
 {
     public partial class frmSplash : Form
     {
+        public static frmMain mainForm;
         public frmSplash()
         {
             InitializeComponent();
@@ -18,8 +19,8 @@ namespace ShootingGame
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            frmMain Main = new frmMain();
-            Main.Show();
+            mainForm = new frmMain();
+            mainForm.Show();
             this.Hide();
         }
     }

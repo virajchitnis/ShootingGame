@@ -13,6 +13,7 @@ namespace ShootingGame
     {
         int currTime;
         Timer moveTargets;
+        bool motionFlipped = false;
 
         // Lists for buttons and their respective targets.
         List<Target> smallTargets = new List<Target>();
@@ -164,7 +165,22 @@ namespace ShootingGame
         {
             for (int i = 0; i < smallBtns.Count; i++)
             {
-                smallBtns[i].Left += 1;
+                if (motionFlipped == false)
+                {
+                    smallBtns[i].Left += 1;
+                    if (smallBtns[i].Right >= 694)
+                    {
+                        motionFlipped = true;
+                    }
+                }
+                else if (motionFlipped == true)
+                {
+                    smallBtns[i].Left -= 1;
+                    if (smallBtns[i].Left <= 0)
+                    {
+                        motionFlipped = false;
+                    }
+                }
             }
 
             for (int i = 0; i < mediumBtns.Count; i++)
@@ -172,7 +188,7 @@ namespace ShootingGame
                 mediumBtns[i].Left += 1;
             }
 
-            for (int i = 0; i < smallBtns.Count; i++)
+            for (int i = 0; i < bigBtns.Count; i++)
             {
                 bigBtns[i].Left += 1;
             }

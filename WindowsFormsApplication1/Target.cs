@@ -10,10 +10,12 @@ namespace ShootingGame
         int size;                   // Size of the object
         string type;                // Type/Name of the object
         int life;                   // Amount of life of the target
+        bool alive;
 
         public Target(string t)
         {
             type = t;
+            alive = true;
 
             if (type == "bird")
             {
@@ -37,12 +39,21 @@ namespace ShootingGame
             try
             {
                 life -= hit;
+                if (life <= 0)
+                {
+                    alive = false;
+                }
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
+
+        public Boolean isAlive()
+        {
+            return alive;
         }
 
         public int getLife()

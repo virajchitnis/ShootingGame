@@ -81,5 +81,10 @@ namespace ShootingGame
                 return false;
             }
         }
+
+        public int getDamage()
+        {
+            return damage;
+        }
     }
 }

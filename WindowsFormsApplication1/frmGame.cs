@@ -13,6 +13,7 @@ namespace ShootingGame
     {
         int currTime;
 
+        // Lists for buttons and their respective targets.
         List<Target> smallTargets = new List<Target>();
         List<Target> mediumTargets = new List<Target>();
         List<Target> bigTargets = new List<Target>();
@@ -25,8 +26,10 @@ namespace ShootingGame
             InitializeComponent();
         }
 
+        // On form load
         private void frmGame_Load(object sender, EventArgs e)
         {
+            // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + frmMain.userLevel.getLevel();
             int currScore = frmMain.userLevel.getScore();
             currTime = 30;
@@ -34,15 +37,20 @@ namespace ShootingGame
             lblTime.Text = "Time: " + currTime;
         }
 
+        // On form close
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Show the main form.
             frmSplash.mainForm.Show();
         }
 
+        // Method to dynamically generate buttons (targets)
         private void makeTargets()
         {
+            // Loop to repeat process for number of targets of each size
             for (int i = 0; i < frmMain.userLevel.getSmallTargets(); i++)
             {
+                // Make new button and set its attributes
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCurr.Location = new System.Drawing.Point(100, 100);
@@ -51,8 +59,11 @@ namespace ShootingGame
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnSmlTar" + i;
                 btnCurr.Click += new EventHandler(btnSml_Click);
+                // Add button to the list
                 smallBtns.Add(btnCurr);
+                // Add target to the list
                 smallTargets.Add(new Target("bird"));
+                // Add button to the form
                 Controls.Add(smallBtns[i]);
             }
 
@@ -87,15 +98,19 @@ namespace ShootingGame
             }
         }
 
+        // Button click event
         void btnBig_Click(object sender, EventArgs e)
         {
+            // Detect the clicked button
             Button clickedBtn = (Button)sender;
             int clickNum = Convert.ToInt32(clickedBtn.Text);
+            // Shoot the appropriate target
             bigTargets[clickNum].Shot(frmMain.userWeapon.getDamage());
 
+            // If the target is dead, remove the button from the form.
             if (!bigTargets[clickNum].isAlive())
             {
-                this.Controls.Remove(clickedBtn);
+                Controls.Remove(clickedBtn);
             }
         }
 
@@ -107,7 +122,7 @@ namespace ShootingGame
 
             if (!mediumTargets[clickNum].isAlive())
             {
-                this.Controls.Remove(clickedBtn);
+                Controls.Remove(clickedBtn);
             }
         }
 
@@ -119,13 +134,15 @@ namespace ShootingGame
 
             if (!smallTargets[clickNum].isAlive())
             {
-                this.Controls.Remove(clickedBtn);
+                Controls.Remove(clickedBtn);
             }
         }
 
+        // Start the game
         private void btnStart_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(btnStart);
+            // Remove this button from the form and generate the targets.
+            Controls.Remove(btnStart);
             makeTargets();
         }
     }

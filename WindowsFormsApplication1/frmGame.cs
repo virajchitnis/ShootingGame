@@ -13,7 +13,12 @@ namespace ShootingGame
     {
         int currTime;
         Timer moveTargets;
-        bool motionFlipped = false;
+        Timer levelTimer;
+
+        // List for controlling the wall bounce off for the targets
+        List<bool> motionSmlFlipped = new List<bool>();
+        List<bool> motionMedFlipped = new List<bool>();
+        List<bool> motionBigFlipped = new List<bool>();
 
         // Lists for buttons and their respective targets.
         List<Target> smallTargets = new List<Target>();
@@ -22,6 +27,9 @@ namespace ShootingGame
         List<Button> smallBtns = new List<Button>();
         List<Button> mediumBtns = new List<Button>();
         List<Button> bigBtns = new List<Button>();
+
+        System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
+        System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
 
         public frmGame()
         {
@@ -65,6 +73,8 @@ namespace ShootingGame
                 smallBtns.Add(btnCurr);
                 // Add target to the list
                 smallTargets.Add(new Target("bird"));
+                // Add motion control boolean for each button
+                motionSmlFlipped.Add(false);
                 // Add button to the form
                 Controls.Add(smallBtns[i]);
             }
@@ -81,6 +91,7 @@ namespace ShootingGame
                 btnCurr.Click += new EventHandler(btnMed_Click);
                 mediumBtns.Add(btnCurr);
                 mediumTargets.Add(new Target("deer"));
+                motionMedFlipped.Add(false);
                 Controls.Add(mediumBtns[i]);
             }
 
@@ -96,6 +107,7 @@ namespace ShootingGame
                 btnCurr.Click += new EventHandler(btnBig_Click);
                 bigBtns.Add(btnCurr);
                 bigTargets.Add(new Target("buffalo"));
+                motionBigFlipped.Add(false);
                 Controls.Add(bigBtns[i]);
             }
         }
@@ -153,44 +165,91 @@ namespace ShootingGame
             Controls.Remove(btnStart);
             makeTargets();
 
+            bkgndSound.Play();
+
+            // Change cursor to a target
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
+
             // Initialize timer and set all its necessary attributes
             moveTargets = new Timer();
             moveTargets.Interval = 10;
             moveTargets.Enabled = true;
             moveTargets.Tick += new EventHandler(moveTargets_Tick);
+
+            levelTimer = new Timer();
+            levelTimer.Interval = 1000;
+            levelTimer.Enabled = true;
+            levelTimer.Tick += new EventHandler(levelTimer_Tick);
         }
 
-        // Timer event method
+        // Timer event method to keep track of level time
+        void levelTimer_Tick(object sender, EventArgs e)
+        {
+            currTime--;
+            lblTime.Text = "Time: " + currTime;
+        }
+
+        // Timer event method to move objects
         void moveTargets_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < smallBtns.Count; i++)
             {
-                if (motionFlipped == false)
+                if (motionSmlFlipped[i] == false)
                 {
                     smallBtns[i].Left += 1;
                     if (smallBtns[i].Right >= 694)
                     {
-                        motionFlipped = true;
+                        motionSmlFlipped[i] = true;
                     }
                 }
-                else if (motionFlipped == true)
+                else if (motionSmlFlipped[i] == true)
                 {
                     smallBtns[i].Left -= 1;
                     if (smallBtns[i].Left <= 0)
                     {
-                        motionFlipped = false;
+                        motionSmlFlipped[i] = false;
                     }
                 }
             }
 
             for (int i = 0; i < mediumBtns.Count; i++)
             {
-                mediumBtns[i].Left += 1;
+                if (motionMedFlipped[i] == false)
+                {
+                    mediumBtns[i].Left += 1;
+                    if (mediumBtns[i].Right >= 694)
+                    {
+                        motionMedFlipped[i] = true;
+                    }
+                }
+                else if (motionMedFlipped[i] == true)
+                {
+                    mediumBtns[i].Left -= 1;
+                    if (mediumBtns[i].Left <= 0)
+                    {
+                        motionMedFlipped[i] = false;
+                    }
+                }
             }
 
             for (int i = 0; i < bigBtns.Count; i++)
             {
-                bigBtns[i].Left += 1;
+                if (motionBigFlipped[i] == false)
+                {
+                    bigBtns[i].Left += 1;
+                    if (bigBtns[i].Right >= 694)
+                    {
+                        motionBigFlipped[i] = true;
+                    }
+                }
+                else if (motionBigFlipped[i] == true)
+                {
+                    bigBtns[i].Left -= 1;
+                    if (bigBtns[i].Left <= 0)
+                    {
+                        motionBigFlipped[i] = false;
+                    }
+                }
             }
         }
     }

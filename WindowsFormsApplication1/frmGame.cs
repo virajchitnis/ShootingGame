@@ -95,8 +95,6 @@ namespace ShootingGame
 
             if (!bigTargets[clickNum].isAlive())
             {
-                clickedBtn.Visible = false;
-                clickedBtn.Enabled = false;
                 this.Controls.Remove(clickedBtn);
             }
         }
@@ -109,8 +107,6 @@ namespace ShootingGame
 
             if (!mediumTargets[clickNum].isAlive())
             {
-                clickedBtn.Visible = false;
-                clickedBtn.Enabled = false;
                 this.Controls.Remove(clickedBtn);
             }
         }
@@ -123,8 +119,6 @@ namespace ShootingGame
 
             if (!smallTargets[clickNum].isAlive())
             {
-                clickedBtn.Visible = false;
-                clickedBtn.Enabled = false;
                 this.Controls.Remove(clickedBtn);
             }
         }

@@ -12,6 +12,7 @@ namespace ShootingGame
     public partial class frmGame : Form
     {
         int currTime;
+        Timer moveTargets;
 
         // Lists for buttons and their respective targets.
         List<Target> smallTargets = new List<Target>();
@@ -110,6 +111,8 @@ namespace ShootingGame
             // If the target is dead, remove the button from the form.
             if (!bigTargets[clickNum].isAlive())
             {
+                bigBtns.RemoveAt(clickNum);
+                bigTargets.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
             }
         }
@@ -122,6 +125,8 @@ namespace ShootingGame
 
             if (!mediumTargets[clickNum].isAlive())
             {
+                mediumBtns.RemoveAt(clickNum);
+                mediumTargets.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
             }
         }
@@ -134,6 +139,8 @@ namespace ShootingGame
 
             if (!smallTargets[clickNum].isAlive())
             {
+                smallBtns.RemoveAt(clickNum);
+                smallTargets.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
             }
         }
@@ -144,6 +151,31 @@ namespace ShootingGame
             // Remove this button from the form and generate the targets.
             Controls.Remove(btnStart);
             makeTargets();
+
+            // Initialize timer and set all its necessary attributes
+            moveTargets = new Timer();
+            moveTargets.Interval = 10;
+            moveTargets.Enabled = true;
+            moveTargets.Tick += new EventHandler(moveTargets_Tick);
+        }
+
+        // Timer event method
+        void moveTargets_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < smallBtns.Count; i++)
+            {
+                smallBtns[i].Left += 1;
+            }
+
+            for (int i = 0; i < mediumBtns.Count; i++)
+            {
+                mediumBtns[i].Left += 1;
+            }
+
+            for (int i = 0; i < smallBtns.Count; i++)
+            {
+                bigBtns[i].Left += 1;
+            }
         }
     }
 }

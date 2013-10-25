@@ -14,6 +14,7 @@ namespace ShootingGame
         int currTime;
         Timer moveTargets;
         Timer levelTimer;
+        bool isPaused;
 
         // List for controlling the wall bounce off for the targets
         List<bool> motionSmlFlipped = new List<bool>();
@@ -126,6 +127,7 @@ namespace ShootingGame
             {
                 bigBtns.RemoveAt(clickNum);
                 bigTargets.RemoveAt(clickNum);
+                motionBigFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
             }
         }
@@ -140,6 +142,7 @@ namespace ShootingGame
             {
                 mediumBtns.RemoveAt(clickNum);
                 mediumTargets.RemoveAt(clickNum);
+                motionMedFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
             }
         }
@@ -154,7 +157,67 @@ namespace ShootingGame
             {
                 smallBtns.RemoveAt(clickNum);
                 smallTargets.RemoveAt(clickNum);
+                motionSmlFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
+            }
+        }
+
+        // Pause the game
+        private void pauseGame()
+        {
+            if (isPaused == false)
+            {
+                isPaused = true;
+                btnPause.Text = "Play";
+                levelTimer.Stop();
+                moveTargets.Stop();
+
+                this.Cursor = System.Windows.Forms.Cursors.Default;
+
+                for (int i = 0; i < smallBtns.Count; i++)
+                {
+                    smallBtns[i].Visible = false;
+                    smallBtns[i].Enabled = false;
+                }
+
+                for (int i = 0; i < mediumBtns.Count; i++)
+                {
+                    mediumBtns[i].Visible = false;
+                    mediumBtns[i].Enabled = false;
+                }
+
+                for (int i = 0; i < bigBtns.Count; i++)
+                {
+                    bigBtns[i].Visible = false;
+                    bigBtns[i].Enabled = false;
+                }
+            }
+            else if (isPaused == true)
+            {
+                isPaused = false;
+                btnPause.Text = "Pause";
+                levelTimer.Start();
+                moveTargets.Start();
+
+                this.Cursor = System.Windows.Forms.Cursors.Cross;
+
+                for (int i = 0; i < smallBtns.Count; i++)
+                {
+                    smallBtns[i].Visible = true;
+                    smallBtns[i].Enabled = true;
+                }
+
+                for (int i = 0; i < mediumBtns.Count; i++)
+                {
+                    mediumBtns[i].Visible = true;
+                    mediumBtns[i].Enabled = true;
+                }
+
+                for (int i = 0; i < bigBtns.Count; i++)
+                {
+                    bigBtns[i].Visible = true;
+                    bigBtns[i].Enabled = true;
+                }
             }
         }
 
@@ -180,6 +243,8 @@ namespace ShootingGame
             levelTimer.Interval = 1000;
             levelTimer.Enabled = true;
             levelTimer.Tick += new EventHandler(levelTimer_Tick);
+
+            isPaused = false;
         }
 
         // Timer event method to keep track of level time
@@ -251,6 +316,11 @@ namespace ShootingGame
                     }
                 }
             }
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            pauseGame();
         }
     }
 }

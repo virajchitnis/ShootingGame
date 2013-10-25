@@ -11,6 +11,7 @@ namespace ShootingGame
         string type;                // Type/Name of the object
         int life;                   // Amount of life of the target
         bool alive;                 // Life of target
+        int score;
 
         public Target(string t)
         {
@@ -21,16 +22,19 @@ namespace ShootingGame
             {
                 size = 1;
                 life = 1;
+                score = 5;
             }
             else if (type == "deer")
             {
                 size = 3;
                 life = 3;
+                score = 10;
             }
             else if (type == "buffalo")
             {
                 size = 5;
                 life = 5;
+                score = 20;
             }
         }
 
@@ -59,6 +63,11 @@ namespace ShootingGame
         public int getLife()
         {
             return life;
+        }
+
+        public int getScore()
+        {
+            return score;
         }
     }
 }

@@ -11,10 +11,12 @@ namespace ShootingGame
 {
     public partial class frmGame : Form
     {
-        int currTime;
-        Timer moveTargets;
-        Timer levelTimer;
-        bool isPaused;
+        Weapon userWeapon;                  // Weapon chosen by player
+        Level userLevel;                    // Level chosen by player
+        int currTime;                       // Time tracker for the level
+        Timer moveTargets;                  // Timer to move targets
+        Timer levelTimer;                   // Timer to keep track of and update time in currTime
+        bool isPaused;                      // Whether the game is paused or running
 
         // List for controlling the wall bounce off for the targets
         List<bool> motionSmlFlipped = new List<bool>();
@@ -32,17 +34,19 @@ namespace ShootingGame
         System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
 
-        public frmGame()
+        public frmGame(Weapon w, Level l)
         {
             InitializeComponent();
+            userWeapon = w;
+            userLevel = l;
         }
 
         // On form load
         private void frmGame_Load(object sender, EventArgs e)
         {
             // Get info from level class and assign to appropriate variables.
-            this.Text = "Level " + frmMain.userLevel.getLevel();
-            int currScore = frmMain.userLevel.getScore();
+            this.Text = "Level " + userLevel.getLevel();
+            int currScore = userLevel.getScore();
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
             lblTime.Text = "Time: " + currTime;
@@ -59,7 +63,7 @@ namespace ShootingGame
         private void makeTargets()
         {
             // Loop to repeat process for number of targets of each size
-            for (int i = 0; i < frmMain.userLevel.getSmallTargets(); i++)
+            for (int i = 0; i < userLevel.getSmallTargets(); i++)
             {
                 // Make new button and set its attributes
                 Button btnCurr = new Button();
@@ -80,7 +84,7 @@ namespace ShootingGame
                 Controls.Add(smallBtns[i]);
             }
 
-            for (int i = 0; i < frmMain.userLevel.getMediumTargets(); i++)
+            for (int i = 0; i < userLevel.getMediumTargets(); i++)
             {
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,7 +100,7 @@ namespace ShootingGame
                 Controls.Add(mediumBtns[i]);
             }
 
-            for (int i = 0; i < frmMain.userLevel.getBigTargets(); i++)
+            for (int i = 0; i < userLevel.getBigTargets(); i++)
             {
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,13 +124,13 @@ namespace ShootingGame
             Button clickedBtn = (Button)sender;
             int clickNum = Convert.ToInt32(clickedBtn.Text);
             // Shoot the appropriate target
-            bigTargets[clickNum].Shot(frmMain.userWeapon.getDamage());
+            bigTargets[clickNum].Shot(userWeapon.getDamage());
 
             // If the target is dead, remove the button from the form.
             if (!bigTargets[clickNum].isAlive())
             {
-                frmMain.userLevel.updateScore(bigTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
+                userLevel.updateScore(bigTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + userLevel.getScore();
                 bigBtns.RemoveAt(clickNum);
                 bigTargets.RemoveAt(clickNum);
                 motionBigFlipped.RemoveAt(clickNum);
@@ -138,12 +142,12 @@ namespace ShootingGame
         {
             Button clickedBtn = (Button)sender;
             int clickNum = Convert.ToInt32(clickedBtn.Text);
-            mediumTargets[clickNum].Shot(frmMain.userWeapon.getDamage());
+            mediumTargets[clickNum].Shot(userWeapon.getDamage());
 
             if (!mediumTargets[clickNum].isAlive())
             {
-                frmMain.userLevel.updateScore(mediumTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
+                userLevel.updateScore(mediumTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + userLevel.getScore();
                 mediumBtns.RemoveAt(clickNum);
                 mediumTargets.RemoveAt(clickNum);
                 motionMedFlipped.RemoveAt(clickNum);
@@ -155,12 +159,12 @@ namespace ShootingGame
         {
             Button clickedBtn = (Button)sender;
             int clickNum = Convert.ToInt32(clickedBtn.Text);
-            smallTargets[clickNum].Shot(frmMain.userWeapon.getDamage());
+            smallTargets[clickNum].Shot(userWeapon.getDamage());
 
             if (!smallTargets[clickNum].isAlive())
             {
-                frmMain.userLevel.updateScore(smallTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
+                userLevel.updateScore(smallTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + userLevel.getScore();
                 smallBtns.RemoveAt(clickNum);
                 smallTargets.RemoveAt(clickNum);
                 motionSmlFlipped.RemoveAt(clickNum);

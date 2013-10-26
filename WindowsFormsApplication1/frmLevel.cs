@@ -11,15 +11,18 @@ namespace ShootingGame
 {
     public partial class frmLevel : Form
     {
-        public frmLevel()
+        Weapon currWeapon;
+        public frmLevel(Weapon w)
         {
             InitializeComponent();
+            currWeapon = w;
         }
 
         private void btnLevel1_Click(object sender, EventArgs e)
         {
-            frmMain.userLevel = new Level(1, 1, 1, 1);
-            frmGame newLevel = new frmGame();
+            Level currLevel = new Level(1, 1, 1, 1);
+            frmMain.userLevel = currLevel;
+            frmGame newLevel = new frmGame(currWeapon, currLevel);
             newLevel.Show();
             this.Close();
         }

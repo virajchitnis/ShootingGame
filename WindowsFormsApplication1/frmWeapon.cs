@@ -21,7 +21,7 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("handgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel();
+            frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
         }
@@ -30,7 +30,7 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("rifle");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel();
+            frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
         }
@@ -39,7 +39,7 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("shotgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel();
+            frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
         }

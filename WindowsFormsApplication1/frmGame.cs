@@ -231,6 +231,39 @@ namespace ShootingGame
             }
         }
 
+        // End the game
+        private void endGame()
+        {
+            levelTimer.Stop();
+            moveTargets.Stop();
+
+            bkgndSound.Stop();
+            btnPause.Enabled = false;
+
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+
+            for (int i = 0; i < smallBtns.Count; i++)
+            {
+                Controls.Remove(smallBtns[i]);
+                //smallBtns[i].Visible = false;
+                //smallBtns[i].Enabled = false;
+            }
+
+            for (int i = 0; i < mediumBtns.Count; i++)
+            {
+                Controls.Remove(mediumBtns[i]);
+                //mediumBtns[i].Visible = false;
+                //mediumBtns[i].Enabled = false;
+            }
+
+            for (int i = 0; i < bigBtns.Count; i++)
+            {
+                Controls.Remove(bigBtns[i]);
+                //bigBtns[i].Visible = false;
+                //bigBtns[i].Enabled = false;
+            }
+        }
+
         // Start the game
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -260,8 +293,16 @@ namespace ShootingGame
         // Timer event method to keep track of level time
         void levelTimer_Tick(object sender, EventArgs e)
         {
-            currTime--;
-            lblTime.Text = "Time: " + currTime;
+            if (currTime > 1)
+            {
+                currTime--;
+                lblTime.Text = "Time: " + currTime;
+            }
+            else
+            {
+                lblTime.Text = "Time: " + 0;
+                endGame();
+            }
         }
 
         // Timer event method to move objects

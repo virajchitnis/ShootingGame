@@ -125,6 +125,8 @@ namespace ShootingGame
             // If the target is dead, remove the button from the form.
             if (!bigTargets[clickNum].isAlive())
             {
+                frmMain.userLevel.updateScore(bigTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
                 bigBtns.RemoveAt(clickNum);
                 bigTargets.RemoveAt(clickNum);
                 motionBigFlipped.RemoveAt(clickNum);
@@ -140,6 +142,8 @@ namespace ShootingGame
 
             if (!mediumTargets[clickNum].isAlive())
             {
+                frmMain.userLevel.updateScore(mediumTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
                 mediumBtns.RemoveAt(clickNum);
                 mediumTargets.RemoveAt(clickNum);
                 motionMedFlipped.RemoveAt(clickNum);
@@ -155,6 +159,8 @@ namespace ShootingGame
 
             if (!smallTargets[clickNum].isAlive())
             {
+                frmMain.userLevel.updateScore(smallTargets[clickNum].getScore());
+                lblScore.Text = "Score: " + frmMain.userLevel.getScore();
                 smallBtns.RemoveAt(clickNum);
                 smallTargets.RemoveAt(clickNum);
                 motionSmlFlipped.RemoveAt(clickNum);

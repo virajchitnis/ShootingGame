@@ -11,7 +11,7 @@ namespace ShootingGame
         string type;                // Type/Name of the object
         int life;                   // Amount of life of the target
         bool alive;                 // Life of target
-        int score;
+        int score;                  // Score for killing target
 
         public Target(string t)
         {

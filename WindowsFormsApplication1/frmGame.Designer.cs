@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPause = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.btnPause = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +45,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(685, 35);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(318, 7);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(45, 20);
+            this.btnPause.TabIndex = 2;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // lblTime
             // 
@@ -77,21 +87,12 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnPause
-            // 
-            this.btnPause.Location = new System.Drawing.Point(318, 7);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(45, 20);
-            this.btnPause.TabIndex = 2;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 468);
+            this.ControlBox = false;
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

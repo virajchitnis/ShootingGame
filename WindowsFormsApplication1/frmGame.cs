@@ -55,8 +55,9 @@ namespace ShootingGame
         // On form close
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Application.Exit();
             // Show the main form.
-            frmSplash.mainForm.Show();
+            //frmSplash.mainForm.Show();
         }
 
         // Method to dynamically generate buttons (targets)
@@ -232,6 +233,7 @@ namespace ShootingGame
                 btnToMenu.UseVisualStyleBackColor = true;
                 btnToMenu.Text = "Go to Main Menu";
                 btnToMenu.Name = "btnToMenu";
+                btnToMenu.Click += new EventHandler(btnToMenu_Click);
                 Controls.Add(btnToMenu);
 
                 Button btnExit = new Button();
@@ -241,6 +243,7 @@ namespace ShootingGame
                 btnExit.UseVisualStyleBackColor = true;
                 btnExit.Text = "Exit";
                 btnExit.Name = "btnExit";
+                btnExit.Click += new EventHandler(btnExit_Click);
                 Controls.Add(btnExit);
             }
             else if (isPaused == true)
@@ -274,6 +277,17 @@ namespace ShootingGame
                 Controls.RemoveAt(Controls.Count - 1);
                 Controls.RemoveAt(Controls.Count - 1);
             }
+        }
+
+        void btnToMenu_Click(object sender, EventArgs e)
+        {
+            frmSplash.mainForm.Show();
+            this.Close();
+        }
+
+        void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         // End the game
@@ -340,6 +354,7 @@ namespace ShootingGame
             btnToMenu.UseVisualStyleBackColor = true;
             btnToMenu.Text = "Go to Main Menu";
             btnToMenu.Name = "btnToMenu";
+            btnToMenu.Click += new EventHandler(btnToMenu_Click);
             Controls.Add(btnToMenu);
 
             Button btnExit = new Button();
@@ -349,6 +364,7 @@ namespace ShootingGame
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Text = "Exit";
             btnExit.Name = "btnExit";
+            btnExit.Click += new EventHandler(btnExit_Click);
             Controls.Add(btnExit);
         }
 

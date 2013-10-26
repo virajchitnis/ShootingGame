@@ -277,6 +277,14 @@ namespace ShootingGame
                 //bigBtns[i].Visible = false;
                 //bigBtns[i].Enabled = false;
             }
+
+            Label lblGameOver = new Label();
+            lblGameOver.AutoSize = true;
+            lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblGameOver.Location = new System.Drawing.Point(300, 200);
+            lblGameOver.Name = "lblGameOver";
+            lblGameOver.Text = "Game Over!";
+            Controls.Add(lblGameOver);
         }
 
         // Start the game

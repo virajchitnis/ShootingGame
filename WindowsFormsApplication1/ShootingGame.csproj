@@ -114,6 +114,7 @@
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="Target.cs" />
+    <Compile Include="UpdateFile.cs" />
     <Compile Include="Weapon.cs" />
     <EmbeddedResource Include="frmGame.resx">
       <DependentUpon>frmGame.cs</DependentUpon>

@@ -216,6 +216,32 @@ namespace ShootingGame
                     bigBtns[i].Visible = false;
                     bigBtns[i].Enabled = false;
                 }
+
+                Label lblGamePaused = new Label();
+                lblGamePaused.AutoSize = true;
+                lblGamePaused.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                lblGamePaused.Location = new System.Drawing.Point(300, 150);
+                lblGamePaused.Name = "lblGameOver";
+                lblGamePaused.Text = "Game Paused";
+                Controls.Add(lblGamePaused);
+
+                Button btnToMenu = new Button();
+                btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnToMenu.Location = new System.Drawing.Point(277, 235);
+                btnToMenu.AutoSize = true;
+                btnToMenu.UseVisualStyleBackColor = true;
+                btnToMenu.Text = "Go to Main Menu";
+                btnToMenu.Name = "btnToMenu";
+                Controls.Add(btnToMenu);
+
+                Button btnExit = new Button();
+                btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnExit.Location = new System.Drawing.Point(309, 270);
+                btnExit.AutoSize = true;
+                btnExit.UseVisualStyleBackColor = true;
+                btnExit.Text = "Exit";
+                btnExit.Name = "btnExit";
+                Controls.Add(btnExit);
             }
             else if (isPaused == true)
             {
@@ -243,6 +269,10 @@ namespace ShootingGame
                     bigBtns[i].Visible = true;
                     bigBtns[i].Enabled = true;
                 }
+
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
             }
         }
 

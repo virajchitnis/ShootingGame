@@ -281,10 +281,45 @@ namespace ShootingGame
             Label lblGameOver = new Label();
             lblGameOver.AutoSize = true;
             lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblGameOver.Location = new System.Drawing.Point(300, 200);
+            lblGameOver.Location = new System.Drawing.Point(300, 150);
             lblGameOver.Name = "lblGameOver";
             lblGameOver.Text = "Game Over!";
             Controls.Add(lblGameOver);
+
+            Label lblYouScored = new Label();
+            lblYouScored.AutoSize = true;
+            lblYouScored.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblYouScored.Location = new System.Drawing.Point(290, 175);
+            lblYouScored.Name = "lblYouScored";
+            lblYouScored.Text = "You Scored: " + userLevel.getScore();
+            Controls.Add(lblYouScored);
+
+            Button btnPlayNext = new Button();
+            btnPlayNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnPlayNext.Location = new System.Drawing.Point(300, 200);
+            btnPlayNext.AutoSize = true;
+            btnPlayNext.UseVisualStyleBackColor = true;
+            btnPlayNext.Text = "Next Level";
+            btnPlayNext.Name = "btnPlayNext";
+            Controls.Add(btnPlayNext);
+
+            Button btnToMenu = new Button();
+            btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnToMenu.Location = new System.Drawing.Point(277, 235);
+            btnToMenu.AutoSize = true;
+            btnToMenu.UseVisualStyleBackColor = true;
+            btnToMenu.Text = "Go to Main Menu";
+            btnToMenu.Name = "btnToMenu";
+            Controls.Add(btnToMenu);
+
+            Button btnExit = new Button();
+            btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnExit.Location = new System.Drawing.Point(309, 270);
+            btnExit.AutoSize = true;
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Text = "Exit";
+            btnExit.Name = "btnExit";
+            Controls.Add(btnExit);
         }
 
         // Start the game

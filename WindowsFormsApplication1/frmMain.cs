@@ -13,6 +13,7 @@ namespace ShootingGame
     {
         public static Weapon userWeapon;
         public static Level userLevel;
+        public static string userName;
 
         public frmMain()
         {
@@ -43,8 +44,8 @@ namespace ShootingGame
 
         private void btnStartNew_Click(object sender, EventArgs e)
         {
-            frmWeapon formWeapon = new frmWeapon();
-            formWeapon.Show();
+            frmUser formUser = new frmUser();
+            formUser.Show();
             this.Hide();
         }
 

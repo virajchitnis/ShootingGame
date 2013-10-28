@@ -11,17 +11,19 @@ namespace ShootingGame
 {
     public partial class frmWeapon : Form
     {
+        string userName;
         Weapon currWeapon;
-        public frmWeapon()
+        public frmWeapon(string name)
         {
             InitializeComponent();
+            userName = name;
         }
 
         private void picHandgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("handgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(currWeapon);
+            frmLevel selLevel = new frmLevel(userName, currWeapon);
             selLevel.Show();
             this.Close();
 
@@ -31,7 +33,7 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("rifle");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(currWeapon);
+            frmLevel selLevel = new frmLevel(userName, currWeapon);
             selLevel.Show();
             this.Close();
 
@@ -41,7 +43,7 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("shotgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(currWeapon);
+            frmLevel selLevel = new frmLevel(userName, currWeapon);
             selLevel.Show();
             this.Close();
 

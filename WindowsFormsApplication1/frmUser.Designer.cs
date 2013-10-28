@@ -56,7 +56,7 @@
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(58, 23);
             this.btnPlay.TabIndex = 2;
-            this.btnPlay.Text = "Play";
+            this.btnPlay.Text = "Continue";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 

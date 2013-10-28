@@ -196,6 +196,7 @@
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
     <Content Include="Resources\37236__shades__gun-pistol-one-shot.wav" />
+    <None Include="Resources\HighScores.txt" />
     <None Include="Resources\picShotgun--transparent---Copy.gif" />
     <None Include="Resources\picShotgun--transparent1.gif" />
     <None Include="Resources\picRifle--transparent.gif" />

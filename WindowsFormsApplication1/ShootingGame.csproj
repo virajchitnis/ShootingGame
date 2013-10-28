@@ -187,6 +187,19 @@
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
     <Content Include="Resources\37236__shades__gun-pistol-one-shot.wav" />
+    <None Include="Resources\picShotgun--transparent---Copy.gif" />
+    <None Include="Resources\picShotgun--transparent1.gif" />
+    <None Include="Resources\picRifle--transparent.gif" />
+    <None Include="Resources\picHANDGUN--Transparent.gif" />
+    <None Include="Resources\picShotgun--transparent.gif" />
+    <None Include="Resources\title.jpg" />
+    <None Include="Resources\red_alder_plaque_3.jpg" />
+    <None Include="Resources\HEARTHSTONE0705AGOSTINI-248.jpg" />
+    <None Include="Resources\fireplace.jpg" />
+    <None Include="Resources\wooden_panels_030211.jpg" />
+    <None Include="Resources\picShotgun.jpg" />
+    <None Include="Resources\picRifle.jpg" />
+    <None Include="Resources\picHANDGUN.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,5 +20,11 @@ namespace ShootingGame
         {
             frmSplash.mainForm.Show();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmSplash.mainForm.Show();
+            this.Hide();
+        }
     }
 }

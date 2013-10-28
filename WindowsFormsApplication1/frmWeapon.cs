@@ -17,31 +17,34 @@ namespace ShootingGame
             InitializeComponent();
         }
 
-        private void btnHandGun_Click(object sender, EventArgs e)
+        private void picHandgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("handgun");
             frmMain.userWeapon = currWeapon;
             frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
+
         }
 
-        private void btnRifle_Click(object sender, EventArgs e)
+        private void picRifle_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("rifle");
             frmMain.userWeapon = currWeapon;
             frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
+
         }
 
-        private void btnShotGun_Click(object sender, EventArgs e)
+        private void picShotgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("shotgun");
             frmMain.userWeapon = currWeapon;
             frmLevel selLevel = new frmLevel(currWeapon);
             selLevel.Show();
             this.Close();
+
         }
     }
 }

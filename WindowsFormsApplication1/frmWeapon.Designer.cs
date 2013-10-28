@@ -29,75 +29,120 @@
         private void InitializeComponent()
         {
             this.lblFormName = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnShotGun = new System.Windows.Forms.Button();
-            this.btnRifle = new System.Windows.Forms.Button();
-            this.btnHandGun = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.picHandgun = new System.Windows.Forms.PictureBox();
+            this.picRifle = new System.Windows.Forms.PictureBox();
+            this.picShotgun = new System.Windows.Forms.PictureBox();
+            this.lblHandgun = new System.Windows.Forms.Label();
+            this.lblShotgun = new System.Windows.Forms.Label();
+            this.lblRifle = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picHandgun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRifle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShotgun)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormName
             // 
             this.lblFormName.AutoSize = true;
-            this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormName.Location = new System.Drawing.Point(13, 13);
+            this.lblFormName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormName.Font = new System.Drawing.Font("Impact", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormName.Location = new System.Drawing.Point(215, 33);
+            this.lblFormName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(141, 20);
+            this.lblFormName.Size = new System.Drawing.Size(357, 54);
             this.lblFormName.TabIndex = 0;
             this.lblFormName.Text = "Choose a Weapon";
             // 
-            // panel1
+            // picHandgun
             // 
-            this.panel1.Controls.Add(this.btnShotGun);
-            this.panel1.Controls.Add(this.btnRifle);
-            this.panel1.Controls.Add(this.btnHandGun);
-            this.panel1.Location = new System.Drawing.Point(13, 46);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 138);
-            this.panel1.TabIndex = 1;
+            this.picHandgun.BackColor = System.Drawing.Color.Transparent;
+            this.picHandgun.BackgroundImage = global::ShootingGame.Properties.Resources.picHANDGUN__Transparent;
+            this.picHandgun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHandgun.Location = new System.Drawing.Point(59, 129);
+            this.picHandgun.Name = "picHandgun";
+            this.picHandgun.Size = new System.Drawing.Size(210, 133);
+            this.picHandgun.TabIndex = 2;
+            this.picHandgun.TabStop = false;
+            this.picHandgun.Click += new System.EventHandler(this.picHandgun_Click);
             // 
-            // btnShotGun
+            // picRifle
             // 
-            this.btnShotGun.Location = new System.Drawing.Point(360, 3);
-            this.btnShotGun.Name = "btnShotGun";
-            this.btnShotGun.Size = new System.Drawing.Size(172, 131);
-            this.btnShotGun.TabIndex = 2;
-            this.btnShotGun.Text = "Shot Gun";
-            this.btnShotGun.UseVisualStyleBackColor = true;
-            this.btnShotGun.Click += new System.EventHandler(this.btnShotGun_Click);
+            this.picRifle.BackColor = System.Drawing.Color.Transparent;
+            this.picRifle.BackgroundImage = global::ShootingGame.Properties.Resources.picRifle__transparent;
+            this.picRifle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picRifle.Location = new System.Drawing.Point(152, 268);
+            this.picRifle.Name = "picRifle";
+            this.picRifle.Size = new System.Drawing.Size(492, 97);
+            this.picRifle.TabIndex = 2;
+            this.picRifle.TabStop = false;
+            this.picRifle.Click += new System.EventHandler(this.picRifle_Click);
             // 
-            // btnRifle
+            // picShotgun
             // 
-            this.btnRifle.Location = new System.Drawing.Point(182, 3);
-            this.btnRifle.Name = "btnRifle";
-            this.btnRifle.Size = new System.Drawing.Size(172, 131);
-            this.btnRifle.TabIndex = 1;
-            this.btnRifle.Text = "Rifle";
-            this.btnRifle.UseVisualStyleBackColor = true;
-            this.btnRifle.Click += new System.EventHandler(this.btnRifle_Click);
+            this.picShotgun.BackColor = System.Drawing.Color.Transparent;
+            this.picShotgun.BackgroundImage = global::ShootingGame.Properties.Resources.picShotgun__transparent___Copy;
+            this.picShotgun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picShotgun.Location = new System.Drawing.Point(381, 141);
+            this.picShotgun.Name = "picShotgun";
+            this.picShotgun.Size = new System.Drawing.Size(361, 105);
+            this.picShotgun.TabIndex = 2;
+            this.picShotgun.TabStop = false;
+            this.picShotgun.Click += new System.EventHandler(this.picShotgun_Click);
             // 
-            // btnHandGun
+            // lblHandgun
             // 
-            this.btnHandGun.Location = new System.Drawing.Point(4, 4);
-            this.btnHandGun.Name = "btnHandGun";
-            this.btnHandGun.Size = new System.Drawing.Size(172, 131);
-            this.btnHandGun.TabIndex = 0;
-            this.btnHandGun.Text = "Hand Gun";
-            this.btnHandGun.UseVisualStyleBackColor = true;
-            this.btnHandGun.Click += new System.EventHandler(this.btnHandGun_Click);
+            this.lblHandgun.AutoSize = true;
+            this.lblHandgun.BackColor = System.Drawing.Color.Transparent;
+            this.lblHandgun.Font = new System.Drawing.Font("Motorwerk", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHandgun.Location = new System.Drawing.Point(129, 218);
+            this.lblHandgun.Name = "lblHandgun";
+            this.lblHandgun.Size = new System.Drawing.Size(178, 28);
+            this.lblHandgun.TabIndex = 3;
+            this.lblHandgun.Text = "Hand Gun";
+            // 
+            // lblShotgun
+            // 
+            this.lblShotgun.AutoSize = true;
+            this.lblShotgun.BackColor = System.Drawing.Color.Transparent;
+            this.lblShotgun.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShotgun.Location = new System.Drawing.Point(514, 202);
+            this.lblShotgun.Name = "lblShotgun";
+            this.lblShotgun.Size = new System.Drawing.Size(151, 44);
+            this.lblShotgun.TabIndex = 3;
+            this.lblShotgun.Text = "Shot Gun";
+            // 
+            // lblRifle
+            // 
+            this.lblRifle.AutoSize = true;
+            this.lblRifle.BackColor = System.Drawing.Color.Transparent;
+            this.lblRifle.Font = new System.Drawing.Font("Gabriola", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRifle.Location = new System.Drawing.Point(411, 290);
+            this.lblRifle.Name = "lblRifle";
+            this.lblRifle.Size = new System.Drawing.Size(115, 96);
+            this.lblRifle.TabIndex = 3;
+            this.lblRifle.Text = "Rifle";
             // 
             // frmWeapon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 200);
+            this.BackgroundImage = global::ShootingGame.Properties.Resources.wooden_panels_030211;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(783, 387);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblRifle);
+            this.Controls.Add(this.lblShotgun);
+            this.Controls.Add(this.lblHandgun);
+            this.Controls.Add(this.picShotgun);
+            this.Controls.Add(this.picRifle);
+            this.Controls.Add(this.picHandgun);
             this.Controls.Add(this.lblFormName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmWeapon";
             this.Text = "Choose A Weapon";
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHandgun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRifle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShotgun)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,9 +151,11 @@
         #endregion
 
         private System.Windows.Forms.Label lblFormName;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnHandGun;
-        private System.Windows.Forms.Button btnShotGun;
-        private System.Windows.Forms.Button btnRifle;
+        private System.Windows.Forms.PictureBox picHandgun;
+        private System.Windows.Forms.PictureBox picRifle;
+        private System.Windows.Forms.PictureBox picShotgun;
+        private System.Windows.Forms.Label lblHandgun;
+        private System.Windows.Forms.Label lblShotgun;
+        private System.Windows.Forms.Label lblRifle;
     }
 }

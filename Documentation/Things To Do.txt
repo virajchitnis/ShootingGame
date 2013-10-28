@@ -7,3 +7,4 @@
 7) Implement 'continue game'.
 8) Write high scores to file in frmGame.
 9) Read from high scores file in frmHighScores and display.
+10) Add frmUser which will ask the user for their name. The name will be used for keeping track of high scores.

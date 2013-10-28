@@ -31,7 +31,7 @@ namespace ShootingGame
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome to 'Insert name here'!\n   1. Click new game to start.\n   2. Select a weapon.\n   3. Select a level.\n   4. Shoot as many targets as possible before you run out of time.\n   5. Enjoy!!!", "How to Play");
+            MessageBox.Show("Welcome 'Insert name here'!\n   1. Click new game to start.\n   2. Select a weapon.\n   3. Select a level.\n   4. Shoot as many targets as possible before you run out of time.\n   5. Enjoy!!!", "How to Play");
         }
 
         private void btnHighScores_Click(object sender, EventArgs e)
@@ -51,6 +51,11 @@ namespace ShootingGame
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

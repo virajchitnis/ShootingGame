@@ -17,7 +17,7 @@ namespace ShootingGame
             InitializeComponent();
         }
 
-        private void btnPlay_Click(object sender, EventArgs e)
+        private void frmSplash_MouseClick(object sender, MouseEventArgs e)
         {
             mainForm = new frmMain();
             mainForm.Show();

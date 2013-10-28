@@ -43,5 +43,10 @@ namespace ShootingGame
             selLevel.Show();
             this.Close();
         }
+
+        private void frmWeapon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

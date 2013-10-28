@@ -137,6 +137,13 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap picHANDGUN__Transparent {
+            get {
+                object obj = ResourceManager.GetObject("picHANDGUN--Transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap picRifle {
             get {
                 object obj = ResourceManager.GetObject("picRifle", resourceCulture);
@@ -144,9 +151,37 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap picRifle__transparent {
+            get {
+                object obj = ResourceManager.GetObject("picRifle--transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap picShotgun {
             get {
                 object obj = ResourceManager.GetObject("picShotgun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap picShotgun__transparent {
+            get {
+                object obj = ResourceManager.GetObject("picShotgun--transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap picShotgun__transparent___Copy {
+            get {
+                object obj = ResourceManager.GetObject("picShotgun--transparent---Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap picShotgun__transparent1 {
+            get {
+                object obj = ResourceManager.GetObject("picShotgun--transparent1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

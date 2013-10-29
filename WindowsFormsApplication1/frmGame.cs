@@ -18,6 +18,7 @@ namespace ShootingGame
         Timer moveTargets;                  // Timer to move targets
         Timer levelTimer;                   // Timer to keep track of and update time in currTime
         bool isPaused;                      // Whether the game is paused or running
+        Random rndbuttonLoc;
 
         /* These lists may need to be converted into arrays because in levels where there are
          * multiple targets of the same kind, everytime a target is destroyed, the index of most
@@ -47,6 +48,7 @@ namespace ShootingGame
             userName = name;
             userWeapon = w;
             userLevel = l;
+            rndbuttonLoc = new Random();
         }
 
         // On form load
@@ -75,10 +77,11 @@ namespace ShootingGame
             // Loop to repeat process for number of targets of each size
             for (int i = 0; i < userLevel.getSmallTargets(); i++)
             {
+                int locY = rndbuttonLoc.Next(40, 420);
                 // Make new button and set its attributes
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(100, 100);
+                btnCurr.Location = new System.Drawing.Point(-30, locY);
                 btnCurr.Size = new System.Drawing.Size(30, 30);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();
@@ -96,9 +99,10 @@ namespace ShootingGame
 
             for (int i = 0; i < userLevel.getMediumTargets(); i++)
             {
+                int locY = rndbuttonLoc.Next(40, 400);
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(200, 200);
+                btnCurr.Location = new System.Drawing.Point(-50, locY);
                 btnCurr.Size = new System.Drawing.Size(50, 50);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();
@@ -112,9 +116,10 @@ namespace ShootingGame
 
             for (int i = 0; i < userLevel.getBigTargets(); i++)
             {
+                int locY = rndbuttonLoc.Next(40, 350);
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(300, 300);
+                btnCurr.Location = new System.Drawing.Point(-100, locY);
                 btnCurr.Size = new System.Drawing.Size(100, 100);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();

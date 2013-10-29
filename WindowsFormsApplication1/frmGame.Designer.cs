@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblName = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +47,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(685, 35);
             this.panel1.TabIndex = 0;
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(369, 11);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(233, 13);
+            this.lblName.TabIndex = 3;
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPause
             // 
@@ -90,14 +98,6 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // lblName
-            // 
-            this.lblName.Location = new System.Drawing.Point(369, 11);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(233, 13);
-            this.lblName.TabIndex = 3;
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmGame
             // 

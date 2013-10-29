@@ -143,6 +143,11 @@ namespace ShootingGame
                 motionBigFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
 
+                for (int i = 0; i < bigBtns.Count; i++)
+                {
+                    bigBtns[i].Text = i.ToString();
+                }
+
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
                     endGame();
@@ -165,6 +170,11 @@ namespace ShootingGame
                 motionMedFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
 
+                for (int i = 0; i < mediumBtns.Count; i++)
+                {
+                    mediumBtns[i].Text = i.ToString();
+                }
+
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
                     endGame();
@@ -186,6 +196,11 @@ namespace ShootingGame
                 smallTargets.RemoveAt(clickNum);
                 motionSmlFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
+
+                for (int i = 0; i < smallBtns.Count; i++)
+                {
+                    smallBtns[i].Text = i.ToString();
+                }
 
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {

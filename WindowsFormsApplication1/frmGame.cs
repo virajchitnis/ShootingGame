@@ -88,10 +88,11 @@ namespace ShootingGame
             for (int i = 0; i < userLevel.getSmallTargets(); i++)
             {
                 int locY = rndbuttonLoc.Next(40, 420);
+                int locX = rndbuttonLoc.Next(-30, 694);
                 // Make new button and set its attributes
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(-30, locY);
+                btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(30, 30);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();
@@ -110,9 +111,10 @@ namespace ShootingGame
             for (int i = 0; i < userLevel.getMediumTargets(); i++)
             {
                 int locY = rndbuttonLoc.Next(40, 400);
+                int locX = rndbuttonLoc.Next(-50, 694);
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(-50, locY);
+                btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(50, 50);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();
@@ -127,9 +129,10 @@ namespace ShootingGame
             for (int i = 0; i < userLevel.getBigTargets(); i++)
             {
                 int locY = rndbuttonLoc.Next(40, 350);
+                int locX = rndbuttonLoc.Next(-100, 694);
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCurr.Location = new System.Drawing.Point(-100, locY);
+                btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(100, 100);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();

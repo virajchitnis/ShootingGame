@@ -174,6 +174,8 @@ namespace ShootingGame
                     endGame(true);
                 }
             }
+
+            playGunShot();
         }
 
         void btnMed_Click(object sender, EventArgs e)
@@ -201,6 +203,8 @@ namespace ShootingGame
                     endGame(true);
                 }
             }
+
+            playGunShot();
         }
 
         void btnSml_Click(object sender, EventArgs e)
@@ -228,6 +232,8 @@ namespace ShootingGame
                     endGame(true);
                 }
             }
+
+            playGunShot();
         }
 
         // Pause the game
@@ -599,6 +605,28 @@ namespace ShootingGame
         private void btnPause_Click(object sender, EventArgs e)
         {
             pauseGame();
+        }
+
+        private void frmGame_Click(object sender, EventArgs e)
+        {
+            playGunShot();
+        }
+
+        void tmrGunShot_Tick(object sender, EventArgs e)
+        {
+            bkgndSound.Play();
+            Timer tmrGunShot = (Timer)sender;
+            tmrGunShot.Stop();
+        }
+
+        private void playGunShot()
+        {
+            Timer tmrGunShot = new Timer();
+            tmrGunShot.Interval = 2000;
+            tmrGunShot.Enabled = true;
+            tmrGunShot.Tick += new EventHandler(tmrGunShot_Tick);
+            bkgndSound.Stop();
+            gunshotSound.Play();
         }
     }
 }

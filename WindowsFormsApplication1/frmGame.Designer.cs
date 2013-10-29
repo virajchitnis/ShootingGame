@@ -113,6 +113,7 @@
             this.Text = "Level";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGame_FormClosing);
             this.Load += new System.EventHandler(this.frmGame_Load);
+            this.Click += new System.EventHandler(this.frmGame_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

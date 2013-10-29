@@ -33,11 +33,13 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.btnPause);
             this.panel1.Controls.Add(this.lblTime);
             this.panel1.Controls.Add(this.lblScore);
@@ -89,6 +91,14 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(369, 11);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(233, 13);
+            this.lblName.TabIndex = 3;
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,5 +126,6 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Label lblName;
     }
 }

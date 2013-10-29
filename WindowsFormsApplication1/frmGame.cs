@@ -13,6 +13,7 @@ namespace ShootingGame
     {
         Weapon userWeapon;                  // Weapon chosen by player
         Level userLevel;                    // Level chosen by player
+        string userName;                    // Player's username
         int currTime;                       // Time tracker for the level
         Timer moveTargets;                  // Timer to move targets
         Timer levelTimer;                   // Timer to keep track of and update time in currTime
@@ -40,9 +41,10 @@ namespace ShootingGame
         System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
 
-        public frmGame(Weapon w, Level l)
+        public frmGame(string name, Weapon w, Level l)
         {
             InitializeComponent();
+            userName = name;
             userWeapon = w;
             userLevel = l;
         }
@@ -56,6 +58,7 @@ namespace ShootingGame
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
             lblTime.Text = "Time: " + currTime;
+            lblName.Text = "Player: " + userName;
         }
 
         // On form close

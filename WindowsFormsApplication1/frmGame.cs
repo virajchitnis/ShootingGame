@@ -319,6 +319,7 @@ namespace ShootingGame
 
             bkgndSound.Stop();
             btnPause.Enabled = false;
+            btnPause.Visible = false;
 
             this.Cursor = System.Windows.Forms.Cursors.Default;
 
@@ -424,6 +425,7 @@ namespace ShootingGame
             makeTargets();
 
             btnPause.Enabled = true;
+            btnPause.Visible = true;
 
             bkgndSound.Play();
 

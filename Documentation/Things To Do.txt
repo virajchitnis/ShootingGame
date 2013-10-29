@@ -1,17 +1,7 @@
 1) frmLevel reads from file and dynamically creates levels for each button.
 2) Gunshot sound when mouse clicked in frmGame.(each gun has own sound for shot and reload)
-3) Fix frmGame next level bug.
 4) Write next level info to file.
 5) Implement Weapon ammo and reload.
 6) improve pictures and designs to forms.
 7) Implement 'continue game'.
-8) Write (Top 5) high scores to file in frmGame.
-9) Read from high scores file in frmHighScores and display.
-10) Add frmUser which will ask the user for their name. The name will be used for keeping track of high scores.
-11) Change mouse cursor to cross hair or target
-
-BUGS
-1) After selecting a weapon, the following screen has 2 options, 
-Pause and start game. If you click Pause before the game starts, it crashes.
-The pause button shouldnt be enabled until the game (and timer) start.
-
+8) Write high scores to file in frmGame.

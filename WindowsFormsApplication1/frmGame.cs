@@ -411,7 +411,7 @@ namespace ShootingGame
             btnStart.Visible = true;
 
             int currLevel = userLevel.getLevel();
-            userLevel = new Level(2, currLevel * 2, currLevel * 2, currLevel * 2);
+            userLevel = new Level(currLevel+1, currLevel * 2, currLevel * 2, currLevel * 2);
 
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();

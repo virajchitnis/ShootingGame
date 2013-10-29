@@ -27,17 +27,17 @@ namespace ShootingGame
          */
 
         // List for controlling the wall bounce off for the targets
-        List<bool> motionSmlFlipped = new List<bool>();
-        List<bool> motionMedFlipped = new List<bool>();
-        List<bool> motionBigFlipped = new List<bool>();
+        List<bool> motionSmlFlipped;
+        List<bool> motionMedFlipped;
+        List<bool> motionBigFlipped;
 
         // Lists for buttons and their respective targets.
-        List<Target> smallTargets = new List<Target>();
-        List<Target> mediumTargets = new List<Target>();
-        List<Target> bigTargets = new List<Target>();
-        List<Button> smallBtns = new List<Button>();
-        List<Button> mediumBtns = new List<Button>();
-        List<Button> bigBtns = new List<Button>();
+        List<Target> smallTargets;
+        List<Target> mediumTargets;
+        List<Target> bigTargets;
+        List<Button> smallBtns;
+        List<Button> mediumBtns;
+        List<Button> bigBtns;
 
         System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
@@ -74,6 +74,16 @@ namespace ShootingGame
         // Method to dynamically generate buttons (targets)
         private void makeTargets()
         {
+            motionSmlFlipped = new List<bool>();
+            motionMedFlipped = new List<bool>();
+            motionBigFlipped = new List<bool>();
+            smallTargets = new List<Target>();
+            mediumTargets = new List<Target>();
+            bigTargets = new List<Target>();
+            smallBtns = new List<Button>();
+            mediumBtns = new List<Button>();
+            bigBtns = new List<Button>();
+
             // Loop to repeat process for number of targets of each size
             for (int i = 0; i < userLevel.getSmallTargets(); i++)
             {
@@ -158,7 +168,7 @@ namespace ShootingGame
 
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
-                    endGame();
+                    endGame(true);
                 }
             }
         }
@@ -185,7 +195,7 @@ namespace ShootingGame
 
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
-                    endGame();
+                    endGame(true);
                 }
             }
         }
@@ -212,7 +222,7 @@ namespace ShootingGame
 
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
-                    endGame();
+                    endGame(true);
                 }
             }
         }
@@ -320,7 +330,7 @@ namespace ShootingGame
         }
 
         // End the game
-        private void endGame()
+        private void endGame(bool win)
         {
             levelTimer.Stop();
             moveTargets.Stop();
@@ -352,14 +362,6 @@ namespace ShootingGame
                 //bigBtns[i].Enabled = false;
             }
 
-            Label lblGameOver = new Label();
-            lblGameOver.AutoSize = true;
-            lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblGameOver.Location = new System.Drawing.Point(300, 150);
-            lblGameOver.Name = "lblGameOver";
-            lblGameOver.Text = "Game Over!";
-            Controls.Add(lblGameOver);
-
             Label lblYouScored = new Label();
             lblYouScored.AutoSize = true;
             lblYouScored.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -368,15 +370,50 @@ namespace ShootingGame
             lblYouScored.Text = "You Scored: " + userLevel.getScore();
             Controls.Add(lblYouScored);
 
-            Button btnPlayNext = new Button();
-            btnPlayNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnPlayNext.Location = new System.Drawing.Point(300, 200);
-            btnPlayNext.AutoSize = true;
-            btnPlayNext.UseVisualStyleBackColor = true;
-            btnPlayNext.Text = "Next Level";
-            btnPlayNext.Name = "btnPlayNext";
-            btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
-            Controls.Add(btnPlayNext);
+            if (win)
+            {
+                Label lblGameOver = new Label();
+                lblGameOver.AutoSize = false;
+                lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                lblGameOver.Location = new System.Drawing.Point(173, 150);
+                lblGameOver.Size = new System.Drawing.Size(347, 20);
+                lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                lblGameOver.Name = "lblGameOver";
+                lblGameOver.Text = "Congratulations, you won!";
+                Controls.Add(lblGameOver);
+
+                Button btnPlayNext = new Button();
+                btnPlayNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnPlayNext.Location = new System.Drawing.Point(300, 200);
+                btnPlayNext.AutoSize = true;
+                btnPlayNext.UseVisualStyleBackColor = true;
+                btnPlayNext.Text = "Next Level";
+                btnPlayNext.Name = "btnPlayNext";
+                btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
+                Controls.Add(btnPlayNext);
+            }
+            else
+            {
+                Label lblGameOver = new Label();
+                lblGameOver.AutoSize = false;
+                lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                lblGameOver.Location = new System.Drawing.Point(173, 150);
+                lblGameOver.Size = new System.Drawing.Size(347, 20);
+                lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                lblGameOver.Name = "lblGameOver";
+                lblGameOver.Text = "You lost, try again!";
+                Controls.Add(lblGameOver);
+
+                Button btnPlayAgain = new Button();
+                btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnPlayAgain.Location = new System.Drawing.Point(300, 200);
+                btnPlayAgain.AutoSize = true;
+                btnPlayAgain.UseVisualStyleBackColor = true;
+                btnPlayAgain.Text = "Play Again";
+                btnPlayAgain.Name = "btnPlayAgain";
+                btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
+                Controls.Add(btnPlayAgain);
+            }
 
             Button btnToMenu = new Button();
             btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,6 +436,31 @@ namespace ShootingGame
             Controls.Add(btnExit);
         }
 
+        void btnPlayAgain_Click(object sender, EventArgs e)
+        {
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+
+            btnStart.Enabled = true;
+            btnStart.Visible = true;
+
+            int currLevel = userLevel.getLevel();
+            int currSmlTarg = userLevel.getSmallTargets();
+            int currMedTarg = userLevel.getMediumTargets();
+            int currBigTarg = userLevel.getBigTargets();
+            userLevel = new Level(currLevel, currSmlTarg, currMedTarg, currBigTarg);
+
+            // Get info from level class and assign to appropriate variables.
+            this.Text = "Level " + userLevel.getLevel();
+            int currScore = userLevel.getScore();
+            currTime = 30;
+            lblScore.Text = "Score: " + currScore;
+            lblTime.Text = "Time: " + currTime;
+        }
+
         void btnPlayNext_Click(object sender, EventArgs e)
         {
             Controls.RemoveAt(Controls.Count - 1);
@@ -419,8 +481,6 @@ namespace ShootingGame
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
             lblTime.Text = "Time: " + currTime;
-
-            //throw new NotImplementedException();
         }
 
         // Start the game
@@ -465,7 +525,7 @@ namespace ShootingGame
             else
             {
                 lblTime.Text = "Time: " + 0;
-                endGame();
+                endGame(false);
             }
         }
 

@@ -48,6 +48,7 @@
             // 
             // btnPause
             // 
+            this.btnPause.Enabled = false;
             this.btnPause.Location = new System.Drawing.Point(318, 7);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(45, 20);

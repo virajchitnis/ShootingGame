@@ -18,6 +18,12 @@ namespace ShootingGame
         Timer levelTimer;                   // Timer to keep track of and update time in currTime
         bool isPaused;                      // Whether the game is paused or running
 
+        /* These lists may need to be converted into arrays because in levels where there are
+         * multiple targets of the same kind, everytime a target is destroyed, the index of most
+         * other targets changes. This causes the program to throw an out of bounds error the next
+         * time a target is clicked.
+         */
+
         // List for controlling the wall bounce off for the targets
         List<bool> motionSmlFlipped = new List<bool>();
         List<bool> motionMedFlipped = new List<bool>();
@@ -137,6 +143,11 @@ namespace ShootingGame
                 motionBigFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
 
+                for (int i = 0; i < bigBtns.Count; i++)
+                {
+                    bigBtns[i].Text = i.ToString();
+                }
+
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
                     endGame();
@@ -159,6 +170,11 @@ namespace ShootingGame
                 motionMedFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
 
+                for (int i = 0; i < mediumBtns.Count; i++)
+                {
+                    mediumBtns[i].Text = i.ToString();
+                }
+
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
                     endGame();
@@ -180,6 +196,11 @@ namespace ShootingGame
                 smallTargets.RemoveAt(clickNum);
                 motionSmlFlipped.RemoveAt(clickNum);
                 Controls.Remove(clickedBtn);
+
+                for (int i = 0; i < smallBtns.Count; i++)
+                {
+                    smallBtns[i].Text = i.ToString();
+                }
 
                 if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                 {
@@ -345,6 +366,7 @@ namespace ShootingGame
             btnPlayNext.UseVisualStyleBackColor = true;
             btnPlayNext.Text = "Next Level";
             btnPlayNext.Name = "btnPlayNext";
+            btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
             Controls.Add(btnPlayNext);
 
             Button btnToMenu = new Button();
@@ -368,12 +390,40 @@ namespace ShootingGame
             Controls.Add(btnExit);
         }
 
+        void btnPlayNext_Click(object sender, EventArgs e)
+        {
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+
+            btnStart.Enabled = true;
+            btnStart.Visible = true;
+
+            int currLevel = userLevel.getLevel();
+            userLevel = new Level(2, currLevel * 2, currLevel * 2, currLevel * 2);
+
+            // Get info from level class and assign to appropriate variables.
+            this.Text = "Level " + userLevel.getLevel();
+            int currScore = userLevel.getScore();
+            currTime = 30;
+            lblScore.Text = "Score: " + currScore;
+            lblTime.Text = "Time: " + currTime;
+
+            //throw new NotImplementedException();
+        }
+
         // Start the game
         private void btnStart_Click(object sender, EventArgs e)
         {
             // Remove this button from the form and generate the targets.
-            Controls.Remove(btnStart);
+            //Controls.Remove(btnStart);
+            btnStart.Enabled = false;
+            btnStart.Visible = false;
             makeTargets();
+
+            btnPause.Enabled = true;
 
             bkgndSound.Play();
 

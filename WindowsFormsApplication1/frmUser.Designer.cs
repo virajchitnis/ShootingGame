@@ -36,25 +36,31 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(13, 13);
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Cambria", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(87, 21);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(130, 20);
+            this.lblName.Size = new System.Drawing.Size(238, 33);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Enter your name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(43, 55);
+            this.txtName.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Location = new System.Drawing.Point(64, 85);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(183, 20);
+            this.txtName.Size = new System.Drawing.Size(272, 26);
             this.txtName.TabIndex = 1;
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(200, 95);
+            this.btnPlay.Location = new System.Drawing.Point(160, 130);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(58, 23);
+            this.btnPlay.Size = new System.Drawing.Size(87, 35);
             this.btnPlay.TabIndex = 2;
             this.btnPlay.Text = "Continue";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -62,14 +68,17 @@
             // 
             // frmUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 130);
+            this.BackgroundImage = global::ShootingGame.Properties.Resources.wooden_panels_030211;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(405, 200);
             this.ControlBox = false;
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmUser";
             this.Text = "Player Name";
             this.ResumeLayout(false);

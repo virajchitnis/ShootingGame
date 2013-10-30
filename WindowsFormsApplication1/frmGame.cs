@@ -128,12 +128,12 @@ namespace ShootingGame
 
             for (int i = 0; i < userLevel.getBigTargets(); i++)
             {
-                int locY = rndbuttonLoc.Next(40, 350);
-                int locX = rndbuttonLoc.Next(-100, 694);
+                int locY = rndbuttonLoc.Next(40, 380);
+                int locX = rndbuttonLoc.Next(-70, 694);
                 Button btnCurr = new Button();
                 btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
-                btnCurr.Size = new System.Drawing.Size(100, 100);
+                btnCurr.Size = new System.Drawing.Size(70, 70);
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnBigTar" + i;
@@ -273,6 +273,16 @@ namespace ShootingGame
                 lblGamePaused.Name = "lblGameOver";
                 lblGamePaused.Text = "Game Paused";
                 Controls.Add(lblGamePaused);
+
+                Button btnPlayAgain = new Button();
+                btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnPlayAgain.Location = new System.Drawing.Point(288, 200);
+                btnPlayAgain.AutoSize = true;
+                btnPlayAgain.UseVisualStyleBackColor = true;
+                btnPlayAgain.Text = "Restart Level";
+                btnPlayAgain.Name = "btnPlayAgain";
+                btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
+                Controls.Add(btnPlayAgain);
 
                 Button btnToMenu = new Button();
                 btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

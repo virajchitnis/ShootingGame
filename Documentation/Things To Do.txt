@@ -1,7 +1,8 @@
-1) frmLevel reads from file and dynamically creates levels for each button.
-2) Gunshot sound when mouse clicked in frmGame.(each gun has own sound for shot and reload)
-4) Write next level info to file.
-5) Implement Weapon ammo and reload.
-6) improve pictures and designs to forms.
-7) Implement 'continue game'.
-8) Write high scores to file in frmGame.
+1) Write next level info to file.
+2) Implement Weapon ammo and reload.
+3) Add graphics to frmGame
+4) Implement 'continue game'.
+5) Write high scores to file in frmGame.
+
+Bonus
+1) Animals walk

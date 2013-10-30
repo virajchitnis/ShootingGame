@@ -56,6 +56,7 @@ namespace ShootingGame
         {
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();
+            this.BackgroundImage = new Bitmap(Properties.Resources.Prairie_en_Meurthe_et_Moselle, new Size(this.Width, this.Height));
             int currScore = userLevel.getScore();
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
@@ -270,6 +271,7 @@ namespace ShootingGame
                 lblGamePaused.AutoSize = true;
                 lblGamePaused.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 lblGamePaused.Location = new System.Drawing.Point(300, 150);
+                lblGamePaused.BackColor = System.Drawing.Color.Transparent;
                 lblGamePaused.Name = "lblGameOver";
                 lblGamePaused.Text = "Game Paused";
                 Controls.Add(lblGamePaused);
@@ -334,6 +336,7 @@ namespace ShootingGame
                 Controls.RemoveAt(Controls.Count - 1);
                 Controls.RemoveAt(Controls.Count - 1);
                 Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
             }
         }
 
@@ -385,6 +388,7 @@ namespace ShootingGame
             lblYouScored.AutoSize = true;
             lblYouScored.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblYouScored.Location = new System.Drawing.Point(290, 175);
+            lblYouScored.BackColor = System.Drawing.Color.Transparent;
             lblYouScored.Name = "lblYouScored";
             lblYouScored.Text = "You Scored: " + userLevel.getScore();
             Controls.Add(lblYouScored);
@@ -396,6 +400,7 @@ namespace ShootingGame
                 lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 lblGameOver.Location = new System.Drawing.Point(173, 150);
                 lblGameOver.Size = new System.Drawing.Size(347, 20);
+                lblGameOver.BackColor = System.Drawing.Color.Transparent;
                 lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 lblGameOver.Name = "lblGameOver";
                 lblGameOver.Text = "Congratulations, you won!";
@@ -418,6 +423,7 @@ namespace ShootingGame
                 lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 lblGameOver.Location = new System.Drawing.Point(173, 150);
                 lblGameOver.Size = new System.Drawing.Size(347, 20);
+                lblGameOver.BackColor = System.Drawing.Color.Transparent;
                 lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 lblGameOver.Name = "lblGameOver";
                 lblGameOver.Text = "You lost, try again!";

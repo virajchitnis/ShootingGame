@@ -62,6 +62,7 @@ namespace ShootingGame
             lblScore.Text = "Score: " + currScore;
             lblTime.Text = "Time: " + currTime;
             lblName.Text = "Player: " + userName;
+            lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
         }
 
         // On form close
@@ -149,92 +150,137 @@ namespace ShootingGame
         // Button click event
         void btnBig_Click(object sender, EventArgs e)
         {
-            // Detect the clicked button
-            Button clickedBtn = (Button)sender;
-            int clickNum = Convert.ToInt32(clickedBtn.Text);
-            // Shoot the appropriate target
-            bigTargets[clickNum].Shot(userWeapon.getDamage());
-
-            // If the target is dead, remove the button from the form.
-            if (!bigTargets[clickNum].isAlive())
+            if (!userWeapon.inReload())
             {
-                userLevel.updateScore(bigTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + userLevel.getScore();
-                bigBtns.RemoveAt(clickNum);
-                bigTargets.RemoveAt(clickNum);
-                motionBigFlipped.RemoveAt(clickNum);
-                Controls.Remove(clickedBtn);
+                userWeapon.TakenShot();
+                lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
 
-                for (int i = 0; i < bigBtns.Count; i++)
+                // Detect the clicked button
+                Button clickedBtn = (Button)sender;
+                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                // Shoot the appropriate target
+                bigTargets[clickNum].Shot(userWeapon.getDamage());
+
+                // If the target is dead, remove the button from the form.
+                if (!bigTargets[clickNum].isAlive())
                 {
-                    bigBtns[i].Text = i.ToString();
+                    userLevel.updateScore(bigTargets[clickNum].getScore());
+                    lblScore.Text = "Score: " + userLevel.getScore();
+                    bigBtns.RemoveAt(clickNum);
+                    bigTargets.RemoveAt(clickNum);
+                    motionBigFlipped.RemoveAt(clickNum);
+                    Controls.Remove(clickedBtn);
+
+                    for (int i = 0; i < bigBtns.Count; i++)
+                    {
+                        bigBtns[i].Text = i.ToString();
+                    }
+
+                    if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                    {
+                        endGame(true);
+                    }
                 }
 
-                if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                if (userWeapon.needReload())
                 {
-                    endGame(true);
+                    userWeapon.Reload();
+                    lblAmmo.Text = "Reloading weapon...";
+                    Timer tmrWeaponReload = new Timer();
+                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
+                    tmrWeaponReload.Enabled = true;
+                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
                 }
+                playGunShot();
             }
-
-            playGunShot();
         }
 
         void btnMed_Click(object sender, EventArgs e)
         {
-            Button clickedBtn = (Button)sender;
-            int clickNum = Convert.ToInt32(clickedBtn.Text);
-            mediumTargets[clickNum].Shot(userWeapon.getDamage());
-
-            if (!mediumTargets[clickNum].isAlive())
+            if (!userWeapon.inReload())
             {
-                userLevel.updateScore(mediumTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + userLevel.getScore();
-                mediumBtns.RemoveAt(clickNum);
-                mediumTargets.RemoveAt(clickNum);
-                motionMedFlipped.RemoveAt(clickNum);
-                Controls.Remove(clickedBtn);
+                userWeapon.TakenShot();
+                lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
 
-                for (int i = 0; i < mediumBtns.Count; i++)
+                Button clickedBtn = (Button)sender;
+                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                mediumTargets[clickNum].Shot(userWeapon.getDamage());
+
+                if (!mediumTargets[clickNum].isAlive())
                 {
-                    mediumBtns[i].Text = i.ToString();
+                    userLevel.updateScore(mediumTargets[clickNum].getScore());
+                    lblScore.Text = "Score: " + userLevel.getScore();
+                    mediumBtns.RemoveAt(clickNum);
+                    mediumTargets.RemoveAt(clickNum);
+                    motionMedFlipped.RemoveAt(clickNum);
+                    Controls.Remove(clickedBtn);
+
+                    for (int i = 0; i < mediumBtns.Count; i++)
+                    {
+                        mediumBtns[i].Text = i.ToString();
+                    }
+
+                    if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                    {
+                        endGame(true);
+                    }
                 }
 
-                if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                if (userWeapon.needReload())
                 {
-                    endGame(true);
+                    userWeapon.Reload();
+                    lblAmmo.Text = "Reloading weapon...";
+                    Timer tmrWeaponReload = new Timer();
+                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
+                    tmrWeaponReload.Enabled = true;
+                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
                 }
+                playGunShot();
             }
-
-            playGunShot();
         }
 
         void btnSml_Click(object sender, EventArgs e)
         {
-            Button clickedBtn = (Button)sender;
-            int clickNum = Convert.ToInt32(clickedBtn.Text);
-            smallTargets[clickNum].Shot(userWeapon.getDamage());
-
-            if (!smallTargets[clickNum].isAlive())
+            if (!userWeapon.inReload())
             {
-                userLevel.updateScore(smallTargets[clickNum].getScore());
-                lblScore.Text = "Score: " + userLevel.getScore();
-                smallBtns.RemoveAt(clickNum);
-                smallTargets.RemoveAt(clickNum);
-                motionSmlFlipped.RemoveAt(clickNum);
-                Controls.Remove(clickedBtn);
+                userWeapon.TakenShot();
+                lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
 
-                for (int i = 0; i < smallBtns.Count; i++)
+                Button clickedBtn = (Button)sender;
+                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                smallTargets[clickNum].Shot(userWeapon.getDamage());
+
+                if (!smallTargets[clickNum].isAlive())
                 {
-                    smallBtns[i].Text = i.ToString();
+                    userLevel.updateScore(smallTargets[clickNum].getScore());
+                    lblScore.Text = "Score: " + userLevel.getScore();
+                    smallBtns.RemoveAt(clickNum);
+                    smallTargets.RemoveAt(clickNum);
+                    motionSmlFlipped.RemoveAt(clickNum);
+                    Controls.Remove(clickedBtn);
+
+                    for (int i = 0; i < smallBtns.Count; i++)
+                    {
+                        smallBtns[i].Text = i.ToString();
+                    }
+
+                    if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                    {
+                        endGame(true);
+                    }
                 }
 
-                if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
+                if (userWeapon.needReload())
                 {
-                    endGame(true);
+                    userWeapon.Reload();
+                    lblAmmo.Text = "Reloading weapon...";
+                    Timer tmrWeaponReload = new Timer();
+                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
+                    tmrWeaponReload.Enabled = true;
+                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
                 }
+                playGunShot();
             }
-
-            playGunShot();
         }
 
         // Pause the game
@@ -361,6 +407,8 @@ namespace ShootingGame
             btnPause.Enabled = false;
             btnPause.Visible = false;
 
+            lblAmmo.Visible = false;
+
             this.Cursor = System.Windows.Forms.Cursors.Default;
 
             for (int i = 0; i < smallBtns.Count; i++)
@@ -472,6 +520,10 @@ namespace ShootingGame
             btnStart.Enabled = true;
             btnStart.Visible = true;
 
+            userWeapon.reset();
+            lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
+            lblAmmo.Visible = true;
+
             int currLevel = userLevel.getLevel();
             int currSmlTarg = userLevel.getSmallTargets();
             int currMedTarg = userLevel.getMediumTargets();
@@ -496,6 +548,10 @@ namespace ShootingGame
 
             btnStart.Enabled = true;
             btnStart.Visible = true;
+
+            userWeapon.reset();
+            lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
+            lblAmmo.Visible = true;
 
             int currLevel = userLevel.getLevel();
             userLevel = new Level(currLevel+1, currLevel * 2, currLevel * 2, currLevel * 2);
@@ -625,7 +681,28 @@ namespace ShootingGame
 
         private void frmGame_Click(object sender, EventArgs e)
         {
-            playGunShot();
+            if (!userWeapon.inReload())
+            {
+                userWeapon.TakenShot();
+                lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
+                if (userWeapon.needReload())
+                {
+                    userWeapon.Reload();
+                    lblAmmo.Text = "Reloading weapon...";
+                    Timer tmrWeaponReload = new Timer();
+                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
+                    tmrWeaponReload.Enabled = true;
+                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+                }
+                playGunShot();
+            }
+        }
+
+        void tmrWeaponReload_Tick(object sender, EventArgs e)
+        {
+            lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
+            Timer tmrWeaponReload = (Timer)sender;
+            tmrWeaponReload.Stop();
         }
 
         void tmrGunShot_Tick(object sender, EventArgs e)

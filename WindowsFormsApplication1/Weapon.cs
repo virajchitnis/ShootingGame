@@ -72,15 +72,7 @@ namespace ShootingGame
             }
         }
 
-        public void Reload()
-        {
-            Timer tmrReload = new Timer();
-            tmrReload.Interval = 1000;
-            tmrReload.Enabled = true;
-            tmrReload.Tick += new EventHandler(tmrReload_Tick);
-        }
-
-        void tmrReload_Tick(object sender, EventArgs e)
+        public void reset()
         {
             if (type == "handgun")
             {
@@ -94,6 +86,19 @@ namespace ShootingGame
             {
                 ammo = 2;
             }
+        }
+
+        public void Reload()
+        {
+            Timer tmrReload = new Timer();
+            tmrReload.Interval = timeReload * 1000;
+            tmrReload.Enabled = true;
+            tmrReload.Tick += new EventHandler(tmrReload_Tick);
+        }
+
+        void tmrReload_Tick(object sender, EventArgs e)
+        {
+            reset();
             Timer tmrReload = (Timer)sender;
             tmrReload.Stop();
         }
@@ -101,6 +106,33 @@ namespace ShootingGame
         public int getDamage()
         {
             return damage;
+        }
+
+        public int getAmmo()
+        {
+            return ammo;
+        }
+
+        public int getInitialAmmo()
+        {
+            if (type == "handgun")
+            {
+                return 10;
+            }
+            else if (type == "rifle")
+            {
+                return 6;
+            }
+            else if (type == "shotgun")
+            {
+                return 2;
+            }
+            return 0;
+        }
+
+        public int getTimeReload()
+        {
+            return timeReload;
         }
     }
 }

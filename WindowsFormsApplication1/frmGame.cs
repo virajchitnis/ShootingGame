@@ -56,7 +56,7 @@ namespace ShootingGame
         {
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();
-            this.BackgroundImage = new Bitmap(Properties.Resources.Prairie_en_Meurthe_et_Moselle, new Size(this.Width, this.Height));
+            this.BackgroundImage = new Bitmap(Properties.Resources.prairie_background, new Size(this.Width, this.Height));
             int currScore = userLevel.getScore();
             currTime = 30;
             lblScore.Text = "Score: " + currScore;

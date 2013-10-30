@@ -131,7 +131,7 @@ namespace ShootingGame.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Viraj,1000.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string HighScores {
             get {
@@ -191,6 +191,13 @@ namespace ShootingGame.Properties {
         internal static System.Drawing.Bitmap picShotgun__transparent1 {
             get {
                 object obj = ResourceManager.GetObject("picShotgun--transparent1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap prairie_background {
+            get {
+                object obj = ResourceManager.GetObject("prairie_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

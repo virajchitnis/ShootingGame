@@ -93,10 +93,12 @@ namespace ShootingGame
                 int locX = rndbuttonLoc.Next(-30, 694);
                 // Make new button and set its attributes
                 Button btnCurr = new Button();
-                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 0.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(30, 30);
                 btnCurr.UseVisualStyleBackColor = true;
+                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_1, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnSmlTar" + i;
                 btnCurr.Click += new EventHandler(btnSml_Click);
@@ -133,10 +135,12 @@ namespace ShootingGame
                 int locY = rndbuttonLoc.Next(40, 380);
                 int locX = rndbuttonLoc.Next(-70, 694);
                 Button btnCurr = new Button();
-                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 0.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(70, 70);
                 btnCurr.UseVisualStyleBackColor = true;
+                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnBigTar" + i;
                 btnCurr.Click += new EventHandler(btnBig_Click);

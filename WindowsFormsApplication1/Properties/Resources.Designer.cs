@@ -60,6 +60,13 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Bear_Walking_1 {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bird {
             get {
                 object obj = ResourceManager.GetObject("bird", resourceCulture);
@@ -112,6 +119,13 @@ namespace ShootingGame.Properties {
         internal static System.Drawing.Bitmap bird6 {
             get {
                 object obj = ResourceManager.GetObject("bird6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Duck_Flying_1 {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

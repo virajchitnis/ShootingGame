@@ -188,6 +188,8 @@
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
     <Content Include="Resources\37236__shades__gun-pistol-one-shot.wav" />
+    <None Include="Resources\Duck-Flying-1.png" />
+    <None Include="Resources\Bear-Walking-1.png" />
     <None Include="Resources\prairie_background.png" />
     <None Include="Resources\HighScores.txt" />
     <None Include="Resources\picShotgun--transparent---Copy.gif" />

@@ -16,7 +16,7 @@ namespace ShootingGame
         public Weapon(string t)
         {
             type = t;
-            timeReload = 1;
+            timeReload = 2;
 
             if (type == "handgun")
             {

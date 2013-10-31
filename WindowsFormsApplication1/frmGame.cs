@@ -56,7 +56,7 @@ namespace ShootingGame
         {
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();
-            this.BackgroundImage = new Bitmap(Properties.Resources.prairie_background, new Size(this.Width, this.Height));
+            //this.BackgroundImage = new Bitmap(Properties.Resources.prairie_background, new Size(this.Width, this.Height));
             int currScore = userLevel.getScore();
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
@@ -587,7 +587,7 @@ namespace ShootingGame
 
             // Initialize timer and set all its necessary attributes
             moveTargets = new Timer();
-            moveTargets.Interval = 10;
+            moveTargets.Interval = 33;
             moveTargets.Enabled = true;
             moveTargets.Tick += new EventHandler(moveTargets_Tick);
 
@@ -621,7 +621,7 @@ namespace ShootingGame
             {
                 if (motionSmlFlipped[i] == false)
                 {
-                    smallBtns[i].Left += 1;
+                    smallBtns[i].Left += 8;
                     if (smallBtns[i].Right >= 694)
                     {
                         motionSmlFlipped[i] = true;
@@ -629,7 +629,7 @@ namespace ShootingGame
                 }
                 else if (motionSmlFlipped[i] == true)
                 {
-                    smallBtns[i].Left -= 1;
+                    smallBtns[i].Left -= 8;
                     if (smallBtns[i].Left <= 0)
                     {
                         motionSmlFlipped[i] = false;
@@ -641,7 +641,7 @@ namespace ShootingGame
             {
                 if (motionMedFlipped[i] == false)
                 {
-                    mediumBtns[i].Left += 1;
+                    mediumBtns[i].Left += 5;
                     if (mediumBtns[i].Right >= 694)
                     {
                         motionMedFlipped[i] = true;
@@ -649,7 +649,7 @@ namespace ShootingGame
                 }
                 else if (motionMedFlipped[i] == true)
                 {
-                    mediumBtns[i].Left -= 1;
+                    mediumBtns[i].Left -= 5;
                     if (mediumBtns[i].Left <= 0)
                     {
                         motionMedFlipped[i] = false;
@@ -661,7 +661,7 @@ namespace ShootingGame
             {
                 if (motionBigFlipped[i] == false)
                 {
-                    bigBtns[i].Left += 1;
+                    bigBtns[i].Left += 3;
                     if (bigBtns[i].Right >= 694)
                     {
                         motionBigFlipped[i] = true;
@@ -669,7 +669,7 @@ namespace ShootingGame
                 }
                 else if (motionBigFlipped[i] == true)
                 {
-                    bigBtns[i].Left -= 1;
+                    bigBtns[i].Left -= 3;
                     if (bigBtns[i].Left <= 0)
                     {
                         motionBigFlipped[i] = false;

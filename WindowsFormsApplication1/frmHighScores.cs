@@ -12,10 +12,13 @@ namespace ShootingGame
 {
     public partial class frmHighScores : Form
     {
-        string scoreFile = Properties.Resources.HighScores;
-        public frmHighScores()
+        HighScores highScores;
+        public static Label[] lblScores;
+
+        public frmHighScores(HighScores scores)
         {
             InitializeComponent();
+            highScores = scores;
         }
 
         private void frmHighScores_FormClosing(object sender, FormClosingEventArgs e)
@@ -26,47 +29,64 @@ namespace ShootingGame
         private void btnBack_Click(object sender, EventArgs e)
         {
             frmSplash.mainForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void frmHighScores_Load(object sender, EventArgs e)
         {
-            string fileData;
-            List<string[]> fileEntries = new List<string[]>();
-            fileData = scoreFile;
+            lblScores = new Label[5];
 
-            string[] fileLines = fileData.Split('\n');
-
-            foreach (string line in fileLines)
+            for (int i = 0; i < lblScores.Length; i++)
             {
-                string tempLine = line.TrimEnd('\r');
-                string[] tempEntries = tempLine.Split(',');
-                fileEntries.Add(tempEntries);
+                lblScores[i] = new Label();
             }
 
-            for (int i = (fileEntries.Count - 1), j = 0; i >= (fileEntries.Count - 6); i--, j++)
-            {
-                if (i == (fileEntries.Count - 1))
-                {
-                    lblScore1.Text = fileEntries[i][0] + " " + fileEntries[i][1];
-                }
-                if (i == (fileEntries.Count - 2))
-                {
-                    lblScore2.Text = fileEntries[i][0] + " " + fileEntries[i][1];
-                }
-                if (i == (fileEntries.Count - 3))
-                {
-                    lblScore3.Text = fileEntries[i][0] + " " + fileEntries[i][1];
-                }
-                if (i == (fileEntries.Count - 4))
-                {
-                    lblScore4.Text = fileEntries[i][0] + " " + fileEntries[i][1];
-                }
-                if (i == (fileEntries.Count - 5))
-                {
-                    lblScore5.Text = fileEntries[i][0] + " " + fileEntries[i][1];
-                }
-            }
+            lblScores[0].BackColor = System.Drawing.Color.Transparent;
+            lblScores[0].Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScores[0].Location = new System.Drawing.Point(124, 77);
+            lblScores[0].Name = "lblScore1";
+            lblScores[0].Size = new System.Drawing.Size(120, 30);
+            lblScores[0].TabIndex = 2;
+            lblScores[0].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Controls.Add(lblScores[0]);
+
+            lblScores[1].BackColor = System.Drawing.Color.Transparent;
+            lblScores[1].Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScores[1].Location = new System.Drawing.Point(124, 133);
+            lblScores[1].Name = "lblScore2";
+            lblScores[1].Size = new System.Drawing.Size(120, 30);
+            lblScores[1].TabIndex = 3;
+            lblScores[1].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Controls.Add(lblScores[1]);
+
+            lblScores[2].BackColor = System.Drawing.Color.Transparent;
+            lblScores[2].Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScores[2].Location = new System.Drawing.Point(124, 186);
+            lblScores[2].Name = "lblScore3";
+            lblScores[2].Size = new System.Drawing.Size(120, 30);
+            lblScores[2].TabIndex = 4;
+            lblScores[2].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Controls.Add(lblScores[2]);
+
+            lblScores[3].BackColor = System.Drawing.Color.Transparent;
+            lblScores[3].Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScores[3].Location = new System.Drawing.Point(124, 238);
+            lblScores[3].Name = "lblScore4";
+            lblScores[3].Size = new System.Drawing.Size(120, 30);
+            lblScores[3].TabIndex = 5;
+            lblScores[3].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Controls.Add(lblScores[3]);
+
+            lblScores[4].BackColor = System.Drawing.Color.Transparent;
+            lblScores[4].Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblScores[4].Location = new System.Drawing.Point(124, 291);
+            lblScores[4].Name = "lblScore5";
+            lblScores[4].Size = new System.Drawing.Size(120, 30);
+            lblScores[4].TabIndex = 6;
+            lblScores[4].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Controls.Add(lblScores[4]);
+
+            highScores.printScores();
         }
     }
 }

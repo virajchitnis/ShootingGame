@@ -15,6 +15,8 @@ namespace ShootingGame
         public static Level userLevel;
         public static string userName;
 
+        HighScores highScores;
+
         public frmMain()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace ShootingGame
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
-            frmHighScores formHighScores = new frmHighScores();
+            frmHighScores formHighScores = new frmHighScores(highScores);
             formHighScores.Show();
             this.Hide();
         }
@@ -57,6 +59,15 @@ namespace ShootingGame
         private void btnContinue_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            highScores = new HighScores("high_scores.txt");
+            if (highScores.Exist())
+            {
+                btnHighScores.Enabled = true;
+            }
         }
     }
 }

@@ -97,6 +97,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -191,7 +192,6 @@
     <None Include="Resources\Duck-Flying-1.png" />
     <None Include="Resources\Bear-Walking-1.png" />
     <None Include="Resources\prairie_background.png" />
-    <None Include="Resources\HighScores.txt" />
     <None Include="Resources\picShotgun--transparent---Copy.gif" />
     <None Include="Resources\picShotgun--transparent1.gif" />
     <None Include="Resources\picRifle--transparent.gif" />

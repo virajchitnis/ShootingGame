@@ -144,15 +144,6 @@ namespace ShootingGame.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string HighScores {
-            get {
-                return ResourceManager.GetString("HighScores", resourceCulture);
-            }
-        }
-        
         internal static System.Drawing.Bitmap picHANDGUN {
             get {
                 object obj = ResourceManager.GetObject("picHANDGUN", resourceCulture);

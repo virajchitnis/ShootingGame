@@ -62,6 +62,7 @@
             // 
             // btnHighScores
             // 
+            this.btnHighScores.Enabled = false;
             this.btnHighScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHighScores.Location = new System.Drawing.Point(36, 202);
             this.btnHighScores.Name = "btnHighScores";
@@ -123,6 +124,7 @@
             this.Name = "frmMain";
             this.Text = "Shooting Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
 
         }

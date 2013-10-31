@@ -558,7 +558,7 @@ namespace ShootingGame
             lblAmmo.Visible = true;
 
             int currLevel = userLevel.getLevel();
-            userLevel = new Level(currLevel+1, currLevel * 2, currLevel * 2, currLevel * 2);
+            userLevel = new Level(currLevel+1, currLevel+1, currLevel+1, currLevel+1);
 
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();

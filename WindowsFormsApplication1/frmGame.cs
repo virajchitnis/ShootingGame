@@ -467,6 +467,11 @@ namespace ShootingGame
                 btnPlayNext.Name = "btnPlayNext";
                 btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
                 Controls.Add(btnPlayNext);
+
+                string gameProgress = userName + "," + (userLevel.getLevel() + 1);
+                UpdateFile saveGame = new UpdateFile("game_save.txt");
+                saveGame.putNextRecord(gameProgress);
+                saveGame.closeFile();
             }
             else
             {
@@ -490,6 +495,11 @@ namespace ShootingGame
                 btnPlayAgain.Name = "btnPlayAgain";
                 btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
                 Controls.Add(btnPlayAgain);
+
+                string gameProgress = userName + "," + userLevel.getLevel();
+                UpdateFile saveGame = new UpdateFile("game_save.txt");
+                saveGame.putNextRecord(gameProgress);
+                saveGame.closeFile();
             }
 
             Button btnToMenu = new Button();

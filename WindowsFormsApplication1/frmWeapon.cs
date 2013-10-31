@@ -11,20 +11,22 @@ namespace ShootingGame
 {
     public partial class frmWeapon : Form
     {
-        string userName;
+        Player user;
         Weapon currWeapon;
-        public frmWeapon(string name)
+        public frmWeapon(Player name)
         {
             InitializeComponent();
-            userName = name;
+            user = name;
         }
 
         private void picHandgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("handgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(userName, currWeapon);
-            selLevel.Show();
+            Level currLevel = new Level(1, 1, 1, 1);
+            frmMain.userLevel = currLevel;
+            frmGame newLevel = new frmGame(user, currWeapon, currLevel);
+            newLevel.Show();
             this.Close();
 
         }
@@ -33,8 +35,10 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("rifle");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(userName, currWeapon);
-            selLevel.Show();
+            Level currLevel = new Level(1, 1, 1, 1);
+            frmMain.userLevel = currLevel;
+            frmGame newLevel = new frmGame(user, currWeapon, currLevel);
+            newLevel.Show();
             this.Close();
 
         }
@@ -43,8 +47,10 @@ namespace ShootingGame
         {
             currWeapon = new Weapon("shotgun");
             frmMain.userWeapon = currWeapon;
-            frmLevel selLevel = new frmLevel(userName, currWeapon);
-            selLevel.Show();
+            Level currLevel = new Level(1, 1, 1, 1);
+            frmMain.userLevel = currLevel;
+            frmGame newLevel = new frmGame(user, currWeapon, currLevel);
+            newLevel.Show();
             this.Close();
 
         }

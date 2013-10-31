@@ -28,6 +28,11 @@ namespace ShootingGame
             return totalScore;
         }
 
+        public string getName()
+        {
+            return name;
+        }
+
         public Boolean updateTotalScore(int add)
         {
             try

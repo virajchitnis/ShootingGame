@@ -13,7 +13,7 @@ namespace ShootingGame
     {
         Weapon userWeapon;                  // Weapon chosen by player
         Level userLevel;                    // Level chosen by player
-        string userName;                    // Player's username
+        Player user;                        // Player's username
         int currTime;                       // Time tracker for the level
         Timer moveTargets;                  // Timer to move targets
         Timer levelTimer;                   // Timer to keep track of and update time in currTime
@@ -42,10 +42,10 @@ namespace ShootingGame
         System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
 
-        public frmGame(string name, Weapon w, Level l)
+        public frmGame(Player name, Weapon w, Level l)
         {
             InitializeComponent();
-            userName = name;
+            user = name;
             userWeapon = w;
             userLevel = l;
             rndbuttonLoc = new Random();
@@ -61,7 +61,7 @@ namespace ShootingGame
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
             lblTime.Text = "Time: " + currTime;
-            lblName.Text = "Player: " + userName;
+            lblName.Text = "Player: " + user.getName();
             lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
         }
 
@@ -468,7 +468,7 @@ namespace ShootingGame
                 btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
                 Controls.Add(btnPlayNext);
 
-                string gameProgress = userName + "," + (userLevel.getLevel() + 1);
+                string gameProgress = user.getName() + "," + (userLevel.getLevel() + 1);
                 UpdateFile saveGame = new UpdateFile("game_save.txt");
                 saveGame.putNextRecord(gameProgress);
                 saveGame.closeFile();
@@ -496,7 +496,7 @@ namespace ShootingGame
                 btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
                 Controls.Add(btnPlayAgain);
 
-                string gameProgress = userName + "," + userLevel.getLevel();
+                string gameProgress = user.getName() + "," + userLevel.getLevel();
                 UpdateFile saveGame = new UpdateFile("game_save.txt");
                 saveGame.putNextRecord(gameProgress);
                 saveGame.closeFile();

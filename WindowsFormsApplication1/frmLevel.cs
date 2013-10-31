@@ -24,8 +24,8 @@ namespace ShootingGame
         {
             Level currLevel = new Level(1, 1, 1, 1);
             frmMain.userLevel = currLevel;
-            frmGame newLevel = new frmGame(userName, currWeapon, currLevel);
-            newLevel.Show();
+            //frmGame newLevel = new frmGame(userName, currWeapon, currLevel);
+            //newLevel.Show();
             this.Close();
         }
     }

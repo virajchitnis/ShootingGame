@@ -11,6 +11,7 @@ namespace ShootingGame
 {
     public partial class frmUser : Form
     {
+        Player user;
         string userName;
         public frmUser()
         {
@@ -28,7 +29,8 @@ namespace ShootingGame
             else
             {
                 frmMain.userName = userName;
-                frmWeapon weapons = new frmWeapon(userName);
+                user = new Player(userName);
+                frmWeapon weapons = new frmWeapon(user);
                 weapons.Show();
                 this.Close();
             }

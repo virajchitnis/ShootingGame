@@ -41,6 +41,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.lblAmmo);
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.btnPause);
@@ -114,7 +115,7 @@
             // 
             this.lblReload.Enabled = false;
             this.lblReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReload.Location = new System.Drawing.Point(12, 82);
+            this.lblReload.Location = new System.Drawing.Point(12, 38);
             this.lblReload.Name = "lblReload";
             this.lblReload.Size = new System.Drawing.Size(666, 53);
             this.lblReload.TabIndex = 2;
@@ -125,6 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(690, 468);
             this.ControlBox = false;
             this.Controls.Add(this.lblReload);

@@ -1,7 +1,9 @@
 1) Add graphics to frmGame
 2) Add change weapon button to endGame and pauseGame
 3) Add menu music
-4) Reload sound
+4) Change all fonts in frmGame to Gabriola
 
 Bonus
 1) Animals walk
+2) Bonus level groundhog
+3) Bonus level target

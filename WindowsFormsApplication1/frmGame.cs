@@ -58,7 +58,7 @@ namespace ShootingGame
         {
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();
-            //this.BackgroundImage = new Bitmap(Properties.Resources.prairie_background, new Size(this.Width, this.Height));
+            //this.BackgroundImage = new Bitmap(Properties.Resources.background, new Size(this.Width, this.Height));
             int currScore = userLevel.getScore();
             currTime = 30;
             lblScore.Text = "Score: " + currScore;
@@ -195,12 +195,20 @@ namespace ShootingGame
                 {
                     userWeapon.Reload();
                     lblAmmo.Text = "Reloading weapon...";
+                    lblReload.Text = "Reloading weapon...";
+                    lblReload.Enabled = true;
+                    lblReload.Visible = true;
                     Timer tmrWeaponReload = new Timer();
                     tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
                     tmrWeaponReload.Enabled = true;
                     tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+                    bkgndSound.Stop();
+                    gunReloadSound.Play();
                 }
-                playGunShot();
+                else
+                {
+                    playGunShot();
+                }
             }
         }
 
@@ -239,12 +247,20 @@ namespace ShootingGame
                 {
                     userWeapon.Reload();
                     lblAmmo.Text = "Reloading weapon...";
+                    lblReload.Text = "Reloading weapon...";
+                    lblReload.Enabled = true;
+                    lblReload.Visible = true;
                     Timer tmrWeaponReload = new Timer();
                     tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
                     tmrWeaponReload.Enabled = true;
                     tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+                    bkgndSound.Stop();
+                    gunReloadSound.Play();
                 }
-                playGunShot();
+                else
+                {
+                    playGunShot();
+                }
             }
         }
 
@@ -283,12 +299,20 @@ namespace ShootingGame
                 {
                     userWeapon.Reload();
                     lblAmmo.Text = "Reloading weapon...";
+                    lblReload.Text = "Reloading weapon...";
+                    lblReload.Enabled = true;
+                    lblReload.Visible = true;
                     Timer tmrWeaponReload = new Timer();
                     tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
                     tmrWeaponReload.Enabled = true;
                     tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+                    bkgndSound.Stop();
+                    gunReloadSound.Play();
                 }
-                playGunShot();
+                else
+                {
+                    playGunShot();
+                }
             }
         }
 
@@ -737,14 +761,17 @@ namespace ShootingGame
                     lblReload.Text = "Reloading weapon...";
                     lblReload.Enabled = true;
                     lblReload.Visible = true;
-                    bkgndSound.Stop();
-                    gunReloadSound.Play();
                     Timer tmrWeaponReload = new Timer();
                     tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
                     tmrWeaponReload.Enabled = true;
                     tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+                    bkgndSound.Stop();
+                    gunReloadSound.Play();
                 }
-                playGunShot();
+                else
+                {
+                    playGunShot();
+                }
             }
         }
 

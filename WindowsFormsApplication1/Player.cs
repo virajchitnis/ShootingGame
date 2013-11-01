@@ -9,12 +9,17 @@ namespace ShootingGame
     {
         string name;                // Player name
         int totalScore;             // Total/Current score of the player
-        int highScore;              // All time high for player
 
-        public Player(string n)
+        public Player(string playerName)
         {
-            name = n;
+            name = playerName;
             totalScore = 0;
+        }
+
+        public Player(string playerName, int score)
+        {
+            name = playerName;
+            totalScore = score;
         }
 
         public int getTotalScore()

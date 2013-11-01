@@ -53,7 +53,9 @@ namespace ShootingGame
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-
+            frmWeapon formWeapon = new frmWeapon();
+            formWeapon.Show();
+            this.Hide();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

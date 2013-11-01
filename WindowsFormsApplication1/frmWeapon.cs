@@ -55,5 +55,17 @@ namespace ShootingGame
             newGame.Show();
             this.Close();
         }
+
+        private void frmWeapon_Load(object sender, EventArgs e)
+        {
+            ToolTip tltHandgun = new ToolTip();
+            tltHandgun.SetToolTip(picHandgun, "Handgun:\n  Ammo: 10\n  Damage: 1");
+
+            ToolTip tltRifle = new ToolTip();
+            tltRifle.SetToolTip(picRifle, "Rifle:\n  Ammo: 6\n  Damage: 2");
+
+            ToolTip tltShotgun = new ToolTip();
+            tltShotgun.SetToolTip(picShotgun, "Shotgun:\n  Ammo: 2\n  Damage: 2");
+        }
     }
 }

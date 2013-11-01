@@ -5,18 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ShootingGame
 {
     public partial class frmMain : Form
     {
-        public static Weapon userWeapon;
-        public static Level userLevel;
-        public static string userName;
-
-        HighScores highScores;
-
         public frmMain()
         {
             InitializeComponent();
@@ -39,7 +34,7 @@ namespace ShootingGame
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
-            frmHighScores formHighScores = new frmHighScores(highScores);
+            frmHighScores formHighScores = new frmHighScores();
             formHighScores.Show();
             this.Hide();
         }
@@ -63,10 +58,14 @@ namespace ShootingGame
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            highScores = new HighScores("high_scores.txt");
-            if (highScores.Exist())
+            if (File.Exists("high_scores.txt"))
             {
                 btnHighScores.Enabled = true;
+            }
+
+            if (File.Exists("game_save.txt"))
+            {
+                btnContinue.Enabled = true;
             }
         }
     }

@@ -10,43 +10,40 @@ namespace ShootingGame
     {
         string file;                                        // File path
         string fileData;                                    // Contains the whole file as a string
-        string[] fileLines;                                 // Array of individual lines in the file
-        List<string[]> fileEntries = new List<string[]>();  // 3D List of entries in the file split
-        bool fileExists;
+        List<string> fileLines;                             // Array of individual lines in the file
+        List<string[]> fileEntries;  // 3D List of entries in the file split
+        StreamReader sr;
 
         // Constructor
         public HighScores(string filePath)
         {
             file = filePath;
-            // Read info from the file that was passed as an argument to the constructor.
-            try
+            fileLines = new List<string>();
+            fileEntries = new List<string[]>();
+
+            string line;
+            int counter = 0;
+            sr = new StreamReader("high_scores.txt");
+            while ((line = sr.ReadLine()) != null)
             {
-                using (StreamReader sr = new StreamReader(file))
-                {
-                    fileData = sr.ReadToEnd();
-                }
-
-                // Split file into individual lines
-                fileLines = fileData.Split('\n');
-                // Split lines into individual entries and store in the List
-                foreach (string line in fileLines)
-                {
-                    string tempLine = line.TrimEnd('\r');
-                    string[] tempEntries = tempLine.Split(',');
-                    fileEntries.Add(tempEntries);
-                }
-
-                fileExists = true;
+                fileLines.Add(line);
+                counter++;
             }
-            catch
+
+            for (int i = 0; i < fileLines.Count; i++)
             {
-                fileExists = false;
+                if (fileLines[i] == "")
+                {
+                    fileLines.RemoveAt(i);
+                }
             }
-        }
 
-        public Boolean Exist()
-        {
-            return fileExists;
+            foreach (string ent in fileLines)
+            {
+                string tempLine = ent.TrimEnd('\r');
+                string[] tempEntries = tempLine.Split(',');
+                fileEntries.Add(tempEntries);
+            }
         }
 
         public void chkHighScore(string name, int score)
@@ -84,15 +81,6 @@ namespace ShootingGame
             }
         }
 
-        public void printScores()
-        {
-            for (int i = 0; i < fileEntries.Count; i++)
-            {
-                string currScore = fileEntries[i][0] + " " + fileEntries[i][1];
-                frmHighScores.lblScores[i].Text = currScore;
-            }
-        }
-
         // Override method to convert List of entries into a string.
         public override string ToString()
         {
@@ -115,22 +103,9 @@ namespace ShootingGame
             return ret;
         }
 
-        // Write updated entries to a new file.
-        public Boolean saveFile()
+        public void closeFile()
         {
-            // Get the List as a string using the ToString method from above and write to newData.txt file.
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(file))
-                {
-                    writer.Write(this.ToString());
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+            sr.Close();
         }
     }
 }

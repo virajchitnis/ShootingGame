@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ShootingGame
@@ -468,7 +469,27 @@ namespace ShootingGame
                 btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
                 Controls.Add(btnPlayNext);
 
-                string gameProgress = user.getName() + "," + (userLevel.getLevel() + 1);
+                user.updateTotalScore(userLevel.getScore());
+
+                if (File.Exists("high_scores.txt"))
+                {
+                    HighScores fileScores = new HighScores("high_scores.txt");
+                    fileScores.chkHighScore(user.getName(), user.getTotalScore());
+                    fileScores.closeFile();
+
+                    UpdateFile saveScore = new UpdateFile("high_scores.txt");
+                    saveScore.putNextRecord(fileScores.ToString());
+                    saveScore.closeFile();
+                }
+                else
+                {
+                    string highScore = user.getName() + "," + user.getTotalScore();
+                    UpdateFile saveScore = new UpdateFile("high_scores.txt");
+                    saveScore.putNextRecord(highScore);
+                    saveScore.closeFile();
+                }
+
+                string gameProgress = user.getName() + "," + (userLevel.getLevel() + 1) + "," + user.getTotalScore();
                 UpdateFile saveGame = new UpdateFile("game_save.txt");
                 saveGame.putNextRecord(gameProgress);
                 saveGame.closeFile();
@@ -496,7 +517,7 @@ namespace ShootingGame
                 btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
                 Controls.Add(btnPlayAgain);
 
-                string gameProgress = user.getName() + "," + userLevel.getLevel();
+                string gameProgress = user.getName() + "," + userLevel.getLevel() + "," + user.getTotalScore();
                 UpdateFile saveGame = new UpdateFile("game_save.txt");
                 saveGame.putNextRecord(gameProgress);
                 saveGame.closeFile();

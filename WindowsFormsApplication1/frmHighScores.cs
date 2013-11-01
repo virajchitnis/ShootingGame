@@ -12,13 +12,11 @@ namespace ShootingGame
 {
     public partial class frmHighScores : Form
     {
-        HighScores highScores;
         public static Label[] lblScores;
 
-        public frmHighScores(HighScores scores)
+        public frmHighScores()
         {
             InitializeComponent();
-            highScores = scores;
         }
 
         private void frmHighScores_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,7 +84,18 @@ namespace ShootingGame
             lblScores[4].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             Controls.Add(lblScores[4]);
 
-            highScores.printScores();
+            string line;
+            int counter = 0;
+            StreamReader sr = new StreamReader("high_scores.txt");
+            while ((line = sr.ReadLine()) != null)
+            {
+                if (counter < 5)
+                {
+                    string[] entries = line.Split(',');
+                    lblScores[counter].Text = entries[0] + " " + entries[1];
+                    counter++;
+                }
+            }
         }
     }
 }

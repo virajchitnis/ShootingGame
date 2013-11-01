@@ -28,7 +28,6 @@ namespace ShootingGame
             }
             else
             {
-                frmMain.userName = userName;
                 user = new Player(userName);
                 frmWeapon weapons = new frmWeapon(user);
                 weapons.Show();

@@ -22,9 +22,7 @@ namespace ShootingGame
         private void picHandgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("handgun");
-            frmMain.userWeapon = currWeapon;
             Level currLevel = new Level(1, 1, 1, 1);
-            frmMain.userLevel = currLevel;
             frmGame newLevel = new frmGame(user, currWeapon, currLevel);
             newLevel.Show();
             this.Close();
@@ -34,9 +32,7 @@ namespace ShootingGame
         private void picRifle_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("rifle");
-            frmMain.userWeapon = currWeapon;
             Level currLevel = new Level(1, 1, 1, 1);
-            frmMain.userLevel = currLevel;
             frmGame newLevel = new frmGame(user, currWeapon, currLevel);
             newLevel.Show();
             this.Close();
@@ -46,9 +42,7 @@ namespace ShootingGame
         private void picShotgun_Click(object sender, EventArgs e)
         {
             currWeapon = new Weapon("shotgun");
-            frmMain.userWeapon = currWeapon;
             Level currLevel = new Level(1, 1, 1, 1);
-            frmMain.userLevel = currLevel;
             frmGame newLevel = new frmGame(user, currWeapon, currLevel);
             newLevel.Show();
             this.Close();

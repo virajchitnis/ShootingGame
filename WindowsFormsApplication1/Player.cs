@@ -15,12 +15,6 @@ namespace ShootingGame
         {
             name = n;
             totalScore = 0;
-            highScore = 0;
-        }
-
-        public int getHighScore()
-        {
-            return highScore;
         }
 
         public int getTotalScore()
@@ -38,19 +32,6 @@ namespace ShootingGame
             try
             {
                 totalScore += add;
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public Boolean updateHighScore(int add)
-        {
-            try
-            {
-                highScore += add;
                 return true;
             }
             catch

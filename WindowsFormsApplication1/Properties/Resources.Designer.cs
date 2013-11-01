@@ -269,6 +269,12 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.IO.UnmanagedMemoryStream songKalimba {
+            get {
+                return ResourceManager.GetStream("songKalimba", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap title {
             get {
                 object obj = ResourceManager.GetObject("title", resourceCulture);

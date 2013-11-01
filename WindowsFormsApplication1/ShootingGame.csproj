@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
+    <None Include="Resources\songKalimba.wav" />
     <None Include="Resources\background.gif" />
     <None Include="Resources\2.png" />
     <Content Include="Resources\37236__shades__gun-pistol-one-shot.wav" />

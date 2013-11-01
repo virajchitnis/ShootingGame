@@ -6,15 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 namespace ShootingGame
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        SoundPlayer menuMusic;
+
+        public frmMain(SoundPlayer music)
         {
             InitializeComponent();
+            menuMusic = music;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -48,7 +52,7 @@ namespace ShootingGame
 
         private void btnStartNew_Click(object sender, EventArgs e)
         {
-            frmUser formUser = new frmUser();
+            frmUser formUser = new frmUser(menuMusic);
             formUser.Show();
             this.Hide();
         }
@@ -62,7 +66,7 @@ namespace ShootingGame
         {
             if (File.Exists("game_save.txt"))
             {
-                frmWeapon formWeapon = new frmWeapon();
+                frmWeapon formWeapon = new frmWeapon(menuMusic);
                 formWeapon.Show();
                 this.Hide();
             }

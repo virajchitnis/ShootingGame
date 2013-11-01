@@ -5,18 +5,21 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Media;
 using System.Windows.Forms;
 
 namespace ShootingGame
 {
     public partial class frmUser : Form
     {
+        SoundPlayer menuMusic;
         Player user;
         string userName;
-        public frmUser()
+        public frmUser(SoundPlayer music)
         {
             InitializeComponent();
             userName = "";
+            menuMusic = music;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -29,7 +32,7 @@ namespace ShootingGame
             else
             {
                 user = new Player(userName);
-                frmWeapon weapons = new frmWeapon(user);
+                frmWeapon weapons = new frmWeapon(menuMusic, user);
                 weapons.Show();
                 this.Close();
             }

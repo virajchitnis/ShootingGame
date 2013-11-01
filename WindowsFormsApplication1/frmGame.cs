@@ -13,6 +13,7 @@ namespace ShootingGame
 {
     public partial class frmGame : Form
     {
+        SoundPlayer menuMusic;              // Music played throughout the menu
         Weapon userWeapon;                  // Weapon chosen by player
         Level userLevel;                    // Level chosen by player
         Player user;                        // Player's username
@@ -46,18 +47,20 @@ namespace ShootingGame
         SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
         SoundPlayer gunReloadSound = new SoundPlayer(@"..\..\Resources\shotgunReload.wav");
 
-        public frmGame(Player name, Weapon w, Level l)
+        public frmGame(SoundPlayer music, Player name, Weapon w, Level l)
         {
             InitializeComponent();
             user = name;
             userWeapon = w;
             userLevel = l;
             rndbuttonLoc = new Random();
+            menuMusic = music;
         }
 
         // On form load
         private void frmGame_Load(object sender, EventArgs e)
         {
+            menuMusic.Stop();
             // Get info from level class and assign to appropriate variables.
             this.Text = "Level " + userLevel.getLevel();
             //this.BackgroundImage = new Bitmap(Properties.Resources.background, new Size(this.Width, this.Height));
@@ -558,7 +561,7 @@ namespace ShootingGame
 
         void btnChgWeapon_Click(object sender, EventArgs e)
         {
-            frmWeapon formWeapon = new frmWeapon();
+            frmWeapon formWeapon = new frmWeapon(menuMusic);
             formWeapon.Show();
             this.Close();
         }

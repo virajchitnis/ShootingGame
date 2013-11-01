@@ -1,5 +1,4 @@
 1) Add graphics to frmGame
-2) Add menu music
 
 Bonus
 1) Animals walk

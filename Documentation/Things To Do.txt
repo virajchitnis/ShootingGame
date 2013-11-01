@@ -1,7 +1,6 @@
 1) Add graphics to frmGame
-2) Add change weapon button to endGame and pauseGame
-3) Add menu music
-4) Change all fonts in frmGame to Gabriola
+2) Add menu music
+3) Change all fonts in frmGame to Gabriola
 
 Bonus
 1) Animals walk

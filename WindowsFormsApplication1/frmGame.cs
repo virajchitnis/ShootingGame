@@ -441,6 +441,7 @@ namespace ShootingGame
             btnPause.Visible = false;
 
             lblAmmo.Visible = false;
+            lblReload.Visible = false;
 
             this.Cursor = System.Windows.Forms.Cursors.Default;
 
@@ -551,9 +552,19 @@ namespace ShootingGame
                 saveGame.closeFile();
             }
 
+            Button btnChgWeapon = new Button();
+            btnChgWeapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnChgWeapon.Location = new System.Drawing.Point(277, 235);
+            btnChgWeapon.AutoSize = true;
+            btnChgWeapon.UseVisualStyleBackColor = true;
+            btnChgWeapon.Text = "Change Weapon";
+            btnChgWeapon.Name = "btnChgWeapon";
+            btnChgWeapon.Click += new EventHandler(btnChgWeapon_Click);
+            Controls.Add(btnChgWeapon);
+
             Button btnToMenu = new Button();
             btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnToMenu.Location = new System.Drawing.Point(277, 235);
+            btnToMenu.Location = new System.Drawing.Point(277, 270);
             btnToMenu.AutoSize = true;
             btnToMenu.UseVisualStyleBackColor = true;
             btnToMenu.Text = "Go to Main Menu";
@@ -563,7 +574,7 @@ namespace ShootingGame
 
             Button btnExit = new Button();
             btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnExit.Location = new System.Drawing.Point(309, 270);
+            btnExit.Location = new System.Drawing.Point(309,305);
             btnExit.AutoSize = true;
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Text = "Exit";
@@ -572,8 +583,16 @@ namespace ShootingGame
             Controls.Add(btnExit);
         }
 
+        void btnChgWeapon_Click(object sender, EventArgs e)
+        {
+            frmWeapon formWeapon = new frmWeapon();
+            formWeapon.Show();
+            this.Close();
+        }
+
         void btnPlayAgain_Click(object sender, EventArgs e)
         {
+            Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);
@@ -603,6 +622,7 @@ namespace ShootingGame
 
         void btnPlayNext_Click(object sender, EventArgs e)
         {
+            Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);
             Controls.RemoveAt(Controls.Count - 1);

@@ -113,6 +113,7 @@
             // 
             // lblReload
             // 
+            this.lblReload.BackColor = System.Drawing.Color.Transparent;
             this.lblReload.Enabled = false;
             this.lblReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReload.Location = new System.Drawing.Point(12, 38);

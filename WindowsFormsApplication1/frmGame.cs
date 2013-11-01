@@ -19,6 +19,7 @@ namespace ShootingGame
         Timer moveTargets;                  // Timer to move targets
         Timer levelTimer;                   // Timer to keep track of and update time in currTime
         bool isPaused;                      // Whether the game is paused or running
+        bool isEnded;                       // Whether the game is running or over
         Random rndbuttonLoc;
 
         /* These lists may need to be converted into arrays because in levels where there are
@@ -403,6 +404,7 @@ namespace ShootingGame
         // End the game
         private void endGame(bool win)
         {
+            isEnded = true;
             levelTimer.Stop();
             moveTargets.Stop();
 
@@ -621,7 +623,6 @@ namespace ShootingGame
         private void btnStart_Click(object sender, EventArgs e)
         {
             // Remove this button from the form and generate the targets.
-            //Controls.Remove(btnStart);
             btnStart.Enabled = false;
             btnStart.Visible = false;
             makeTargets();
@@ -645,7 +646,9 @@ namespace ShootingGame
             levelTimer.Enabled = true;
             levelTimer.Tick += new EventHandler(levelTimer_Tick);
 
+
             isPaused = false;
+            isEnded = false;
         }
 
         // Timer event method to keep track of level time
@@ -740,17 +743,20 @@ namespace ShootingGame
 
         private void frmGame_Click(object sender, EventArgs e)
         {
-            if (!userWeapon.inReload())
+            if ((isEnded == false)&&(isPaused == false))
             {
-                userWeapon.TakenShot();
-                lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
-                if (userWeapon.needReload())
+                if (!userWeapon.inReload())
                 {
-                    reloadWeapon();
-                }
-                else
-                {
-                    playGunShot();
+                    userWeapon.TakenShot();
+                    lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
+                    if (userWeapon.needReload())
+                    {
+                        reloadWeapon();
+                    }
+                    else
+                    {
+                        playGunShot();
+                    }
                 }
             }
         }

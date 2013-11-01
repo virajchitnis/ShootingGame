@@ -1,6 +1,5 @@
 1) Add graphics to frmGame
 2) Add menu music
-3) Change all fonts in frmGame to Gabriola
 
 Bonus
 1) Animals walk

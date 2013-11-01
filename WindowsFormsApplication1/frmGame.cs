@@ -677,7 +677,7 @@ namespace ShootingGame
             {
                 if (motionMedFlipped[i] == false)
                 {
-                    mediumBtns[i].Left += 5;
+                    mediumBtns[i].Left += 6;
                     if (mediumBtns[i].Right >= 694)
                     {
                         motionMedFlipped[i] = true;
@@ -686,7 +686,7 @@ namespace ShootingGame
                 }
                 else if (motionMedFlipped[i] == true)
                 {
-                    mediumBtns[i].Left -= 5;
+                    mediumBtns[i].Left -= 6;
                     if (mediumBtns[i].Left <= 0)
                     {
                         motionMedFlipped[i] = false;

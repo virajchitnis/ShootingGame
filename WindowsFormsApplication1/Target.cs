@@ -22,7 +22,7 @@ namespace ShootingGame
             {
                 size = 1;
                 life = 1;
-                score = 5;
+                score = 20;
             }
             else if (type == "deer")
             {
@@ -34,7 +34,7 @@ namespace ShootingGame
             {
                 size = 5;
                 life = 5;
-                score = 20;
+                score = 5;
             }
         }
 

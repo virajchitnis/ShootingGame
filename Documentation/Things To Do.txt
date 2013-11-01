@@ -1,8 +1,7 @@
 1) Add graphics to frmGame
 2) Add change weapon button to endGame and pauseGame
 3) Add menu music
-4) Change animal points on destroy
-5) Big reload label
+4) Big reload label
 
 Bonus
 1) Animals walk

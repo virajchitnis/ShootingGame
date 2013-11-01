@@ -65,7 +65,7 @@ namespace ShootingGame
             tltRifle.SetToolTip(picRifle, "Rifle:\n  Ammo: 6\n  Damage: 2");
 
             ToolTip tltShotgun = new ToolTip();
-            tltShotgun.SetToolTip(picShotgun, "Shotgun:\n  Ammo: 2\n  Damage: 2");
+            tltShotgun.SetToolTip(picShotgun, "Shotgun:\n  Ammo: 2\n  Damage: 4");
         }
     }
 }

@@ -67,6 +67,13 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Bear_Walking_RIGHT {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_RIGHT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bird {
             get {
                 object obj = ResourceManager.GetObject("bird", resourceCulture);
@@ -123,9 +130,30 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap deer_walk_LEFT {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_LEFT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap deer_walk_Right {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Duck_Flying_1 {
             get {
                 object obj = ResourceManager.GetObject("Duck_Flying_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Duck_Flying_RIGHT {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_RIGHT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

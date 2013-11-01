@@ -1,17 +1,8 @@
 1) Add graphics to frmGame
 2) Add change weapon button to endGame and pauseGame
 3) Add menu music
-4) Flip animal images on target direction change
-5) Change animal points on destroy
-
-6) it seems that highscore is saving highscore for a single level. Instead, 
-there should be totalpoints variable (add all of the level scores toegether)
-this is what should be recorded into Highscores.
-
-7) while reloading, i know that there is message that says "reloading",
-but can we display this in the actual game screen, and at a much bigger size?
-(maybe font size 36 and in the center of the screen. How about disabling the 
-mouse cursor while reloading isTrue(if its not too difficult).
+4) Change animal points on destroy
+5) Big reload label
 
 Bonus
 1) Animals walk

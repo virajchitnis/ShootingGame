@@ -99,7 +99,7 @@ namespace ShootingGame
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(30, 30);
                 btnCurr.UseVisualStyleBackColor = true;
-                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_1, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(btnCurr.Width, btnCurr.Height));
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnSmlTar" + i;
@@ -119,10 +119,12 @@ namespace ShootingGame
                 int locY = rndbuttonLoc.Next(40, 400);
                 int locX = rndbuttonLoc.Next(-50, 694);
                 Button btnCurr = new Button();
-                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCurr.Font = new System.Drawing.Font("Microsoft Sans Serif", 0.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(50, 50);
                 btnCurr.UseVisualStyleBackColor = true;
+                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.deer_walk_Right, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnMedTar" + i;
                 btnCurr.Click += new EventHandler(btnMed_Click);
@@ -657,6 +659,7 @@ namespace ShootingGame
                     if (smallBtns[i].Right >= 694)
                     {
                         motionSmlFlipped[i] = true;
+                        smallBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_1, new Size(smallBtns[i].Width, smallBtns[i].Height));
                     }
                 }
                 else if (motionSmlFlipped[i] == true)
@@ -665,6 +668,7 @@ namespace ShootingGame
                     if (smallBtns[i].Left <= 0)
                     {
                         motionSmlFlipped[i] = false;
+                        smallBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(smallBtns[i].Width, smallBtns[i].Height));
                     }
                 }
             }
@@ -677,6 +681,7 @@ namespace ShootingGame
                     if (mediumBtns[i].Right >= 694)
                     {
                         motionMedFlipped[i] = true;
+                        mediumBtns[i].BackgroundImage = new Bitmap(Properties.Resources.deer_walk_LEFT, new Size(mediumBtns[i].Width, mediumBtns[i].Height));
                     }
                 }
                 else if (motionMedFlipped[i] == true)
@@ -685,6 +690,7 @@ namespace ShootingGame
                     if (mediumBtns[i].Left <= 0)
                     {
                         motionMedFlipped[i] = false;
+                        mediumBtns[i].BackgroundImage = new Bitmap(Properties.Resources.deer_walk_Right, new Size(mediumBtns[i].Width, mediumBtns[i].Height));
                     }
                 }
             }
@@ -697,6 +703,7 @@ namespace ShootingGame
                     if (bigBtns[i].Right >= 694)
                     {
                         motionBigFlipped[i] = true;
+                        bigBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_RIGHT, new Size(bigBtns[i].Width, bigBtns[i].Height));
                     }
                 }
                 else if (motionBigFlipped[i] == true)
@@ -705,6 +712,7 @@ namespace ShootingGame
                     if (bigBtns[i].Left <= 0)
                     {
                         motionBigFlipped[i] = false;
+                        bigBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(bigBtns[i].Width, bigBtns[i].Height));
                     }
                 }
             }

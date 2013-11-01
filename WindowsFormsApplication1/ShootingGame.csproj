@@ -189,6 +189,10 @@
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
     <Content Include="Resources\37236__shades__gun-pistol-one-shot.wav" />
+    <None Include="Resources\deer-walk-Right.png" />
+    <None Include="Resources\deer-walk-LEFT.png" />
+    <None Include="Resources\Duck-Flying-RIGHT.png" />
+    <None Include="Resources\Bear-Walking-RIGHT.png" />
     <None Include="Resources\Duck-Flying-1.png" />
     <None Include="Resources\Bear-Walking-1.png" />
     <None Include="Resources\prairie_background.png" />

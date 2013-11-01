@@ -193,17 +193,7 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    userWeapon.Reload();
-                    lblAmmo.Text = "Reloading weapon...";
-                    lblReload.Text = "Reloading weapon...";
-                    lblReload.Enabled = true;
-                    lblReload.Visible = true;
-                    Timer tmrWeaponReload = new Timer();
-                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
-                    tmrWeaponReload.Enabled = true;
-                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
-                    bkgndSound.Stop();
-                    gunReloadSound.Play();
+                    reloadWeapon();
                 }
                 else
                 {
@@ -245,17 +235,7 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    userWeapon.Reload();
-                    lblAmmo.Text = "Reloading weapon...";
-                    lblReload.Text = "Reloading weapon...";
-                    lblReload.Enabled = true;
-                    lblReload.Visible = true;
-                    Timer tmrWeaponReload = new Timer();
-                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
-                    tmrWeaponReload.Enabled = true;
-                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
-                    bkgndSound.Stop();
-                    gunReloadSound.Play();
+                    reloadWeapon();
                 }
                 else
                 {
@@ -297,17 +277,7 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    userWeapon.Reload();
-                    lblAmmo.Text = "Reloading weapon...";
-                    lblReload.Text = "Reloading weapon...";
-                    lblReload.Enabled = true;
-                    lblReload.Visible = true;
-                    Timer tmrWeaponReload = new Timer();
-                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
-                    tmrWeaponReload.Enabled = true;
-                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
-                    bkgndSound.Stop();
-                    gunReloadSound.Play();
+                    reloadWeapon();
                 }
                 else
                 {
@@ -776,23 +746,28 @@ namespace ShootingGame
                 lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
                 if (userWeapon.needReload())
                 {
-                    userWeapon.Reload();
-                    lblAmmo.Text = "Reloading weapon...";
-                    lblReload.Text = "Reloading weapon...";
-                    lblReload.Enabled = true;
-                    lblReload.Visible = true;
-                    Timer tmrWeaponReload = new Timer();
-                    tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
-                    tmrWeaponReload.Enabled = true;
-                    tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
-                    bkgndSound.Stop();
-                    gunReloadSound.Play();
+                    reloadWeapon();
                 }
                 else
                 {
                     playGunShot();
                 }
             }
+        }
+
+        private void reloadWeapon()
+        {
+            userWeapon.Reload();
+            lblAmmo.Text = "Reloading weapon...";
+            lblReload.Text = "Reloading weapon...";
+            lblReload.Enabled = true;
+            lblReload.Visible = true;
+            Timer tmrWeaponReload = new Timer();
+            tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
+            tmrWeaponReload.Enabled = true;
+            tmrWeaponReload.Tick += new EventHandler(tmrWeaponReload_Tick);
+            bkgndSound.Stop();
+            gunReloadSound.Play();
         }
 
         void tmrWeaponReload_Tick(object sender, EventArgs e)

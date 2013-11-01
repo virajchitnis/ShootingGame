@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 namespace ShootingGame
@@ -41,9 +42,9 @@ namespace ShootingGame
         List<Button> mediumBtns;
         List<Button> bigBtns;
 
-        System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
-        System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
-        System.Media.SoundPlayer gunReloadSound = new System.Media.SoundPlayer(@"..\..\Resources\shotgunReload.wav");
+        SoundPlayer bkgndSound = new SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
+        SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
+        SoundPlayer gunReloadSound = new SoundPlayer(@"..\..\Resources\shotgunReload.wav");
 
         public frmGame(Player name, Weapon w, Level l)
         {

@@ -73,12 +73,6 @@
     <Compile Include="frmHighScores.Designer.cs">
       <DependentUpon>frmHighScores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLevel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLevel.Designer.cs">
-      <DependentUpon>frmLevel.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHighScores.resx">
       <DependentUpon>frmHighScores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLevel.resx">
-      <DependentUpon>frmLevel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

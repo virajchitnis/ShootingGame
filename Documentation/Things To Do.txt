@@ -1,7 +1,7 @@
 1) Add graphics to frmGame
 2) Add change weapon button to endGame and pauseGame
 3) Add menu music
-4) Big reload label
+4) Reload sound
 
 Bonus
 1) Animals walk

@@ -249,6 +249,12 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.IO.UnmanagedMemoryStream shotgunReload {
+            get {
+                return ResourceManager.GetStream("shotgunReload", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap title {
             get {
                 object obj = ResourceManager.GetObject("title", resourceCulture);

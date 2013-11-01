@@ -42,6 +42,7 @@ namespace ShootingGame
 
         System.Media.SoundPlayer bkgndSound = new System.Media.SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         System.Media.SoundPlayer gunshotSound = new System.Media.SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
+        System.Media.SoundPlayer gunReloadSound = new System.Media.SoundPlayer(@"..\..\Resources\shotgunReload.wav");
 
         public frmGame(Player name, Weapon w, Level l)
         {
@@ -733,6 +734,11 @@ namespace ShootingGame
                 {
                     userWeapon.Reload();
                     lblAmmo.Text = "Reloading weapon...";
+                    lblReload.Text = "Reloading weapon...";
+                    lblReload.Enabled = true;
+                    lblReload.Visible = true;
+                    bkgndSound.Stop();
+                    gunReloadSound.Play();
                     Timer tmrWeaponReload = new Timer();
                     tmrWeaponReload.Interval = userWeapon.getTimeReload() * 1000;
                     tmrWeaponReload.Enabled = true;
@@ -745,6 +751,10 @@ namespace ShootingGame
         void tmrWeaponReload_Tick(object sender, EventArgs e)
         {
             lblAmmo.Text = "Ammo: " + userWeapon.getInitialAmmo();
+            lblReload.Enabled = false;
+            lblReload.Visible = false;
+            gunReloadSound.Stop();
+            bkgndSound.Play();
             Timer tmrWeaponReload = (Timer)sender;
             tmrWeaponReload.Stop();
         }

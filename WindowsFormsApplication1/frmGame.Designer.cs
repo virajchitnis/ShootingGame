@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAmmo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.lblAmmo = new System.Windows.Forms.Label();
+            this.lblReload = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(691, 35);
             this.panel1.TabIndex = 0;
+            // 
+            // lblAmmo
+            // 
+            this.lblAmmo.Location = new System.Drawing.Point(95, 11);
+            this.lblAmmo.Name = "lblAmmo";
+            this.lblAmmo.Size = new System.Drawing.Size(177, 13);
+            this.lblAmmo.TabIndex = 4;
+            this.lblAmmo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
@@ -101,13 +110,16 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // lblAmmo
+            // lblReload
             // 
-            this.lblAmmo.Location = new System.Drawing.Point(95, 11);
-            this.lblAmmo.Name = "lblAmmo";
-            this.lblAmmo.Size = new System.Drawing.Size(177, 13);
-            this.lblAmmo.TabIndex = 4;
-            this.lblAmmo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblReload.Enabled = false;
+            this.lblReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReload.Location = new System.Drawing.Point(12, 82);
+            this.lblReload.Name = "lblReload";
+            this.lblReload.Size = new System.Drawing.Size(666, 53);
+            this.lblReload.TabIndex = 2;
+            this.lblReload.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblReload.Visible = false;
             // 
             // frmGame
             // 
@@ -115,6 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 468);
             this.ControlBox = false;
+            this.Controls.Add(this.lblReload);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -139,5 +152,6 @@
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAmmo;
+        private System.Windows.Forms.Label lblReload;
     }
 }

@@ -72,6 +72,7 @@ namespace ShootingGame
             //Application.Exit();
             // Show the main form.
             //frmSplash.mainForm.Show();
+            bkgndSound.Stop();
         }
 
         // Method to dynamically generate buttons (targets)

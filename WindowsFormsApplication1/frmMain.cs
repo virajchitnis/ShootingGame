@@ -34,9 +34,16 @@ namespace ShootingGame
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
-            frmHighScores formHighScores = new frmHighScores();
-            formHighScores.Show();
-            this.Hide();
+            if (File.Exists("high_scores.txt"))
+            {
+                frmHighScores formHighScores = new frmHighScores();
+                formHighScores.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No high scores yet, play the game to earn an high score.", "No High Scores");
+            }
         }
 
         private void btnStartNew_Click(object sender, EventArgs e)
@@ -53,22 +60,20 @@ namespace ShootingGame
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            frmWeapon formWeapon = new frmWeapon();
-            formWeapon.Show();
-            this.Hide();
+            if (File.Exists("game_save.txt"))
+            {
+                frmWeapon formWeapon = new frmWeapon();
+                formWeapon.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No game saved, play the game to save your progress. You can then continue where you left off.", "No Game Saved");
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            if (File.Exists("high_scores.txt"))
-            {
-                btnHighScores.Enabled = true;
-            }
-
-            if (File.Exists("game_save.txt"))
-            {
-                btnContinue.Enabled = true;
-            }
         }
     }
 }

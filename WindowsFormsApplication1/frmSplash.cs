@@ -13,7 +13,7 @@ namespace ShootingGame
     public partial class frmSplash : Form
     {
         SoundPlayer menuMusic;
-        public static frmMain mainForm;
+
         public frmSplash()
         {
             InitializeComponent();
@@ -21,15 +21,27 @@ namespace ShootingGame
 
         private void frmSplash_MouseClick(object sender, MouseEventArgs e)
         {
-            mainForm = new frmMain(menuMusic);
-            mainForm.Show();
-            this.Hide();
+            startGame();
         }
 
         private void frmSplash_Load(object sender, EventArgs e)
         {
+            ToolTip playGame = new ToolTip();
+            playGame.SetToolTip(this, "Click anywhere to play");
             menuMusic = new SoundPlayer(@"..\..\Resources\songKalimba.wav");
             menuMusic.Play();
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+            startGame();
+        }
+
+        private void startGame()
+        {
+            frmMain mainForm = new frmMain(menuMusic);
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

@@ -63,6 +63,7 @@
             this.BackgroundImage = global::ShootingGame.Properties.Resources.red_alder_plaque_3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(369, 351);
+            this.ControlBox = false;
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -70,7 +71,6 @@
             this.MinimizeBox = false;
             this.Name = "frmHighScores";
             this.Text = "High Scores";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHighScores_FormClosing);
             this.Load += new System.EventHandler(this.frmHighScores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

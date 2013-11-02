@@ -434,7 +434,8 @@ namespace ShootingGame
             DialogResult closeOrNot = MessageBox.Show("Are you sure you want to go to the main menu?", "Go to main menu", MessageBoxButtons.YesNo);
             if (closeOrNot == DialogResult.Yes)
             {
-                frmSplash.mainForm.Show();
+                frmMain mainForm = new frmMain(menuMusic);
+                mainForm.Show();
                 this.Close();
             }
         }

@@ -111,6 +111,7 @@
             this.BackgroundImage = global::ShootingGame.Properties.Resources.fireplace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(243, 325);
+            this.ControlBox = false;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnInfo);
@@ -120,9 +121,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Shooting Game";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Text = "Hunting Season";
             this.ResumeLayout(false);
 
         }

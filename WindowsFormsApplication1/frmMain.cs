@@ -37,16 +37,16 @@ namespace ShootingGame
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome 'Insert name here'!\n   1. Click new game to start.\n   2. Select a weapon.\n   3. Select a level.\n   4. Shoot as many targets as possible before you run out of time.\n   5. Enjoy!!!", "How to Play");
+            MessageBox.Show("Welcome to Hunting Season!\n   1. Click new game to start.\n   2. Select a weapon.\n   3. Select a level.\n   4. Shoot all targets on screen before you run out of time.\n   5. Enjoy!!!", "How to Play");
         }
 
         private void btnHighScores_Click(object sender, EventArgs e)
         {
             if (File.Exists("high_scores.txt"))
             {
-                frmHighScores formHighScores = new frmHighScores();
+                frmHighScores formHighScores = new frmHighScores(menuMusic);
                 formHighScores.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -58,12 +58,7 @@ namespace ShootingGame
         {
             frmUser formUser = new frmUser(menuMusic);
             formUser.Show();
-            this.Hide();
-        }
-
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
@@ -72,16 +67,12 @@ namespace ShootingGame
             {
                 frmWeapon formWeapon = new frmWeapon(menuMusic);
                 formWeapon.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("No game saved, play the game to save your progress. You can then continue where you left off.", "No Game Saved");
             }
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
         }
     }
 }

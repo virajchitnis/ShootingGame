@@ -7,26 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Media;
 
 namespace ShootingGame
 {
     public partial class frmHighScores : Form
     {
+        SoundPlayer menuMusic;
         public static Label[] lblScores;
 
-        public frmHighScores()
+        public frmHighScores(SoundPlayer music)
         {
             InitializeComponent();
-        }
-
-        private void frmHighScores_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            frmSplash.mainForm.Show();
+            menuMusic = music;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmSplash.mainForm.Show();
+            frmMain mainForm = new frmMain(menuMusic);
+            mainForm.Show();
             this.Close();
         }
 

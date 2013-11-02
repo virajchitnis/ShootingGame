@@ -17,6 +17,7 @@ namespace ShootingGame
         Player user;
         Weapon currWeapon;
         Level currLevel;
+
         public frmWeapon(SoundPlayer music, Player name)
         {
             InitializeComponent();

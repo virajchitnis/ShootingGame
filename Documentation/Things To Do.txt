@@ -1,6 +1,4 @@
-1) Add graphics to frmGame
+1) Add graphics to bonus ground hog level
 
 Bonus
-1) Animals walk
-2) Bonus level groundhog
-3) Bonus level target
+1) Bonus level target

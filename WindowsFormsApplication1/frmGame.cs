@@ -45,8 +45,15 @@ namespace ShootingGame
         List<Button> bigBtns;
 
         // Animal walking variables
-        Bitmap[] bearPics;
         int bearWalkCounter;
+        int deerWalkCounter;
+        int duckWalkCounter;
+        Bitmap[] bearPicsRight;
+        Bitmap[] bearPicsLeft;
+        Bitmap[] deerPicsRight;
+        Bitmap[] deerPicsLeft;
+        Bitmap[] duckPicsRight;
+        Bitmap[] duckPicsLeft;
 
         // Arrays and variables for the bonus level
         PictureBox[] bonusBurrows;
@@ -66,6 +73,38 @@ namespace ShootingGame
             userLevel = l;
             rndbuttonLoc = new Random();
             menuMusic = music;
+
+            bearPicsRight = new Bitmap[4];
+            bearPicsRight[0] = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(70, 70));
+            bearPicsRight[1] = new Bitmap(Properties.Resources.Bear_Walking_2, new Size(70, 70));
+            bearPicsRight[2] = new Bitmap(Properties.Resources.Bear_Walking_3, new Size(70, 70));
+            bearPicsRight[3] = new Bitmap(Properties.Resources.Bear_Walking_4, new Size(70, 70));
+
+            bearPicsLeft = new Bitmap[4];
+            bearPicsLeft[0] = new Bitmap(Properties.Resources.Bear_Walking_1_LEFT, new Size(70, 70));
+            bearPicsLeft[1] = new Bitmap(Properties.Resources.Bear_Walking_2_LEFT, new Size(70, 70));
+            bearPicsLeft[2] = new Bitmap(Properties.Resources.Bear_Walking_3_LEFT, new Size(70, 70));
+            bearPicsLeft[3] = new Bitmap(Properties.Resources.Bear_Walking_4_LEFT, new Size(70, 70));
+
+            duckPicsRight = new Bitmap[3];
+            duckPicsRight[0] = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(30, 30));
+            duckPicsRight[1] = new Bitmap(Properties.Resources.Duck_Flying_2_RIGHT, new Size(30, 30));
+            duckPicsRight[2] = new Bitmap(Properties.Resources.Duck_Flying_3_RIGHT, new Size(30, 30));
+
+            duckPicsLeft = new Bitmap[3];
+            duckPicsLeft[0] = new Bitmap(Properties.Resources.Duck_Flying_1, new Size(30, 30));
+            duckPicsLeft[1] = new Bitmap(Properties.Resources.Duck_Flying_2, new Size(30, 30));
+            duckPicsLeft[2] = new Bitmap(Properties.Resources.Duck_Flying_3, new Size(30, 30));
+
+            deerPicsRight = new Bitmap[3];
+            deerPicsRight[0] = new Bitmap(Properties.Resources.deer_walk_Right, new Size(50, 50));
+            deerPicsRight[1] = new Bitmap(Properties.Resources.deer_walk_2_right, new Size(50, 50));
+            deerPicsRight[2] = new Bitmap(Properties.Resources.deer_walk_3_right, new Size(50, 50));
+
+            deerPicsLeft = new Bitmap[3];
+            deerPicsLeft[0] = new Bitmap(Properties.Resources.deer_walk_LEFT, new Size(50, 50));
+            deerPicsLeft[1] = new Bitmap(Properties.Resources.deer_walk_2_left, new Size(50, 50));
+            deerPicsLeft[2] = new Bitmap(Properties.Resources.deer_walk_3_left, new Size(50, 50));
         }
 
         // On form load
@@ -105,12 +144,9 @@ namespace ShootingGame
             mediumBtns = new List<Button>();
             bigBtns = new List<Button>();
 
-            bearPics = new Bitmap[4];
-            bearPics[0] = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(70, 70));
-            bearPics[1] = new Bitmap(Properties.Resources.Bear_Walking_2, new Size(70, 70));
-            bearPics[2] = new Bitmap(Properties.Resources.Bear_Walking_3, new Size(70, 70));
-            bearPics[3] = new Bitmap(Properties.Resources.Bear_Walking_4, new Size(70, 70));
             bearWalkCounter = 0;
+            duckWalkCounter = 0;
+            deerWalkCounter = 0;
 
             // Loop to repeat process for number of targets of each size
             for (int i = 0; i < userLevel.getSmallTargets(); i++)
@@ -123,7 +159,7 @@ namespace ShootingGame
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(30, 30);
                 btnCurr.UseVisualStyleBackColor = true;
-                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackgroundImage = duckPicsRight[0];
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Name = "btnSmlTar" + i;
                 btnCurr.Click += new EventHandler(btnSml_Click);
@@ -146,7 +182,7 @@ namespace ShootingGame
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(50, 50);
                 btnCurr.UseVisualStyleBackColor = true;
-                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.deer_walk_Right, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackgroundImage = deerPicsRight[0];
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Click += new EventHandler(btnMed_Click);
@@ -165,7 +201,7 @@ namespace ShootingGame
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(70, 70);
                 btnCurr.UseVisualStyleBackColor = true;
-                btnCurr.BackgroundImage = bearPics[0];
+                btnCurr.BackgroundImage = bearPicsRight[0];
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Click += new EventHandler(btnBig_Click);
@@ -853,7 +889,6 @@ namespace ShootingGame
             levelTimer.Enabled = true;
             levelTimer.Tick += new EventHandler(levelTimer_Tick);
 
-
             isPaused = false;
             isEnded = false;
         }
@@ -880,20 +915,38 @@ namespace ShootingGame
             {
                 if (motionSmlFlipped[i] == false)
                 {
+                    if (duckWalkCounter >= 2)
+                    {
+                        duckWalkCounter = 0;
+                    }
+                    else
+                    {
+                        duckWalkCounter++;
+                    }
                     smallBtns[i].Left += 8;
+                    smallBtns[i].BackgroundImage = duckPicsRight[duckWalkCounter];
                     if (smallBtns[i].Right >= 694)
                     {
                         motionSmlFlipped[i] = true;
-                        smallBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_1, new Size(smallBtns[i].Width, smallBtns[i].Height));
+                        smallBtns[i].BackgroundImage = duckPicsLeft[0];
                     }
                 }
                 else if (motionSmlFlipped[i] == true)
                 {
+                    if (duckWalkCounter >= 2)
+                    {
+                        duckWalkCounter = 0;
+                    }
+                    else
+                    {
+                        duckWalkCounter++;
+                    }
                     smallBtns[i].Left -= 8;
+                    smallBtns[i].BackgroundImage = duckPicsLeft[duckWalkCounter];
                     if (smallBtns[i].Left <= 0)
                     {
                         motionSmlFlipped[i] = false;
-                        smallBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(smallBtns[i].Width, smallBtns[i].Height));
+                        smallBtns[i].BackgroundImage = duckPicsRight[0];
                     }
                 }
             }
@@ -902,20 +955,38 @@ namespace ShootingGame
             {
                 if (motionMedFlipped[i] == false)
                 {
+                    if (deerWalkCounter >= 2)
+                    {
+                        deerWalkCounter = 0;
+                    }
+                    else
+                    {
+                        deerWalkCounter++;
+                    }
                     mediumBtns[i].Left += 6;
+                    mediumBtns[i].BackgroundImage = deerPicsRight[deerWalkCounter];
                     if (mediumBtns[i].Right >= 694)
                     {
                         motionMedFlipped[i] = true;
-                        mediumBtns[i].BackgroundImage = new Bitmap(Properties.Resources.deer_walk_LEFT, new Size(mediumBtns[i].Width, mediumBtns[i].Height));
+                        mediumBtns[i].BackgroundImage = deerPicsLeft[0];
                     }
                 }
                 else if (motionMedFlipped[i] == true)
                 {
+                    if (deerWalkCounter >= 2)
+                    {
+                        deerWalkCounter = 0;
+                    }
+                    else
+                    {
+                        deerWalkCounter++;
+                    }
                     mediumBtns[i].Left -= 6;
+                    mediumBtns[i].BackgroundImage = deerPicsLeft[deerWalkCounter];
                     if (mediumBtns[i].Left <= 0)
                     {
                         motionMedFlipped[i] = false;
-                        mediumBtns[i].BackgroundImage = new Bitmap(Properties.Resources.deer_walk_Right, new Size(mediumBtns[i].Width, mediumBtns[i].Height));
+                        mediumBtns[i].BackgroundImage = deerPicsRight[0];
                     }
                 }
             }
@@ -933,20 +1004,29 @@ namespace ShootingGame
                         bearWalkCounter++;
                     }
                     bigBtns[i].Left += 3;
-                    bigBtns[i].BackgroundImage = bearPics[bearWalkCounter];
+                    bigBtns[i].BackgroundImage = bearPicsRight[bearWalkCounter];
                     if (bigBtns[i].Right >= 694)
                     {
                         motionBigFlipped[i] = true;
-                        bigBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_RIGHT, new Size(bigBtns[i].Width, bigBtns[i].Height));
+                        bigBtns[i].BackgroundImage = bearPicsLeft[0];
                     }
                 }
                 else if (motionBigFlipped[i] == true)
                 {
+                    if (bearWalkCounter >= 3)
+                    {
+                        bearWalkCounter = 0;
+                    }
+                    else
+                    {
+                        bearWalkCounter++;
+                    }
                     bigBtns[i].Left -= 3;
+                    bigBtns[i].BackgroundImage = bearPicsLeft[bearWalkCounter];
                     if (bigBtns[i].Left <= 0)
                     {
                         motionBigFlipped[i] = false;
-                        bigBtns[i].BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(bigBtns[i].Width, bigBtns[i].Height));
+                        bigBtns[i].BackgroundImage = bearPicsRight[0];
                     }
                 }
             }

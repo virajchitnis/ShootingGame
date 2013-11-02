@@ -189,6 +189,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
+    <None Include="Resources\picShotgun--transparent---Copy.gif" />
+    <None Include="Resources\picRifle--transparent.gif" />
+    <None Include="Resources\picHANDGUN--Transparent.gif" />
+    <None Include="Resources\Duck-Flying-3-RIGHT.png" />
+    <None Include="Resources\Duck-Flying-3.png" />
+    <None Include="Resources\Duck-Flying-2-RIGHT.png" />
+    <None Include="Resources\Duck-Flying-2.png" />
+    <None Include="Resources\deer-walk-3-right.png" />
+    <None Include="Resources\deer-walk-3-left.png" />
+    <None Include="Resources\deer-walk-2-right.png" />
+    <None Include="Resources\deer-walk-2-left.png" />
+    <None Include="Resources\Bear-Walking-4-LEFT.png" />
+    <None Include="Resources\Bear-Walking-3-LEFT.png" />
+    <None Include="Resources\Bear-Walking-2-LEFT.png" />
+    <None Include="Resources\Bear-Walking-1-LEFT.png" />
     <None Include="Resources\Bear-Walking-4.png" />
     <None Include="Resources\Bear-Walking-3.png" />
     <None Include="Resources\Bear-Walking-2.png" />
@@ -204,10 +219,7 @@
     <None Include="Resources\Duck-Flying-1.png" />
     <None Include="Resources\Bear-Walking-1.png" />
     <None Include="Resources\prairie_background.png" />
-    <None Include="Resources\picShotgun--transparent---Copy.gif" />
     <None Include="Resources\picShotgun--transparent1.gif" />
-    <None Include="Resources\picRifle--transparent.gif" />
-    <None Include="Resources\picHANDGUN--Transparent.gif" />
     <None Include="Resources\picShotgun--transparent.gif" />
     <None Include="Resources\title.jpg" />
     <None Include="Resources\red_alder_plaque_3.jpg" />

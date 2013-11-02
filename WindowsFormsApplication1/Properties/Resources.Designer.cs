@@ -60,23 +60,16 @@ namespace ShootingGame.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _2 {
-            get {
-                object obj = ResourceManager.GetObject("_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap background {
-            get {
-                object obj = ResourceManager.GetObject("background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Bear_Walking_1 {
             get {
                 object obj = ResourceManager.GetObject("Bear_Walking_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Bear_Walking_1_LEFT {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_1_LEFT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -88,9 +81,23 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Bear_Walking_2_LEFT {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_2_LEFT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Bear_Walking_3 {
             get {
                 object obj = ResourceManager.GetObject("Bear_Walking_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Bear_Walking_3_LEFT {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_3_LEFT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -102,9 +109,9 @@ namespace ShootingGame.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Bear_Walking_RIGHT {
+        internal static System.Drawing.Bitmap Bear_Walking_4_LEFT {
             get {
-                object obj = ResourceManager.GetObject("Bear_Walking_RIGHT", resourceCulture);
+                object obj = ResourceManager.GetObject("Bear_Walking_4_LEFT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,6 +172,34 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap deer_walk_2_left {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_2_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap deer_walk_2_right {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_2_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap deer_walk_3_left {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_3_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap deer_walk_3_right {
+            get {
+                object obj = ResourceManager.GetObject("deer_walk_3_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap deer_walk_LEFT {
             get {
                 object obj = ResourceManager.GetObject("deer_walk_LEFT", resourceCulture);
@@ -186,6 +221,34 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Duck_Flying_2 {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Duck_Flying_2_RIGHT {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_2_RIGHT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Duck_Flying_3 {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Duck_Flying_3_RIGHT {
+            get {
+                object obj = ResourceManager.GetObject("Duck_Flying_3_RIGHT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Duck_Flying_RIGHT {
             get {
                 object obj = ResourceManager.GetObject("Duck_Flying_RIGHT", resourceCulture);
@@ -200,13 +263,6 @@ namespace ShootingGame.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap HEARTHSTONE0705AGOSTINI_248 {
-            get {
-                object obj = ResourceManager.GetObject("HEARTHSTONE0705AGOSTINI-248", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap picHANDGUN {
             get {
                 object obj = ResourceManager.GetObject("picHANDGUN", resourceCulture);
@@ -216,7 +272,7 @@ namespace ShootingGame.Properties {
         
         internal static System.Drawing.Bitmap picHANDGUN__Transparent {
             get {
-                object obj = ResourceManager.GetObject("picHANDGUN--Transparent", resourceCulture);
+                object obj = ResourceManager.GetObject("picHANDGUN__Transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -230,7 +286,7 @@ namespace ShootingGame.Properties {
         
         internal static System.Drawing.Bitmap picRifle__transparent {
             get {
-                object obj = ResourceManager.GetObject("picRifle--transparent", resourceCulture);
+                object obj = ResourceManager.GetObject("picRifle__transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -242,37 +298,9 @@ namespace ShootingGame.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap picShotgun__transparent {
-            get {
-                object obj = ResourceManager.GetObject("picShotgun--transparent", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap picShotgun__transparent___Copy {
             get {
-                object obj = ResourceManager.GetObject("picShotgun--transparent---Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap picShotgun__transparent1 {
-            get {
-                object obj = ResourceManager.GetObject("picShotgun--transparent1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap prairie_background {
-            get {
-                object obj = ResourceManager.GetObject("prairie_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Prairie_en_Meurthe_et_Moselle {
-            get {
-                object obj = ResourceManager.GetObject("Prairie_en_Meurthe-et-Moselle", resourceCulture);
+                object obj = ResourceManager.GetObject("picShotgun__transparent___Copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

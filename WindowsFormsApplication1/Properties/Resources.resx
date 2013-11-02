@@ -145,26 +145,14 @@
   <data name="bird" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bird.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HEARTHSTONE0705AGOSTINI-248" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HEARTHSTONE0705AGOSTINI-248.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bird1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bird1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wooden_panels_030211" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wooden_panels_030211.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="picRifle--transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picRifle--transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="picShotgun--transparent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picShotgun--transparent1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bird2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bird2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="picHANDGUN--Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picHANDGUN--Transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="red_alder_plaque_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_alder_plaque_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,29 +160,14 @@
   <data name="picRifle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picRifle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="picShotgun--transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picShotgun--transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Prairie_en_Meurthe-et-Moselle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prairie_en_Meurthe-et-Moselle.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="picShotgun" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picShotgun.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="picShotgun--transparent---Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picShotgun--transparent---Copy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="prairie_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prairie_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bear_Walking_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bear-Walking-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Duck_Flying_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Duck-Flying-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bear_Walking_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bear-Walking-RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deer_walk_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deer-walk-LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,12 +181,6 @@
   <data name="shotgunReload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shotgunReload.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="songKalimba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\songKalimba.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -225,5 +192,50 @@
   </data>
   <data name="Bear_Walking_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bear-Walking-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bear_Walking_1_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bear-Walking-1-LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bear_Walking_2_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bear-Walking-2-LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bear_Walking_3_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bear-Walking-3-LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bear_Walking_4_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bear-Walking-4-LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deer_walk_2_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deer-walk-2-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deer_walk_2_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deer-walk-2-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deer_walk_3_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deer-walk-3-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deer_walk_3_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deer-walk-3-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Duck_Flying_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duck-Flying-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Duck_Flying_2_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duck-Flying-2-RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Duck_Flying_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duck-Flying-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Duck_Flying_3_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duck-Flying-3-RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picHANDGUN__Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picHANDGUN--Transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picRifle__transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picRifle--transparent.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picShotgun__transparent___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picShotgun--transparent---Copy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

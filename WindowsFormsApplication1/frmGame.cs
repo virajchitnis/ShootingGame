@@ -717,7 +717,7 @@ namespace ShootingGame
         {
             int num = rndbuttonLoc.Next(1, 40);
             bonusBurrows[num].BackColor = System.Drawing.Color.White;
-            bonusBurrows[num].Click +=new EventHandler(bonusBurrows_Click);
+            bonusBurrows[num].Click += new EventHandler(bonusBurrows_Click);
 
             for (int i = 0; i < bonusBurrows.Length; i++)
             {

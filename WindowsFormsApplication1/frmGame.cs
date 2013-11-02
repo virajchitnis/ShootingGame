@@ -16,6 +16,7 @@ namespace ShootingGame
         SoundPlayer menuMusic;              // Music played throughout the menu
         Weapon userWeapon;                  // Weapon chosen by player
         Level userLevel;                    // Level chosen by player
+        LevelBonusGH userBonusLevel;        // Bonus level
         Player user;                        // Player's username
         int currTime;                       // Time tracker for the level
         Timer moveTargets;                  // Timer to move targets
@@ -42,6 +43,12 @@ namespace ShootingGame
         List<Button> smallBtns;
         List<Button> mediumBtns;
         List<Button> bigBtns;
+
+        // Array for the bonus level grid
+        PictureBox[] bonusBurrows;
+        Timer tmrBonusGrndHog;
+        Timer tmrBonusLevel;
+        bool isBonusLevel;
 
         SoundPlayer bkgndSound = new SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
@@ -408,61 +415,49 @@ namespace ShootingGame
         // End the game
         private void endGame(bool win)
         {
-            isEnded = true;
-            levelTimer.Stop();
-            moveTargets.Stop();
-
-            bkgndSound.Stop();
-            btnPause.Enabled = false;
-            btnPause.Visible = false;
-
-            lblAmmo.Visible = false;
-            lblReload.Visible = false;
-
-            this.Cursor = System.Windows.Forms.Cursors.Default;
-
-            for (int i = 0; i < smallBtns.Count; i++)
+            if (isBonusLevel)
             {
-                Controls.Remove(smallBtns[i]);
-                //smallBtns[i].Visible = false;
-                //smallBtns[i].Enabled = false;
-            }
+                isEnded = true;
 
-            for (int i = 0; i < mediumBtns.Count; i++)
-            {
-                Controls.Remove(mediumBtns[i]);
-                //mediumBtns[i].Visible = false;
-                //mediumBtns[i].Enabled = false;
-            }
+                tmrBonusLevel.Stop();
+                tmrBonusGrndHog.Stop();
 
-            for (int i = 0; i < bigBtns.Count; i++)
-            {
-                Controls.Remove(bigBtns[i]);
-                //bigBtns[i].Visible = false;
-                //bigBtns[i].Enabled = false;
-            }
+                for (int i = 0; i < bonusBurrows.Length; i++)
+                {
+                    Controls.Remove(bonusBurrows[i]);
+                }
 
-            Label lblYouScored = new Label();
-            lblYouScored.AutoSize = true;
-            lblYouScored.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblYouScored.Location = new System.Drawing.Point(290, 175);
-            lblYouScored.BackColor = System.Drawing.Color.Transparent;
-            lblYouScored.Name = "lblYouScored";
-            lblYouScored.Text = "You Scored: " + userLevel.getScore();
-            Controls.Add(lblYouScored);
+                if (win)
+                {
+                    userBonusLevel.updateScore(50);
+                    user.updateTotalScore(userBonusLevel.getScore());
 
-            if (win)
-            {
-                Label lblGameOver = new Label();
-                lblGameOver.AutoSize = false;
-                lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                lblGameOver.Location = new System.Drawing.Point(173, 150);
-                lblGameOver.Size = new System.Drawing.Size(347, 20);
-                lblGameOver.BackColor = System.Drawing.Color.Transparent;
-                lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                lblGameOver.Name = "lblGameOver";
-                lblGameOver.Text = "Congratulations, you won!";
-                Controls.Add(lblGameOver);
+                    Label lblGameOver = new Label();
+                    lblGameOver.AutoSize = false;
+                    lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lblGameOver.Location = new System.Drawing.Point(173, 150);
+                    lblGameOver.Size = new System.Drawing.Size(347, 20);
+                    lblGameOver.BackColor = System.Drawing.Color.Transparent;
+                    lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    lblGameOver.Name = "lblGameOver";
+                    lblGameOver.Text = "Congratulations, you won!";
+                    Controls.Add(lblGameOver);
+
+                    saveAllFiles();
+                }
+                else
+                {
+                    Label lblGameOver = new Label();
+                    lblGameOver.AutoSize = false;
+                    lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lblGameOver.Location = new System.Drawing.Point(173, 150);
+                    lblGameOver.Size = new System.Drawing.Size(347, 20);
+                    lblGameOver.BackColor = System.Drawing.Color.Transparent;
+                    lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    lblGameOver.Name = "lblGameOver";
+                    lblGameOver.Text = "You lost, better luck next time!";
+                    Controls.Add(lblGameOver);
+                }
 
                 Button btnPlayNext = new Button();
                 btnPlayNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -474,89 +469,286 @@ namespace ShootingGame
                 btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
                 Controls.Add(btnPlayNext);
 
-                user.updateTotalScore(userLevel.getScore());
+                Button btnToMenu = new Button();
+                btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnToMenu.Location = new System.Drawing.Point(277, 270);
+                btnToMenu.AutoSize = true;
+                btnToMenu.UseVisualStyleBackColor = true;
+                btnToMenu.Text = "Go to Main Menu";
+                btnToMenu.Name = "btnToMenu";
+                btnToMenu.Click += new EventHandler(btnToMenu_Click);
+                Controls.Add(btnToMenu);
 
-                if (File.Exists("high_scores.txt"))
-                {
-                    HighScores fileScores = new HighScores("high_scores.txt");
-                    fileScores.chkHighScore(user.getName(), user.getTotalScore());
-                    fileScores.closeFile();
-
-                    UpdateFile saveScore = new UpdateFile("high_scores.txt");
-                    saveScore.putNextRecord(fileScores.ToString());
-                    saveScore.closeFile();
-                }
-                else
-                {
-                    string highScore = user.getName() + "," + user.getTotalScore();
-                    UpdateFile saveScore = new UpdateFile("high_scores.txt");
-                    saveScore.putNextRecord(highScore);
-                    saveScore.closeFile();
-                }
-
-                string gameProgress = user.getName() + "," + (userLevel.getLevel() + 1) + "," + user.getTotalScore();
-                UpdateFile saveGame = new UpdateFile("game_save.txt");
-                saveGame.putNextRecord(gameProgress);
-                saveGame.closeFile();
+                Button btnExit = new Button();
+                btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnExit.Location = new System.Drawing.Point(309, 305);
+                btnExit.AutoSize = true;
+                btnExit.UseVisualStyleBackColor = true;
+                btnExit.Text = "Exit";
+                btnExit.Name = "btnExit";
+                btnExit.Click += new EventHandler(btnExit_Click);
+                Controls.Add(btnExit);
             }
             else
             {
-                Label lblGameOver = new Label();
-                lblGameOver.AutoSize = false;
-                lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                lblGameOver.Location = new System.Drawing.Point(173, 150);
-                lblGameOver.Size = new System.Drawing.Size(347, 20);
-                lblGameOver.BackColor = System.Drawing.Color.Transparent;
-                lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                lblGameOver.Name = "lblGameOver";
-                lblGameOver.Text = "You lost, try again!";
-                Controls.Add(lblGameOver);
+                isEnded = true;
+                levelTimer.Stop();
+                moveTargets.Stop();
 
-                Button btnPlayAgain = new Button();
-                btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnPlayAgain.Location = new System.Drawing.Point(300, 200);
-                btnPlayAgain.AutoSize = true;
-                btnPlayAgain.UseVisualStyleBackColor = true;
-                btnPlayAgain.Text = "Play Again";
-                btnPlayAgain.Name = "btnPlayAgain";
-                btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
-                Controls.Add(btnPlayAgain);
+                bkgndSound.Stop();
+                btnPause.Enabled = false;
+                btnPause.Visible = false;
 
-                string gameProgress = user.getName() + "," + userLevel.getLevel() + "," + user.getTotalScore();
-                UpdateFile saveGame = new UpdateFile("game_save.txt");
-                saveGame.putNextRecord(gameProgress);
-                saveGame.closeFile();
+                lblAmmo.Visible = false;
+                lblReload.Visible = false;
+
+                this.Cursor = System.Windows.Forms.Cursors.Default;
+
+                for (int i = 0; i < smallBtns.Count; i++)
+                {
+                    Controls.Remove(smallBtns[i]);
+                    //smallBtns[i].Visible = false;
+                    //smallBtns[i].Enabled = false;
+                }
+
+                for (int i = 0; i < mediumBtns.Count; i++)
+                {
+                    Controls.Remove(mediumBtns[i]);
+                    //mediumBtns[i].Visible = false;
+                    //mediumBtns[i].Enabled = false;
+                }
+
+                for (int i = 0; i < bigBtns.Count; i++)
+                {
+                    Controls.Remove(bigBtns[i]);
+                    //bigBtns[i].Visible = false;
+                    //bigBtns[i].Enabled = false;
+                }
+
+                Label lblYouScored = new Label();
+                lblYouScored.AutoSize = true;
+                lblYouScored.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                lblYouScored.Location = new System.Drawing.Point(290, 175);
+                lblYouScored.BackColor = System.Drawing.Color.Transparent;
+                lblYouScored.Name = "lblYouScored";
+                lblYouScored.Text = "You Scored: " + userLevel.getScore();
+                Controls.Add(lblYouScored);
+
+                if (win)
+                {
+                    Label lblGameOver = new Label();
+                    lblGameOver.AutoSize = false;
+                    lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lblGameOver.Location = new System.Drawing.Point(173, 150);
+                    lblGameOver.Size = new System.Drawing.Size(347, 20);
+                    lblGameOver.BackColor = System.Drawing.Color.Transparent;
+                    lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    lblGameOver.Name = "lblGameOver";
+                    lblGameOver.Text = "Congratulations, you won!";
+                    Controls.Add(lblGameOver);
+
+                    Button btnPlayNext = new Button();
+                    btnPlayNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    btnPlayNext.Location = new System.Drawing.Point(300, 200);
+                    btnPlayNext.AutoSize = true;
+                    btnPlayNext.UseVisualStyleBackColor = true;
+                    btnPlayNext.Text = "Next Level";
+                    btnPlayNext.Name = "btnPlayNext";
+                    btnPlayNext.Click += new EventHandler(btnPlayNext_Click);
+                    Controls.Add(btnPlayNext);
+
+                    user.updateTotalScore(userLevel.getScore());
+
+                    saveAllFiles();
+
+                    if (((userLevel.getLevel() + 1) % 3) == 0)
+                    {
+                        Label lblBonusGame = new Label();
+                        lblBonusGame.AutoSize = false;
+                        lblBonusGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        lblBonusGame.Location = new System.Drawing.Point(173, 400);
+                        lblBonusGame.Size = new System.Drawing.Size(347, 20);
+                        lblBonusGame.BackColor = System.Drawing.Color.Transparent;
+                        lblBonusGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                        lblBonusGame.Name = "lblBonusGame";
+                        lblBonusGame.Text = "Bonus Level Unlocked!";
+                        Controls.Add(lblBonusGame);
+
+                        Button btnPlayBonus = new Button();
+                        btnPlayBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        btnPlayBonus.Location = new System.Drawing.Point(275, 425);
+                        btnPlayBonus.AutoSize = true;
+                        btnPlayBonus.UseVisualStyleBackColor = true;
+                        btnPlayBonus.Text = "Play Bonus Level";
+                        btnPlayBonus.Name = "btnPlayBonus";
+                        btnPlayBonus.Click += new EventHandler(btnPlayBonus_Click);
+                        Controls.Add(btnPlayBonus);
+                    }
+                }
+                else
+                {
+                    Label lblGameOver = new Label();
+                    lblGameOver.AutoSize = false;
+                    lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lblGameOver.Location = new System.Drawing.Point(173, 150);
+                    lblGameOver.Size = new System.Drawing.Size(347, 20);
+                    lblGameOver.BackColor = System.Drawing.Color.Transparent;
+                    lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    lblGameOver.Name = "lblGameOver";
+                    lblGameOver.Text = "You lost, try again!";
+                    Controls.Add(lblGameOver);
+
+                    Button btnPlayAgain = new Button();
+                    btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    btnPlayAgain.Location = new System.Drawing.Point(300, 200);
+                    btnPlayAgain.AutoSize = true;
+                    btnPlayAgain.UseVisualStyleBackColor = true;
+                    btnPlayAgain.Text = "Play Again";
+                    btnPlayAgain.Name = "btnPlayAgain";
+                    btnPlayAgain.Click += new EventHandler(btnPlayAgain_Click);
+                    Controls.Add(btnPlayAgain);
+
+                    string gameProgress = user.getName() + "," + userLevel.getLevel() + "," + user.getTotalScore();
+                    UpdateFile saveGame = new UpdateFile("game_save.txt");
+                    saveGame.putNextRecord(gameProgress);
+                    saveGame.closeFile();
+                }
+
+                Button btnChgWeapon = new Button();
+                btnChgWeapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnChgWeapon.Location = new System.Drawing.Point(277, 235);
+                btnChgWeapon.AutoSize = true;
+                btnChgWeapon.UseVisualStyleBackColor = true;
+                btnChgWeapon.Text = "Change Weapon";
+                btnChgWeapon.Name = "btnChgWeapon";
+                btnChgWeapon.Click += new EventHandler(btnChgWeapon_Click);
+                Controls.Add(btnChgWeapon);
+
+                Button btnToMenu = new Button();
+                btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnToMenu.Location = new System.Drawing.Point(277, 270);
+                btnToMenu.AutoSize = true;
+                btnToMenu.UseVisualStyleBackColor = true;
+                btnToMenu.Text = "Go to Main Menu";
+                btnToMenu.Name = "btnToMenu";
+                btnToMenu.Click += new EventHandler(btnToMenu_Click);
+                Controls.Add(btnToMenu);
+
+                Button btnExit = new Button();
+                btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnExit.Location = new System.Drawing.Point(309, 305);
+                btnExit.AutoSize = true;
+                btnExit.UseVisualStyleBackColor = true;
+                btnExit.Text = "Exit";
+                btnExit.Name = "btnExit";
+                btnExit.Click += new EventHandler(btnExit_Click);
+                Controls.Add(btnExit);
             }
+        }
 
-            Button btnChgWeapon = new Button();
-            btnChgWeapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnChgWeapon.Location = new System.Drawing.Point(277, 235);
-            btnChgWeapon.AutoSize = true;
-            btnChgWeapon.UseVisualStyleBackColor = true;
-            btnChgWeapon.Text = "Change Weapon";
-            btnChgWeapon.Name = "btnChgWeapon";
-            btnChgWeapon.Click += new EventHandler(btnChgWeapon_Click);
-            Controls.Add(btnChgWeapon);
+        void btnPlayBonus_Click(object sender, EventArgs e)
+        {
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
 
-            Button btnToMenu = new Button();
-            btnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnToMenu.Location = new System.Drawing.Point(277, 270);
-            btnToMenu.AutoSize = true;
-            btnToMenu.UseVisualStyleBackColor = true;
-            btnToMenu.Text = "Go to Main Menu";
-            btnToMenu.Name = "btnToMenu";
-            btnToMenu.Click += new EventHandler(btnToMenu_Click);
-            Controls.Add(btnToMenu);
+            // Make label telling user about the bonus level
+            Label lblBonusInfo = new Label();
+            lblBonusInfo.BackColor = System.Drawing.Color.Transparent;
+            lblBonusInfo.Enabled = false;
+            lblBonusInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblBonusInfo.Location = new System.Drawing.Point(12, 38);
+            lblBonusInfo.Name = "lblBonusInfo";
+            lblBonusInfo.Size = new System.Drawing.Size(666, 100);
+            lblBonusInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblBonusInfo.Text = "This bonus level is a version of whack-a-mole. \nJust click on the Ground Hog to win and earn 50 points.";
+            Controls.Add(lblBonusInfo);
 
-            Button btnExit = new Button();
-            btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnExit.Location = new System.Drawing.Point(309,305);
-            btnExit.AutoSize = true;
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Text = "Exit";
-            btnExit.Name = "btnExit";
-            btnExit.Click += new EventHandler(btnExit_Click);
-            Controls.Add(btnExit);
+            // Make button to start bonus level which calls makeBonusLevel()
+            Button btnStartBonus = new Button();
+            btnStartBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnStartBonus.Location = new System.Drawing.Point(271, 156);
+            btnStartBonus.Name = "btnStartBonus";
+            btnStartBonus.Size = new System.Drawing.Size(159, 135);
+            btnStartBonus.Text = "Start";
+            btnStartBonus.UseVisualStyleBackColor = true;
+            btnStartBonus.Click += new EventHandler(btnStartBonus_Click);
+            Controls.Add(btnStartBonus);
+
+            int numGrndHogs = (userLevel.getLevel() + 1) / 3;
+            userBonusLevel = new LevelBonusGH(numGrndHogs);
+
+            this.Text = "Bonus Level " + numGrndHogs;
+            lblScore.Text = "Score: " + userBonusLevel.getScore();
+            currTime = 15;
+            lblTime.Text = "Time: " + currTime;
+
+            isBonusLevel = true;
+            lblScore.Visible = false;
+        }
+
+        void btnStartBonus_Click(object sender, EventArgs e)
+        {
+            Controls.RemoveAt(Controls.Count - 1);
+            Controls.RemoveAt(Controls.Count - 1);
+
+            makeBonusLevel();
+
+            // Change cursor to a target
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
+
+            tmrBonusGrndHog = new Timer();
+            tmrBonusGrndHog.Interval = 500 / userBonusLevel.getSpeed();
+            tmrBonusGrndHog.Enabled = true;
+            tmrBonusGrndHog.Tick += new EventHandler(tmrBonusGrndHog_Tick);
+
+            tmrBonusLevel = new Timer();
+            tmrBonusLevel.Interval = 1000;
+            tmrBonusLevel.Enabled = true;
+            tmrBonusLevel.Tick += new EventHandler(tmrBonusLevel_Tick);
+
+            isPaused = false;
+            isEnded = false;
+        }
+
+        void tmrBonusLevel_Tick(object sender, EventArgs e)
+        {
+            if (currTime > 1)
+            {
+                currTime--;
+                lblTime.Text = "Time: " + currTime;
+            }
+            else
+            {
+                lblTime.Text = "Time: " + 0;
+                endGame(false);
+            }
+        }
+
+        void tmrBonusGrndHog_Tick(object sender, EventArgs e)
+        {
+            int num = rndbuttonLoc.Next(1, 40);
+            bonusBurrows[num].BackColor = System.Drawing.Color.White;
+            bonusBurrows[num].Click +=new EventHandler(bonusBurrows_Click);
+
+            for (int i = 0; i < bonusBurrows.Length; i++)
+            {
+                if (i != num)
+                {
+                    bonusBurrows[i].BackColor = System.Drawing.Color.Black;
+                    bonusBurrows[i].Click -= bonusBurrows_Click;
+                }
+            }
+        }
+
+        private void bonusBurrows_Click(object sender, EventArgs e)
+        {
+            endGame(true);
         }
 
         void btnChgWeapon_Click(object sender, EventArgs e)
@@ -598,12 +790,29 @@ namespace ShootingGame
 
         void btnPlayNext_Click(object sender, EventArgs e)
         {
-            Controls.RemoveAt(Controls.Count - 1);
-            Controls.RemoveAt(Controls.Count - 1);
-            Controls.RemoveAt(Controls.Count - 1);
-            Controls.RemoveAt(Controls.Count - 1);
-            Controls.RemoveAt(Controls.Count - 1);
-            Controls.RemoveAt(Controls.Count - 1);
+            if (isBonusLevel)
+            {
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                lblScore.Visible = true;
+                isBonusLevel = false;
+            }
+            else
+            {
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                Controls.RemoveAt(Controls.Count - 1);
+                if (((userLevel.getLevel() + 1) % 3) == 0)
+                {
+                    Controls.RemoveAt(Controls.Count - 1);
+                    Controls.RemoveAt(Controls.Count - 1);
+                }
+            }
 
             btnStart.Enabled = true;
             btnStart.Visible = true;
@@ -806,6 +1015,60 @@ namespace ShootingGame
             tmrGunShot.Tick += new EventHandler(tmrGunShot_Tick);
             bkgndSound.Stop();
             gunshotSound.Play();
+        }
+
+        private void makeBonusLevel()
+        {
+            // Make the grid of picture boxes necessary for the whack-a-mole level
+            // Grid of 8x5
+            bonusBurrows = new PictureBox[40];
+
+            int x = 0;
+            int y = 35;
+            for (int i = 0; i < bonusBurrows.Length; i++)
+            {
+                bonusBurrows[i] = new PictureBox();
+                bonusBurrows[i].Location = new System.Drawing.Point(x, y);
+                //burrows[i].Name = "pictureBox1";
+                bonusBurrows[i].Size = new System.Drawing.Size(86, 92);
+                bonusBurrows[i].BackColor = System.Drawing.Color.Black;
+                //burrows[i].TabIndex = 0;
+                //burrows[i].TabStop = false;
+                Controls.Add(bonusBurrows[i]);
+
+                x += 86;
+                if ((i != 0) && (((i + 1) % 8) == 0))
+                {
+                    y += 92;
+                    x = 0;
+                }
+            }
+        }
+
+        private void saveAllFiles()
+        {
+            if (File.Exists("high_scores.txt"))
+            {
+                HighScores fileScores = new HighScores("high_scores.txt");
+                fileScores.chkHighScore(user.getName(), user.getTotalScore());
+                fileScores.closeFile();
+
+                UpdateFile saveScore = new UpdateFile("high_scores.txt");
+                saveScore.putNextRecord(fileScores.ToString());
+                saveScore.closeFile();
+            }
+            else
+            {
+                string highScore = user.getName() + "," + user.getTotalScore();
+                UpdateFile saveScore = new UpdateFile("high_scores.txt");
+                saveScore.putNextRecord(highScore);
+                saveScore.closeFile();
+            }
+
+            string gameProgress = user.getName() + "," + (userLevel.getLevel() + 1) + "," + user.getTotalScore();
+            UpdateFile saveGame = new UpdateFile("game_save.txt");
+            saveGame.putNextRecord(gameProgress);
+            saveGame.closeFile();
         }
     }
 }

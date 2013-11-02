@@ -114,7 +114,6 @@ namespace ShootingGame
                 btnCurr.UseVisualStyleBackColor = true;
                 btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Duck_Flying_RIGHT, new Size(btnCurr.Width, btnCurr.Height));
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
-                btnCurr.Text = i.ToString();
                 btnCurr.Name = "btnSmlTar" + i;
                 btnCurr.Click += new EventHandler(btnSml_Click);
                 // Add button to the list
@@ -139,7 +138,6 @@ namespace ShootingGame
                 btnCurr.BackgroundImage = new Bitmap(Properties.Resources.deer_walk_Right, new Size(btnCurr.Width, btnCurr.Height));
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
-                btnCurr.Name = "btnMedTar" + i;
                 btnCurr.Click += new EventHandler(btnMed_Click);
                 mediumBtns.Add(btnCurr);
                 mediumTargets.Add(new Target("deer"));
@@ -159,7 +157,6 @@ namespace ShootingGame
                 btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(btnCurr.Width, btnCurr.Height));
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
-                btnCurr.Name = "btnBigTar" + i;
                 btnCurr.Click += new EventHandler(btnBig_Click);
                 bigBtns.Add(btnCurr);
                 bigTargets.Add(new Target("buffalo"));
@@ -178,7 +175,7 @@ namespace ShootingGame
 
                 // Detect the clicked button
                 Button clickedBtn = (Button)sender;
-                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                int clickNum = bigBtns.IndexOf(clickedBtn);
                 // Shoot the appropriate target
                 bigTargets[clickNum].Shot(userWeapon.getDamage());
 
@@ -187,15 +184,11 @@ namespace ShootingGame
                 {
                     userLevel.updateScore(bigTargets[clickNum].getScore());
                     lblScore.Text = "Score: " + userLevel.getScore();
-                    bigBtns.RemoveAt(clickNum);
+                    //bigBtns.RemoveAt(clickNum);
+                    bigBtns.Remove(clickedBtn);
                     bigTargets.RemoveAt(clickNum);
                     motionBigFlipped.RemoveAt(clickNum);
                     Controls.Remove(clickedBtn);
-
-                    for (int i = 0; i < bigBtns.Count; i++)
-                    {
-                        bigBtns[i].Text = i.ToString();
-                    }
 
                     if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                     {
@@ -222,22 +215,17 @@ namespace ShootingGame
                 lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
 
                 Button clickedBtn = (Button)sender;
-                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                int clickNum = mediumBtns.IndexOf(clickedBtn);
                 mediumTargets[clickNum].Shot(userWeapon.getDamage());
 
                 if (!mediumTargets[clickNum].isAlive())
                 {
                     userLevel.updateScore(mediumTargets[clickNum].getScore());
                     lblScore.Text = "Score: " + userLevel.getScore();
-                    mediumBtns.RemoveAt(clickNum);
+                    mediumBtns.Remove(clickedBtn);
                     mediumTargets.RemoveAt(clickNum);
                     motionMedFlipped.RemoveAt(clickNum);
                     Controls.Remove(clickedBtn);
-
-                    for (int i = 0; i < mediumBtns.Count; i++)
-                    {
-                        mediumBtns[i].Text = i.ToString();
-                    }
 
                     if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                     {
@@ -264,22 +252,17 @@ namespace ShootingGame
                 lblAmmo.Text = "Ammo: " + userWeapon.getAmmo();
 
                 Button clickedBtn = (Button)sender;
-                int clickNum = Convert.ToInt32(clickedBtn.Text);
+                int clickNum = smallBtns.IndexOf(clickedBtn);
                 smallTargets[clickNum].Shot(userWeapon.getDamage());
 
                 if (!smallTargets[clickNum].isAlive())
                 {
                     userLevel.updateScore(smallTargets[clickNum].getScore());
                     lblScore.Text = "Score: " + userLevel.getScore();
-                    smallBtns.RemoveAt(clickNum);
+                    smallBtns.Remove(clickedBtn);
                     smallTargets.RemoveAt(clickNum);
                     motionSmlFlipped.RemoveAt(clickNum);
                     Controls.Remove(clickedBtn);
-
-                    for (int i = 0; i < smallBtns.Count; i++)
-                    {
-                        smallBtns[i].Text = i.ToString();
-                    }
 
                     if ((smallBtns.Count == 0) && (mediumBtns.Count == 0) && (bigBtns.Count == 0))
                     {

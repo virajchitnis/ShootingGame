@@ -81,6 +81,27 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Bear_Walking_2 {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Bear_Walking_3 {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Bear_Walking_4 {
+            get {
+                object obj = ResourceManager.GetObject("Bear_Walking_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Bear_Walking_RIGHT {
             get {
                 object obj = ResourceManager.GetObject("Bear_Walking_RIGHT", resourceCulture);

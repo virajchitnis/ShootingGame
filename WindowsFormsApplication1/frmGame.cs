@@ -44,7 +44,11 @@ namespace ShootingGame
         List<Button> mediumBtns;
         List<Button> bigBtns;
 
-        // Array for the bonus level grid
+        // Animal walking variables
+        Bitmap[] bearPics;
+        int bearWalkCounter;
+
+        // Arrays and variables for the bonus level
         PictureBox[] bonusBurrows;
         Timer tmrBonusGrndHog;
         Timer tmrBonusLevel;
@@ -101,6 +105,13 @@ namespace ShootingGame
             mediumBtns = new List<Button>();
             bigBtns = new List<Button>();
 
+            bearPics = new Bitmap[4];
+            bearPics[0] = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(70, 70));
+            bearPics[1] = new Bitmap(Properties.Resources.Bear_Walking_2, new Size(70, 70));
+            bearPics[2] = new Bitmap(Properties.Resources.Bear_Walking_3, new Size(70, 70));
+            bearPics[3] = new Bitmap(Properties.Resources.Bear_Walking_4, new Size(70, 70));
+            bearWalkCounter = 0;
+
             // Loop to repeat process for number of targets of each size
             for (int i = 0; i < userLevel.getSmallTargets(); i++)
             {
@@ -154,7 +165,7 @@ namespace ShootingGame
                 btnCurr.Location = new System.Drawing.Point(locX, locY);
                 btnCurr.Size = new System.Drawing.Size(70, 70);
                 btnCurr.UseVisualStyleBackColor = true;
-                btnCurr.BackgroundImage = new Bitmap(Properties.Resources.Bear_Walking_1, new Size(btnCurr.Width, btnCurr.Height));
+                btnCurr.BackgroundImage = bearPics[0];
                 btnCurr.BackColor = System.Drawing.Color.Transparent;
                 btnCurr.Text = i.ToString();
                 btnCurr.Click += new EventHandler(btnBig_Click);
@@ -913,7 +924,16 @@ namespace ShootingGame
             {
                 if (motionBigFlipped[i] == false)
                 {
+                    if (bearWalkCounter >= 3)
+                    {
+                        bearWalkCounter = 0;
+                    }
+                    else
+                    {
+                        bearWalkCounter++;
+                    }
                     bigBtns[i].Left += 3;
+                    bigBtns[i].BackgroundImage = bearPics[bearWalkCounter];
                     if (bigBtns[i].Right >= 694)
                     {
                         motionBigFlipped[i] = true;

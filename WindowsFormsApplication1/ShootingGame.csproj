@@ -189,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
+    <None Include="Resources\Bear-Walking-4.png" />
+    <None Include="Resources\Bear-Walking-3.png" />
+    <None Include="Resources\Bear-Walking-2.png" />
     <None Include="Resources\songKalimba.wav" />
     <None Include="Resources\background.gif" />
     <None Include="Resources\2.png" />

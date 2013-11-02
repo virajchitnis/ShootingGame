@@ -23,7 +23,11 @@ namespace ShootingGame
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult exitOrNot = MessageBox.Show("Are you sure you want to exit the game?", "Exit Game", MessageBoxButtons.YesNo);
+            if (exitOrNot == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnAbout_Click(object sender, EventArgs e)

@@ -19,8 +19,9 @@ namespace ShootingGame
         LevelBonusGH userBonusLevel;        // Bonus level
         Player user;                        // Player's username
         int currTime;                       // Time tracker for the level
-        Timer moveTargets;                  // Timer to move targets
-        Timer levelTimer;                   // Timer to keep track of and update time in currTime
+        Timer tmrMoveTargets;                  // Timer to move targets
+        Timer tmrLevelTime;                   // Timer to keep track of and update time in currTime
+        Timer tmrWalker;                    // Timer to make animals walk/run
         bool isPaused;                      // Whether the game is paused or running
         bool isEnded;                       // Whether the game is running or over
         Random rndbuttonLoc;
@@ -125,9 +126,6 @@ namespace ShootingGame
         // On form close
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Application.Exit();
-            // Show the main form.
-            //frmSplash.mainForm.Show();
             bkgndSound.Stop();
         }
 
@@ -331,12 +329,12 @@ namespace ShootingGame
         // Pause the game
         private void pauseGame()
         {
-            if (isPaused == false)
+            if (!isPaused)
             {
                 isPaused = true;
                 btnPause.Text = "Play";
-                levelTimer.Stop();
-                moveTargets.Stop();
+                tmrLevelTime.Stop();
+                tmrMoveTargets.Stop();
 
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
@@ -397,12 +395,12 @@ namespace ShootingGame
                 btnExit.Click += new EventHandler(btnExit_Click);
                 Controls.Add(btnExit);
             }
-            else if (isPaused == true)
+            else
             {
                 isPaused = false;
                 btnPause.Text = "Pause";
-                levelTimer.Start();
-                moveTargets.Start();
+                tmrLevelTime.Start();
+                tmrMoveTargets.Start();
 
                 this.Cursor = System.Windows.Forms.Cursors.Cross;
 
@@ -433,13 +431,21 @@ namespace ShootingGame
 
         void btnToMenu_Click(object sender, EventArgs e)
         {
-            frmSplash.mainForm.Show();
-            this.Close();
+            DialogResult closeOrNot = MessageBox.Show("Are you sure you want to go to the main menu?", "Go to main menu", MessageBoxButtons.YesNo);
+            if (closeOrNot == DialogResult.Yes)
+            {
+                frmSplash.mainForm.Show();
+                this.Close();
+            }
         }
 
         void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult exitOrNot = MessageBox.Show("Are you sure you want to exit the game?", "Exit Game", MessageBoxButtons.YesNo);
+            if (exitOrNot == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         // End the game
@@ -522,8 +528,9 @@ namespace ShootingGame
             else
             {
                 isEnded = true;
-                levelTimer.Stop();
-                moveTargets.Stop();
+                tmrLevelTime.Stop();
+                tmrMoveTargets.Stop();
+                tmrWalker.Stop();
 
                 bkgndSound.Stop();
                 btnPause.Enabled = false;
@@ -879,22 +886,114 @@ namespace ShootingGame
             this.Cursor = System.Windows.Forms.Cursors.Cross;
 
             // Initialize timer and set all its necessary attributes
-            moveTargets = new Timer();
-            moveTargets.Interval = 33;
-            moveTargets.Enabled = true;
-            moveTargets.Tick += new EventHandler(moveTargets_Tick);
+            tmrMoveTargets = new Timer();
+            tmrMoveTargets.Interval = 33;
+            tmrMoveTargets.Enabled = true;
+            tmrMoveTargets.Tick += new EventHandler(tmrMoveTargets_Tick);
 
-            levelTimer = new Timer();
-            levelTimer.Interval = 1000;
-            levelTimer.Enabled = true;
-            levelTimer.Tick += new EventHandler(levelTimer_Tick);
+            tmrLevelTime = new Timer();
+            tmrLevelTime.Interval = 1000;
+            tmrLevelTime.Enabled = true;
+            tmrLevelTime.Tick += new EventHandler(tmrLevelTime_Tick);
+
+            tmrWalker = new Timer();
+            tmrWalker.Interval = 150;
+            tmrWalker.Enabled = true;
+            tmrWalker.Tick += new EventHandler(tmrWalker_Tick);
 
             isPaused = false;
             isEnded = false;
         }
 
+        void tmrWalker_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < smallBtns.Count; i++)
+            {
+                if (!motionSmlFlipped[i])
+                {
+                    if (duckWalkCounter >= 2)
+                    {
+                        duckWalkCounter = 0;
+                    }
+                    else
+                    {
+                        duckWalkCounter++;
+                    }
+                    smallBtns[i].BackgroundImage = duckPicsRight[duckWalkCounter];
+                }
+                else
+                {
+                    if (duckWalkCounter >= 2)
+                    {
+                        duckWalkCounter = 0;
+                    }
+                    else
+                    {
+                        duckWalkCounter++;
+                    }
+                    smallBtns[i].BackgroundImage = duckPicsLeft[duckWalkCounter];
+                }
+            }
+
+            for (int i = 0; i < mediumBtns.Count; i++)
+            {
+                if (!motionMedFlipped[i])
+                {
+                    if (deerWalkCounter >= 2)
+                    {
+                        deerWalkCounter = 0;
+                    }
+                    else
+                    {
+                        deerWalkCounter++;
+                    }
+                    mediumBtns[i].BackgroundImage = deerPicsRight[deerWalkCounter];
+                }
+                else
+                {
+                    if (deerWalkCounter >= 2)
+                    {
+                        deerWalkCounter = 0;
+                    }
+                    else
+                    {
+                        deerWalkCounter++;
+                    }
+                    mediumBtns[i].BackgroundImage = deerPicsLeft[deerWalkCounter];
+                }
+            }
+
+            for (int i = 0; i < bigBtns.Count; i++)
+            {
+                if (!motionBigFlipped[i])
+                {
+                    if (bearWalkCounter >= 3)
+                    {
+                        bearWalkCounter = 0;
+                    }
+                    else
+                    {
+                        bearWalkCounter++;
+                    }
+                    bigBtns[i].BackgroundImage = bearPicsRight[bearWalkCounter];
+                }
+                else
+                {
+                    if (bearWalkCounter >= 3)
+                    {
+                        bearWalkCounter = 0;
+                    }
+                    else
+                    {
+                        bearWalkCounter++;
+                    }
+                    bigBtns[i].BackgroundImage = bearPicsLeft[bearWalkCounter];
+                }
+            }
+        }
+
         // Timer event method to keep track of level time
-        void levelTimer_Tick(object sender, EventArgs e)
+        void tmrLevelTime_Tick(object sender, EventArgs e)
         {
             if (currTime > 1)
             {
@@ -909,124 +1008,64 @@ namespace ShootingGame
         }
 
         // Timer event method to move objects
-        void moveTargets_Tick(object sender, EventArgs e)
+        void tmrMoveTargets_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < smallBtns.Count; i++)
             {
-                if (motionSmlFlipped[i] == false)
+                if (!motionSmlFlipped[i])
                 {
-                    if (duckWalkCounter >= 2)
-                    {
-                        duckWalkCounter = 0;
-                    }
-                    else
-                    {
-                        duckWalkCounter++;
-                    }
                     smallBtns[i].Left += 8;
-                    smallBtns[i].BackgroundImage = duckPicsRight[duckWalkCounter];
                     if (smallBtns[i].Right >= 694)
                     {
                         motionSmlFlipped[i] = true;
-                        smallBtns[i].BackgroundImage = duckPicsLeft[0];
                     }
                 }
-                else if (motionSmlFlipped[i] == true)
+                else
                 {
-                    if (duckWalkCounter >= 2)
-                    {
-                        duckWalkCounter = 0;
-                    }
-                    else
-                    {
-                        duckWalkCounter++;
-                    }
                     smallBtns[i].Left -= 8;
-                    smallBtns[i].BackgroundImage = duckPicsLeft[duckWalkCounter];
                     if (smallBtns[i].Left <= 0)
                     {
                         motionSmlFlipped[i] = false;
-                        smallBtns[i].BackgroundImage = duckPicsRight[0];
                     }
                 }
             }
 
             for (int i = 0; i < mediumBtns.Count; i++)
             {
-                if (motionMedFlipped[i] == false)
+                if (!motionMedFlipped[i])
                 {
-                    if (deerWalkCounter >= 2)
-                    {
-                        deerWalkCounter = 0;
-                    }
-                    else
-                    {
-                        deerWalkCounter++;
-                    }
                     mediumBtns[i].Left += 6;
-                    mediumBtns[i].BackgroundImage = deerPicsRight[deerWalkCounter];
                     if (mediumBtns[i].Right >= 694)
                     {
                         motionMedFlipped[i] = true;
-                        mediumBtns[i].BackgroundImage = deerPicsLeft[0];
                     }
                 }
-                else if (motionMedFlipped[i] == true)
+                else
                 {
-                    if (deerWalkCounter >= 2)
-                    {
-                        deerWalkCounter = 0;
-                    }
-                    else
-                    {
-                        deerWalkCounter++;
-                    }
                     mediumBtns[i].Left -= 6;
-                    mediumBtns[i].BackgroundImage = deerPicsLeft[deerWalkCounter];
                     if (mediumBtns[i].Left <= 0)
                     {
                         motionMedFlipped[i] = false;
-                        mediumBtns[i].BackgroundImage = deerPicsRight[0];
                     }
                 }
             }
 
             for (int i = 0; i < bigBtns.Count; i++)
             {
-                if (motionBigFlipped[i] == false)
+                if (!motionBigFlipped[i])
                 {
-                    if (bearWalkCounter >= 3)
-                    {
-                        bearWalkCounter = 0;
-                    }
-                    else
-                    {
-                        bearWalkCounter++;
-                    }
                     bigBtns[i].Left += 3;
-                    bigBtns[i].BackgroundImage = bearPicsRight[bearWalkCounter];
                     if (bigBtns[i].Right >= 694)
                     {
                         motionBigFlipped[i] = true;
-                        bigBtns[i].BackgroundImage = bearPicsLeft[0];
                     }
                 }
-                else if (motionBigFlipped[i] == true)
+                else
                 {
-                    if (bearWalkCounter >= 3)
-                    {
-                        bearWalkCounter = 0;
-                    }
-                    else
-                    {
-                        bearWalkCounter++;
-                    }
                     bigBtns[i].Left -= 3;
-                    bigBtns[i].BackgroundImage = bearPicsLeft[bearWalkCounter];
                     if (bigBtns[i].Left <= 0)
                     {
                         motionBigFlipped[i] = false;
-                        bigBtns[i].BackgroundImage = bearPicsRight[0];
                     }
                 }
             }
@@ -1039,7 +1078,7 @@ namespace ShootingGame
 
         private void frmGame_Click(object sender, EventArgs e)
         {
-            if ((isEnded == false)&&(isPaused == false))
+            if ((!isEnded)&&(!isPaused))
             {
                 if (!userWeapon.inReload())
                 {

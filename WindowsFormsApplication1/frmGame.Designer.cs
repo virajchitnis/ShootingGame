@@ -89,6 +89,7 @@
             this.lblTime.Size = new System.Drawing.Size(47, 17);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = "Time: ";
+            this.lblTime.DoubleClick += new System.EventHandler(this.lblTime_DoubleClick);
             // 
             // lblScore
             // 

@@ -246,12 +246,9 @@ namespace ShootingGame
                     }
                 }
 
-                if (userWeapon.needReload())
+                if ((userWeapon.needReload()) && (!isEnded))
                 {
-                    if (!isEnded)
-                    {
-                        reloadWeapon();
-                    }
+                    reloadWeapon();
                 }
                 else
                 {
@@ -286,12 +283,9 @@ namespace ShootingGame
                     }
                 }
 
-                if (userWeapon.needReload())
+                if ((userWeapon.needReload()) && (!isEnded))
                 {
-                    if (!isEnded)
-                    {
-                        reloadWeapon();
-                    }
+                    reloadWeapon();
                 }
                 else
                 {
@@ -326,12 +320,9 @@ namespace ShootingGame
                     }
                 }
 
-                if (userWeapon.needReload())
+                if ((userWeapon.needReload()) && (!isEnded))
                 {
-                    if (!isEnded)
-                    {
-                        reloadWeapon();
-                    }
+                    reloadWeapon();
                 }
                 else
                 {
@@ -1209,6 +1200,12 @@ namespace ShootingGame
             UpdateFile saveGame = new UpdateFile("game_save.txt");
             saveGame.putNextRecord(gameProgress);
             saveGame.closeFile();
+        }
+
+        private void lblTime_DoubleClick(object sender, EventArgs e)
+        {
+            currTime += 30;
+            lblTime.Text = "Time: " + currTime;
         }
     }
 }

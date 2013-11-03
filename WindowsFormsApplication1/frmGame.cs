@@ -341,6 +341,9 @@ namespace ShootingGame
                 tmrLevelTime.Stop();
                 tmrMoveTargets.Stop();
 
+                lblAmmo.Visible = false;
+                lblReload.Visible = false;
+
                 this.Cursor = System.Windows.Forms.Cursors.Default;
 
                 for (int i = 0; i < smallBtns.Count; i++)
@@ -406,6 +409,9 @@ namespace ShootingGame
                 btnPause.Text = "Pause";
                 tmrLevelTime.Start();
                 tmrMoveTargets.Start();
+
+                lblAmmo.Visible = true;
+                lblReload.Visible = true;
 
                 this.Cursor = System.Windows.Forms.Cursors.Cross;
 

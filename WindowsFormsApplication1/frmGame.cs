@@ -62,6 +62,7 @@ namespace ShootingGame
         Timer tmrBonusLevel;
         bool isBonusLevel;
         Bitmap[] groundHogPics;
+        int oldNum;                         // To keep track of the last chosen box
 
         SoundPlayer bkgndSound = new SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
@@ -729,10 +730,11 @@ namespace ShootingGame
             btnStartBonus.Click += new EventHandler(btnStartBonus_Click);
             Controls.Add(btnStartBonus);
 
-            int numGrndHogs = (userLevel.getLevel() + 1) / 3;
-            userBonusLevel = new LevelBonusGH(numGrndHogs);
+            int grndHogSpeed = (userLevel.getLevel() + 1) / 3;
+            userBonusLevel = new LevelBonusGH(grndHogSpeed);
+            oldNum = 50;
 
-            this.Text = "Bonus Level " + numGrndHogs;
+            this.Text = "Bonus Level";
             lblScore.Text = "Score: " + userBonusLevel.getScore();
             currTime = 15;
             lblTime.Text = "Time: " + currTime;
@@ -782,18 +784,18 @@ namespace ShootingGame
         void tmrBonusGrndHog_Tick(object sender, EventArgs e)
         {
             int num = rndbuttonLoc.Next(1, 40);
-            bonusBurrows[num].BackColor = System.Drawing.Color.White;
-            //bonusBurrows[num].Image = groundHogPics[0];
-            bonusBurrows[num].Click += new EventHandler(bonusBurrows_Click);
 
-            for (int i = 0; i < bonusBurrows.Length; i++)
+            if (num != oldNum)
             {
-                if (i != num)
+                bonusBurrows[num].Image = groundHogPics[0];
+                bonusBurrows[num].Click += new EventHandler(bonusBurrows_Click);
+
+                if ((oldNum < 40) && (oldNum >= 0))
                 {
-                    bonusBurrows[i].BackColor = System.Drawing.Color.Black;
-                    //bonusBurrows[num].Image = groundHogPics[1];
-                    bonusBurrows[i].Click -= bonusBurrows_Click;
+                    bonusBurrows[oldNum].Image = groundHogPics[1];
+                    bonusBurrows[oldNum].Click -= bonusBurrows_Click;
                 }
+                oldNum = num;
             }
         }
 
@@ -1165,12 +1167,8 @@ namespace ShootingGame
             {
                 bonusBurrows[i] = new PictureBox();
                 bonusBurrows[i].Location = new System.Drawing.Point(x, y);
-                //burrows[i].Name = "pictureBox1";
                 bonusBurrows[i].Size = new System.Drawing.Size(86, 92);
-                bonusBurrows[i].BackColor = System.Drawing.Color.Black;
-                //bonusBurrows[i].Image = groundHogPics[1];
-                //burrows[i].TabIndex = 0;
-                //burrows[i].TabStop = false;
+                bonusBurrows[i].Image = groundHogPics[1];
                 Controls.Add(bonusBurrows[i]);
 
                 x += 86;

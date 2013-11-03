@@ -180,6 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\135472__kvgarlic__summeropenfielddusk.wav" />
+    <None Include="Resources\GHOG2.png" />
+    <None Include="Resources\GHOG2 GH.png" />
     <None Include="Resources\picShotgun--transparent---Copy.gif" />
     <None Include="Resources\picRifle--transparent.gif" />
     <None Include="Resources\picHANDGUN--Transparent.gif" />

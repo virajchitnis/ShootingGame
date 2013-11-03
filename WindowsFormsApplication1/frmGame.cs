@@ -61,6 +61,7 @@ namespace ShootingGame
         Timer tmrBonusGrndHog;
         Timer tmrBonusLevel;
         bool isBonusLevel;
+        Bitmap[] groundHogPics;
 
         SoundPlayer bkgndSound = new SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
         SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
@@ -106,6 +107,10 @@ namespace ShootingGame
             deerPicsLeft[0] = new Bitmap(Properties.Resources.deer_walk_LEFT, new Size(50, 50));
             deerPicsLeft[1] = new Bitmap(Properties.Resources.deer_walk_2_left, new Size(50, 50));
             deerPicsLeft[2] = new Bitmap(Properties.Resources.deer_walk_3_left, new Size(50, 50));
+
+            groundHogPics = new Bitmap[2];
+            groundHogPics[0] = new Bitmap(Properties.Resources.GHOG2_GH, new Size(86, 92));
+            groundHogPics[1] = new Bitmap(Properties.Resources.GHOG2, new Size(86, 92));
         }
 
         // On form load
@@ -243,7 +248,10 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    reloadWeapon();
+                    if (!isEnded)
+                    {
+                        reloadWeapon();
+                    }
                 }
                 else
                 {
@@ -280,7 +288,10 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    reloadWeapon();
+                    if (!isEnded)
+                    {
+                        reloadWeapon();
+                    }
                 }
                 else
                 {
@@ -317,7 +328,10 @@ namespace ShootingGame
 
                 if (userWeapon.needReload())
                 {
-                    reloadWeapon();
+                    if (!isEnded)
+                    {
+                        reloadWeapon();
+                    }
                 }
                 else
                 {
@@ -772,6 +786,7 @@ namespace ShootingGame
         {
             int num = rndbuttonLoc.Next(1, 40);
             bonusBurrows[num].BackColor = System.Drawing.Color.White;
+            //bonusBurrows[num].Image = groundHogPics[0];
             bonusBurrows[num].Click += new EventHandler(bonusBurrows_Click);
 
             for (int i = 0; i < bonusBurrows.Length; i++)
@@ -779,6 +794,7 @@ namespace ShootingGame
                 if (i != num)
                 {
                     bonusBurrows[i].BackColor = System.Drawing.Color.Black;
+                    //bonusBurrows[num].Image = groundHogPics[1];
                     bonusBurrows[i].Click -= bonusBurrows_Click;
                 }
             }
@@ -1155,6 +1171,7 @@ namespace ShootingGame
                 //burrows[i].Name = "pictureBox1";
                 bonusBurrows[i].Size = new System.Drawing.Size(86, 92);
                 bonusBurrows[i].BackColor = System.Drawing.Color.Black;
+                //bonusBurrows[i].Image = groundHogPics[1];
                 //burrows[i].TabIndex = 0;
                 //burrows[i].TabStop = false;
                 Controls.Add(bonusBurrows[i]);

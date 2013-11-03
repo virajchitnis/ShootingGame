@@ -263,6 +263,20 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap GHOG2 {
+            get {
+                object obj = ResourceManager.GetObject("GHOG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap GHOG2_GH {
+            get {
+                object obj = ResourceManager.GetObject("GHOG2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap picHANDGUN {
             get {
                 object obj = ResourceManager.GetObject("picHANDGUN", resourceCulture);

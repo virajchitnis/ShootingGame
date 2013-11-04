@@ -64,9 +64,9 @@ namespace ShootingGame
         Bitmap[] groundHogPics;
         int oldNum;                         // To keep track of the last chosen box
 
-        SoundPlayer bkgndSound = new SoundPlayer(@"..\..\Resources\135472__kvgarlic__summeropenfielddusk.wav");
-        SoundPlayer gunshotSound = new SoundPlayer(@"..\..\Resources\37236__shades__gun-pistol-one-shot.wav");
-        SoundPlayer gunReloadSound = new SoundPlayer(@"..\..\Resources\shotgunReload.wav");
+        SoundPlayer bkgndSound = new SoundPlayer(Properties.Resources._135472__kvgarlic__summeropenfielddusk);
+        SoundPlayer gunshotSound = new SoundPlayer(Properties.Resources._37236__shades__gun_pistol_one_shot);
+        SoundPlayer gunReloadSound = new SoundPlayer(Properties.Resources.shotgunReload);
 
         public frmGame(SoundPlayer music, Player name, Weapon w, Level l)
         {

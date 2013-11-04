@@ -28,7 +28,7 @@ namespace ShootingGame
         {
             ToolTip playGame = new ToolTip();
             playGame.SetToolTip(this, "Click anywhere to play");
-            menuMusic = new SoundPlayer(@"..\..\Resources\songKalimba.wav");
+            menuMusic = new SoundPlayer(Properties.Resources.songKalimba);
             menuMusic.Play();
         }
 

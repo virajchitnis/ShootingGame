@@ -178,12 +178,6 @@
   <data name="Duck_Flying_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Duck-Flying-RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shotgunReload" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shotgunReload.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="songKalimba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\songKalimba.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Bear_Walking_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bear-Walking-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -243,5 +237,17 @@
   </data>
   <data name="GHOG2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GHOG2 GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_135472__kvgarlic__summeropenfielddusk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\135472__kvgarlic__summeropenfielddusk.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shotgunReload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shotgunReload.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="songKalimba" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\songKalimba.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_37236__shades__gun_pistol_one_shot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\37236__shades__gun-pistol-one-shot.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

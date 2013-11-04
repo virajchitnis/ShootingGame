@@ -60,6 +60,18 @@ namespace ShootingGame.Properties {
             }
         }
         
+        internal static System.IO.UnmanagedMemoryStream _135472__kvgarlic__summeropenfielddusk {
+            get {
+                return ResourceManager.GetStream("_135472__kvgarlic__summeropenfielddusk", resourceCulture);
+            }
+        }
+        
+        internal static System.IO.UnmanagedMemoryStream _37236__shades__gun_pistol_one_shot {
+            get {
+                return ResourceManager.GetStream("_37236__shades__gun_pistol_one_shot", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Bear_Walking_1 {
             get {
                 object obj = ResourceManager.GetObject("Bear_Walking_1", resourceCulture);

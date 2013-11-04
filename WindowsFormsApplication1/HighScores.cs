@@ -48,15 +48,21 @@ namespace ShootingGame
 
         public void chkHighScore(string name, int score)
         {
+            int highest = 0;
             for (int i = 0; i < fileEntries.Count; i++)
             {
                 int currScore = Convert.ToInt32(fileEntries[i][1]);
-                if (score > currScore)
+                if (currScore > highest)
                 {
-                    string[] newScore = { name, "" + score };
-                    fileEntries.Add(newScore);
-                    removeSmallest();
+                    highest = currScore;
                 }
+            }
+
+            if (score > highest)
+            {
+                string[] newScore = { name, "" + score };
+                fileEntries.Add(newScore);
+                removeSmallest();
             }
         }
 

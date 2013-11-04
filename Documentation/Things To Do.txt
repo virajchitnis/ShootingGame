@@ -1,0 +1,4 @@
+1) Fix high scores bug
+2) Check high scores order
+3) Prevent high scores duplicates
+4) Check picture changing for targets
